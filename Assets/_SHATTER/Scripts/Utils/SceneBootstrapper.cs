@@ -116,6 +116,8 @@ namespace Shatter.Utils
             EstablecerCapasControladorJugador(controlador);
 
             jugador.AddComponent<PlayerHealth>();
+            jugador.AddComponent<FocusSystem>();
+            jugador.AddComponent<EmotionalWeight>();
             jugador.AddComponent<PlayerAnimatorBridge>();
             jugador.AddComponent<InteractionSystem>();
             jugador.AddComponent<PowerUpManager>();

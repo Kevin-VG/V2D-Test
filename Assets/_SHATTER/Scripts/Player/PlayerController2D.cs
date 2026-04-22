@@ -88,6 +88,10 @@ namespace Shatter.Player
 
         private int direccion = 1; // 1 derecha, -1 izquierda
 
+        // Referencias a subsistemas
+        private FocusSystem focusSystem;
+        private EmotionalWeight emotionalWeight;
+
         // Buffers pre-asignados para OverlapBox (evita GC)
         private readonly Collider2D[] resultadosChequeo = new Collider2D[8];
 
@@ -111,6 +115,9 @@ namespace Shatter.Player
         {
             rb = GetComponent<Rigidbody2D>();
             boxCol = GetComponent<BoxCollider2D>();
+            focusSystem = GetComponent<FocusSystem>();
+            emotionalWeight = GetComponent<EmotionalWeight>();
+
             rb.freezeRotation = true;
             rb.gravityScale = escalaGravedadBajada;
             rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
@@ -178,7 +185,13 @@ namespace Shatter.Player
 
             // --- Dash ---
             if (dashPresionadoEsteFrame && temporizadorEnfriamientoDash <= 0f && !estaHaciendoDash)
-                IniciarDash();
+            {
+                if (focusSystem == null || focusSystem.PuedeRealizarDash())
+                {
+                    IniciarDash();
+                    if (focusSystem != null) focusSystem.ConsumirDash();
+                }
+            }
 
             // --- Corte de salto (salto variable) ---
             if (!saltoMantenido && rb.linearVelocity.y > 0f && !estaHaciendoDash)
@@ -260,14 +273,24 @@ namespace Shatter.Player
             // 1) Wall jump: solo si NO esta en suelo y toca pared
             if (!estaEnSuelo && (estaDeslizandoPared || tocaParedIzquierda || tocaParedDerecha))
             {
-                int dir = tocaParedDerecha ? -1 : 1;
-                rb.linearVelocity = new Vector2(fuerzaSaltoPared.x * dir, fuerzaSaltoPared.y);
-                temporizadorBloqueoSaltoPared = tiempoBloqueoSaltoPared;
-                contadorBufferSalto = 0f;
-                contadorCoyote = 0f;
-                saltosRestantes = Mathf.Max(saltosRestantes, 0); // no regalar saltos extra
-                direccion = dir;
-                Shatter.Core.GameEvents.LanzarSaltoJugador(rb.linearVelocity);
+                if (focusSystem == null || focusSystem.PuedeRealizarWallJump())
+                {
+                    int dir = tocaParedDerecha ? -1 : 1;
+                    rb.linearVelocity = new Vector2(fuerzaSaltoPared.x * dir, fuerzaSaltoPared.y);
+                    temporizadorBloqueoSaltoPared = tiempoBloqueoSaltoPared;
+                    contadorBufferSalto = 0f;
+                    contadorCoyote = 0f;
+                    saltosRestantes = Mathf.Max(saltosRestantes, 0); // no regalar saltos extra
+                    direccion = dir;
+
+                    if (focusSystem != null) focusSystem.ConsumirWallJump();
+                    Shatter.Core.GameEvents.LanzarSaltoJugador(rb.linearVelocity);
+                }
+                else
+                {
+                    // Fallback: si no tiene foco, podria hacer un pequeño salto debil o nada
+                    contadorBufferSalto = 0f;
+                }
                 return;
             }
 
@@ -287,10 +310,18 @@ namespace Shatter.Player
             // 3) Doble salto (en el aire)
             if (saltosRestantes > 0)
             {
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, fuerzaSalto);
-                saltosRestantes--;
-                contadorBufferSalto = 0f;
-                Shatter.Core.GameEvents.LanzarSaltoJugador(rb.linearVelocity);
+                if (focusSystem == null || focusSystem.PuedeRealizarDobleSalto())
+                {
+                    rb.linearVelocity = new Vector2(rb.linearVelocity.x, fuerzaSalto);
+                    saltosRestantes--;
+                    contadorBufferSalto = 0f;
+                    if (focusSystem != null) focusSystem.ConsumirDobleSalto();
+                    Shatter.Core.GameEvents.LanzarSaltoJugador(rb.linearVelocity);
+                }
+                else
+                {
+                    contadorBufferSalto = 0f;
+                }
             }
         }
 
