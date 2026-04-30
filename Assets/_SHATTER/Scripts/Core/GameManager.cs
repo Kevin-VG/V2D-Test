@@ -105,7 +105,7 @@ namespace Shatter.Core
         {
             nivelActual = indiceNivel;
             tieneCheckpoint = false;
-            SceneManager.LoadScene("SampleScene"); // por ahora todo el prototipo va en SampleScene
+            SceneManager.LoadScene("Nivel_01"); // Cambiado a Nivel_01
         }
 
         public void ReiniciarEscenaActual()

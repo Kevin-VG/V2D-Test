@@ -9,83 +9,161 @@ namespace Shatter.UI
 {
     /// <summary>
     /// Menu de pausa + Inventario Emocional (equipar Fragmentos de Identidad).
+    /// Versión refactorizada para diseño visual en el Editor de Unity.
     /// </summary>
     public class PauseMenu : MonoBehaviour
     {
+        [Header("Configuración")]
         [SerializeField] private KeyCode teclaAlternar = KeyCode.Escape;
 
-        private GameObject panel;
-        private GameObject panelInventario;
+        [Header("Paneles UI (Asignar en el Inspector)")]
+        [Tooltip("El panel principal del Menú de Pausa")]
+        [SerializeField] private GameObject panelPausa;
+        
+        [Tooltip("El panel del Inventario Emocional")]
+        [SerializeField] private GameObject panelInventario;
+
+        [Tooltip("El panel de Ajustes (Opcional)")]
+        [SerializeField] private GameObject panelAjustes;
+
+        [Header("Inventario UI")]
+        [Tooltip("El objeto vacío dentro del panel de inventario donde aparecerán los botones de los fragmentos")]
+        [SerializeField] private Transform contenedorFragmentos;
+
         private bool estaAbierto;
         private IdentityManager gestorIdentidad;
 
         private void Start()
         {
-            ConstruirPanel();
-            panel.SetActive(false);
-            panelInventario.SetActive(false);
+            // Ocultar los paneles al iniciar el nivel
+            if (panelPausa != null) panelPausa.SetActive(false);
+            if (panelInventario != null) panelInventario.SetActive(false);
+            if (panelAjustes != null) panelAjustes.SetActive(false);
         }
 
         private void Update()
         {
             if (Input.GetKeyDown(teclaAlternar))
             {
-                if (panelInventario.activeSelf) { panelInventario.SetActive(false); return; }
+                // Si ajustes está abierto, cerrarlo primero
+                if (panelAjustes != null && panelAjustes.activeSelf)
+                {
+                    CerrarAjustes();
+                    return;
+                }
+
+                // Si el inventario está abierto, la tecla escape lo cierra
+                if (panelInventario != null && panelInventario.activeSelf) 
+                { 
+                    CerrarInventario(); 
+                    return; 
+                }
+                
                 AlternarPausa();
             }
         }
 
-        private void AlternarPausa()
+        public void AlternarPausa()
         {
             estaAbierto = !estaAbierto;
-            panel.SetActive(estaAbierto);
-            if (GameManager.Instance != null) GameManager.Instance.AlternarPausa();
+            
+            if (panelPausa != null) panelPausa.SetActive(estaAbierto);
+            
+            if (GameManager.Instance != null) 
+            {
+                GameManager.Instance.AlternarPausa();
+            }
+            else
+            {
+                // Fallback de seguridad si no hay GameManager en la escena
+                Time.timeScale = estaAbierto ? 0f : 1f; 
+            }
         }
 
-        // ------- CONSTRUCCION UI -------
-        private void ConstruirPanel()
+        // ------- MÉTODOS PARA LOS BOTONES DEL MENÚ DE PAUSA -------
+
+        public void ReanudarJuego()
         {
-            panel = CrearPanel("PanelPausa", new Color(0f, 0f, 0f, 0.75f));
-
-            CrearEtiqueta(panel.transform, "PAUSA", new Vector2(0, 220), 48, Color.white);
-            CrearBoton(panel.transform, "Reanudar",     new Vector2(0, 120),  () => AlternarPausa());
-            CrearBoton(panel.transform, "Inventario Emocional", new Vector2(0, 50),   AbrirInventario);
-            CrearBoton(panel.transform, "Reiniciar Nivel", new Vector2(0, -20), () => {
-                if (GameManager.Instance != null) { GameManager.Instance.EstablecerEstado(GameManager.EstadoJuego.Jugando); GameManager.Instance.ReiniciarEscenaActual(); }
-                else SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            });
-            CrearBoton(panel.transform, "Salir",         new Vector2(0, -90),  () => Application.Quit());
-
-            ConstruirPanelInventario();
+            if (estaAbierto) AlternarPausa();
         }
 
-        private void ConstruirPanelInventario()
+        public void ReiniciarNivel()
         {
-            panelInventario = CrearPanel("PanelInventario", new Color(0.1f, 0.08f, 0.15f, 0.92f));
-            CrearEtiqueta(panelInventario.transform, "FRAGMENTOS DE IDENTIDAD", new Vector2(0, 260), 30, Color.white);
-            CrearEtiqueta(panelInventario.transform, "Click para equipar/desequipar (max. 3)", new Vector2(0, 220), 18, new Color(0.8f, 0.8f, 0.85f));
-
-            var botonCerrar = CrearBoton(panelInventario.transform, "Cerrar", new Vector2(0, -260), () => panelInventario.SetActive(false));
+            Time.timeScale = 1f; // Asegurar que el tiempo vuelva a la normalidad
+            if (GameManager.Instance != null) 
+            { 
+                GameManager.Instance.EstablecerEstado(GameManager.EstadoJuego.Jugando); 
+                GameManager.Instance.ReiniciarEscenaActual(); 
+            }
+            else 
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
         }
 
-        private void AbrirInventario()
+        public void IrAlMenuPrincipal()
+        {
+            Time.timeScale = 1f;
+            // Cambia "MainMenu" por el nombre exacto de la escena de tu menú principal
+            SceneManager.LoadScene("Menu Principal"); 
+        }
+
+        public void AbrirAjustes()
+        {
+            if (panelPausa != null) panelPausa.SetActive(false);
+            if (panelAjustes != null) panelAjustes.SetActive(true);
+        }
+
+        public void CerrarAjustes()
+        {
+            if (panelAjustes != null) panelAjustes.SetActive(false);
+            if (panelPausa != null) panelPausa.SetActive(true);
+        }
+
+        public void SalirDelJuego()
+        {
+            Debug.Log("Saliendo del juego...");
+            Application.Quit();
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#endif
+        }
+
+        // ------- LÓGICA DEL INVENTARIO EMOCIONAL -------
+
+        public void AbrirInventario()
         {
             if (gestorIdentidad == null)
             {
                 var jugador = GameObject.FindGameObjectWithTag("Player");
                 if (jugador != null) gestorIdentidad = jugador.GetComponent<IdentityManager>();
             }
-            panelInventario.SetActive(true);
+            
+            if (panelPausa != null) panelPausa.SetActive(false); // Ocultar pausa detrás
+            if (panelInventario != null) panelInventario.SetActive(true);
+            
             ActualizarInventario();
+        }
+
+        public void CerrarInventario()
+        {
+            if (panelInventario != null) panelInventario.SetActive(false);
+            if (panelPausa != null) panelPausa.SetActive(true); // Mostrar menú de pausa otra vez
         }
 
         private void ActualizarInventario()
         {
-            // Limpiar botones previos
-            var paraDestruir = new System.Collections.Generic.List<Transform>();
-            foreach (Transform t in panelInventario.transform)
-                if (t.name.StartsWith("BtnFrag_")) paraDestruir.Add(t);
-            foreach (var t in paraDestruir) Destroy(t.gameObject);
+            if (contenedorFragmentos == null)
+            {
+                Debug.LogWarning("Falta asignar el Contenedor de Fragmentos en el Inspector.");
+                return;
+            }
+
+            // Limpiar botones previos en el contenedor
+            foreach (Transform child in contenedorFragmentos)
+            {
+                Destroy(child.gameObject);
+            }
 
             if (gestorIdentidad == null) return;
 
@@ -95,13 +173,19 @@ namespace Shatter.UI
                 int indice = i;
                 var capturado = fragmento;
                 bool equipado = gestorIdentidad.EstaEquipado(fragmento);
+                
                 string etiqueta = (equipado ? "[✓] " : "[ ] ") + fragmento.nombreFragmento;
-                var btn = CrearBoton(panelInventario.transform, etiqueta, new Vector2(0, 150 - i * 60), () => {
+                
+                // Seguimos usando código para generar los botones de la lista ya que es dinámica, 
+                // pero ahora se generan dentro del contenedor que tú decidas visualmente.
+                var btn = CrearBotonInventario(contenedorFragmentos, etiqueta, new Vector2(0, -50 - (i * 60)), () => {
                     if (gestorIdentidad.EstaEquipado(capturado)) gestorIdentidad.Desequipar(capturado);
                     else gestorIdentidad.Equipar(capturado);
                     ActualizarInventario();
                 });
+                
                 btn.name = "BtnFrag_" + indice;
+                
                 // Tinte del color del fragmento
                 var img = btn.GetComponent<Image>();
                 if (img != null) img.color = new Color(fragmento.colorTinte.r, fragmento.colorTinte.g, fragmento.colorTinte.b, 0.8f);
@@ -109,53 +193,29 @@ namespace Shatter.UI
             }
         }
 
-        // ------- HELPERS -------
-        private GameObject CrearPanel(string nombre, Color color)
-        {
-            var go = new GameObject(nombre);
-            go.transform.SetParent(transform, false);
-            var rt = go.AddComponent<RectTransform>();
-            rt.anchorMin = Vector2.zero; rt.anchorMax = Vector2.one;
-            rt.offsetMin = Vector2.zero; rt.offsetMax = Vector2.zero;
-            var img = go.AddComponent<Image>();
-            img.color = color;
-            return go;
-        }
-
-        private Text CrearEtiqueta(Transform padre, string texto, Vector2 posicionAnclada, int tamano, Color color)
-        {
-            var go = new GameObject("Etiqueta_" + texto);
-            go.transform.SetParent(padre, false);
-            var t = go.AddComponent<Text>();
-            t.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-            if (t.font == null) t.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
-            t.text = texto;
-            t.fontSize = tamano;
-            t.color = color;
-            t.alignment = TextAnchor.MiddleCenter;
-            var rt = t.rectTransform;
-            rt.anchorMin = rt.anchorMax = rt.pivot = new Vector2(0.5f, 0.5f);
-            rt.sizeDelta = new Vector2(600, 60);
-            rt.anchoredPosition = posicionAnclada;
-            return t;
-        }
-
-        private Button CrearBoton(Transform padre, string etiqueta, Vector2 posicionAnclada, System.Action alHacerClick)
+        // Generador de botones dinámico exclusivo para los fragmentos del inventario
+        private Button CrearBotonInventario(Transform padre, string etiqueta, Vector2 posicionAnclada, System.Action alHacerClick)
         {
             var go = new GameObject("Btn_" + etiqueta);
             go.transform.SetParent(padre, false);
             var rt = go.AddComponent<RectTransform>();
-            rt.anchorMin = rt.anchorMax = rt.pivot = new Vector2(0.5f, 0.5f);
+            rt.anchorMin = new Vector2(0.5f, 1f); // Anclado arriba al centro
+            rt.anchorMax = new Vector2(0.5f, 1f);
+            rt.pivot = new Vector2(0.5f, 1f);
             rt.sizeDelta = new Vector2(380, 52);
             rt.anchoredPosition = posicionAnclada;
+            
             var img = go.AddComponent<Image>();
             img.color = new Color(0.25f, 0.25f, 0.35f, 0.9f);
+            
             var btn = go.AddComponent<Button>();
             btn.targetGraphic = img;
             btn.onClick.AddListener(() => alHacerClick?.Invoke());
 
             var etiquetaGo = new GameObject("Etiqueta");
             etiquetaGo.transform.SetParent(go.transform, false);
+            
+            // Usamos Text Legacy para mantener compatibilidad con tu sistema anterior
             var t = etiquetaGo.AddComponent<Text>();
             t.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
             if (t.font == null) t.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
@@ -163,9 +223,11 @@ namespace Shatter.UI
             t.fontSize = 22;
             t.color = Color.white;
             t.alignment = TextAnchor.MiddleCenter;
+            
             var lrt = t.rectTransform;
             lrt.anchorMin = Vector2.zero; lrt.anchorMax = Vector2.one;
             lrt.offsetMin = Vector2.zero; lrt.offsetMax = Vector2.zero;
+            
             return btn;
         }
     }
