@@ -16,6 +16,8 @@ namespace Shatter.UI
         public GameObject mainPanel;
         [Tooltip("El panel que contiene todas las opciones de ajustes")]
         public GameObject settingsPanel;
+        [Tooltip("El panel que contiene los controles del juego")]
+        public GameObject controlsPanel;
 
         [Header("Elementos de Ajustes")]
         public TMP_Dropdown languageDropdown;
@@ -53,14 +55,19 @@ namespace Shatter.UI
         public TMP_Text volumeLabelText;
         public TMP_Text sensitivityLabelText;
         public TMP_Text backBtnText;
+        public TMP_Text openControlsBtnText;
+
+        [Tooltip("Textos del Panel de Controles")]
+        public TMP_Text controlsTitleText;
+        public TMP_Text backFromControlsBtnText;
 
         private Resolution[] resolutions;
 
         private void Start()
         {
-            // Ocultar panel de ajustes al inicio
-            if (settingsPanel != null)
-                settingsPanel.SetActive(false);
+            // Ocultar panel de ajustes y controles al inicio
+            if (settingsPanel != null) settingsPanel.SetActive(false);
+            if (controlsPanel != null) controlsPanel.SetActive(false);
 
             ConfigurarResoluciones();
             CargarAjustes();
@@ -178,6 +185,18 @@ namespace Shatter.UI
             ActualizarTextos(languageIndex);
         }
 
+        public void OpenControls()
+        {
+            if (settingsPanel != null) settingsPanel.SetActive(false);
+            if (controlsPanel != null) controlsPanel.SetActive(true);
+        }
+
+        public void CloseControls()
+        {
+            if (controlsPanel != null) controlsPanel.SetActive(false);
+            if (settingsPanel != null) settingsPanel.SetActive(true);
+        }
+
         private void ActualizarTextos(int idioma)
         {
             // 0 = Español, 1 = Inglés
@@ -207,6 +226,10 @@ namespace Shatter.UI
                 if (volumeLabelText != null) volumeLabelText.text = "Volumen de Música";
                 if (sensitivityLabelText != null) sensitivityLabelText.text = "Sensibilidad del Mouse";
                 if (backBtnText != null) backBtnText.text = "VOLVER";
+                if (openControlsBtnText != null) openControlsBtnText.text = "CONTROLES";
+
+                if (controlsTitleText != null) controlsTitleText.text = "CONTROLES";
+                if (backFromControlsBtnText != null) backFromControlsBtnText.text = "VOLVER";
             }
             else 
             {
@@ -234,6 +257,10 @@ namespace Shatter.UI
                 if (volumeLabelText != null) volumeLabelText.text = "Music Volume";
                 if (sensitivityLabelText != null) sensitivityLabelText.text = "Mouse Sensitivity";
                 if (backBtnText != null) backBtnText.text = "BACK";
+                if (openControlsBtnText != null) openControlsBtnText.text = "CONTROLS";
+
+                if (controlsTitleText != null) controlsTitleText.text = "CONTROLS";
+                if (backFromControlsBtnText != null) backFromControlsBtnText.text = "BACK";
             }
         }
 
