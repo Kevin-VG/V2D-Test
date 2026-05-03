@@ -273,25 +273,35 @@ namespace Shatter.Player
             // 1) Wall jump: solo si NO esta en suelo y toca pared
             if (!estaEnSuelo && (estaDeslizandoPared || tocaParedIzquierda || tocaParedDerecha))
             {
-                if (focusSystem == null || focusSystem.PuedeRealizarWallJump())
-                {
-                    int dir = tocaParedDerecha ? -1 : 1;
-                    rb.linearVelocity = new Vector2(fuerzaSaltoPared.x * dir, fuerzaSaltoPared.y);
-                    temporizadorBloqueoSaltoPared = tiempoBloqueoSaltoPared;
-                    contadorBufferSalto = 0f;
-                    contadorCoyote = 0f;
-                    saltosRestantes = Mathf.Max(saltosRestantes, 0); // no regalar saltos extra
-                    direccion = dir;
+                int dirPared = tocaParedDerecha ? 1 : -1;
+                int dirInput = 0;
+                if (entradaMovimiento > 0.1f) dirInput = 1;
+                else if (entradaMovimiento < -0.1f) dirInput = -1;
 
-                    if (focusSystem != null) focusSystem.ConsumirWallJump();
-                    Shatter.Core.GameEvents.LanzarSaltoJugador(rb.linearVelocity);
-                }
-                else
+                // Modificacion: Solo salta de la pared si el jugador suelta la tecla hacia la pared
+                // o presiona la tecla opuesta. Esto evita "rebotar" en el mismo lugar por error.
+                if (dirInput != dirPared)
                 {
-                    // Fallback: si no tiene foco, podria hacer un pequeño salto debil o nada
-                    contadorBufferSalto = 0f;
+                    if (focusSystem == null || focusSystem.PuedeRealizarWallJump())
+                    {
+                        int dirSalto = -dirPared;
+                        rb.linearVelocity = new Vector2(fuerzaSaltoPared.x * dirSalto, fuerzaSaltoPared.y);
+                        // Aumentamos ligeramente el bloqueo para asegurar que el jugador logre cruzar
+                        temporizadorBloqueoSaltoPared = tiempoBloqueoSaltoPared * 1.5f; 
+                        contadorBufferSalto = 0f;
+                        contadorCoyote = 0f;
+                        saltosRestantes = Mathf.Max(saltosRestantes, 0); // no regalar saltos extra
+                        direccion = dirSalto;
+
+                        if (focusSystem != null) focusSystem.ConsumirWallJump();
+                        Shatter.Core.GameEvents.LanzarSaltoJugador(rb.linearVelocity);
+                    }
+                    else
+                    {
+                        contadorBufferSalto = 0f;
+                    }
+                    return;
                 }
-                return;
             }
 
             // 2) Salto de suelo / coyote
@@ -330,10 +340,16 @@ namespace Shatter.Player
         {
             bool estabaDeslizando = estaDeslizandoPared;
             bool presionandoContraPared = (entradaMovimiento > 0.1f && tocaParedDerecha) || (entradaMovimiento < -0.1f && tocaParedIzquierda);
-            estaDeslizandoPared = !estaEnSuelo && presionandoContraPared && rb.linearVelocity.y < 0f;
+            
+            // Ahora se pega a la pared incluso si está subiendo (se eliminó la condición de rb.linearVelocity.y < 0f)
+            estaDeslizandoPared = !estaEnSuelo && presionandoContraPared;
 
             if (estaDeslizandoPared)
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Max(rb.linearVelocity.y, -velocidadDeslizPared));
+            {
+                // Si sube por la inercia del salto, frenamos un poco su ascenso para que sienta que "se pegó"
+                float velY = rb.linearVelocity.y > 0f ? rb.linearVelocity.y * 0.8f : Mathf.Max(rb.linearVelocity.y, -velocidadDeslizPared);
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, velY);
+            }
 
             // Al iniciar desliz, restaurar 1 salto para wall jump
             if (estaDeslizandoPared && !estabaDeslizando)
