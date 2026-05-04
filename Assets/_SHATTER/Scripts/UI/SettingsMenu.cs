@@ -26,6 +26,14 @@ namespace Shatter.UI
         public Slider volumeSlider;
         public Slider sensitivitySlider;
 
+        [Header("Audio de UI")]
+        [Tooltip("El AudioSource encargado de reproducir los efectos de sonido de la UI")]
+        public AudioSource uiAudioSource;
+        [Tooltip("Sonido que se reproduce al abrir un menú o panel")]
+        public AudioClip openMenuSound;
+        [Tooltip("Sonido que se reproduce al cerrar un menú o panel")]
+        public AudioClip closeMenuSound;
+
         [Header("Textos para Traducir (Localización)")]
         [Tooltip("Textos de la Pantalla de Inicio")]
         public TMP_Text subtitleText;
@@ -187,12 +195,14 @@ namespace Shatter.UI
 
         public void OpenControls()
         {
+            if (uiAudioSource != null && openMenuSound != null) uiAudioSource.PlayOneShot(openMenuSound);
             if (settingsPanel != null) settingsPanel.SetActive(false);
             if (controlsPanel != null) controlsPanel.SetActive(true);
         }
 
         public void CloseControls()
         {
+            if (uiAudioSource != null && closeMenuSound != null) uiAudioSource.PlayOneShot(closeMenuSound);
             if (controlsPanel != null) controlsPanel.SetActive(false);
             if (settingsPanel != null) settingsPanel.SetActive(true);
         }
@@ -269,6 +279,7 @@ namespace Shatter.UI
         // Llamar a este método desde el botón "SETTINGS" del Menú Principal
         public void OpenSettings()
         {
+            if (uiAudioSource != null && openMenuSound != null) uiAudioSource.PlayOneShot(openMenuSound);
             if (mainPanel != null) mainPanel.SetActive(false);
             if (settingsPanel != null) settingsPanel.SetActive(true);
         }
@@ -276,6 +287,7 @@ namespace Shatter.UI
         // Llamar a este método desde el botón "VOLVER" (BACK) del menú de ajustes
         public void CloseSettings()
         {
+            if (uiAudioSource != null && closeMenuSound != null) uiAudioSource.PlayOneShot(closeMenuSound);
             if (settingsPanel != null) settingsPanel.SetActive(false);
             if (mainPanel != null) mainPanel.SetActive(true);
             PlayerPrefs.Save(); // Asegurar que todo se guarde en disco

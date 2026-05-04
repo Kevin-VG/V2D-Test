@@ -31,13 +31,38 @@ namespace Shatter.UI
         [Tooltip("Duración de la transición en segundos")]
         [SerializeField] private float fadeDuration = 1.5f;
 
+        [Header("Audio")]
+        [Tooltip("Audio Source para reproducir el sonido de transición")]
+        [SerializeField] private AudioSource audioSource;
+        
+        [Tooltip("Efecto de sonido al iniciar la transición")]
+        [SerializeField] private AudioClip transitionSound;
+
+        [Header("Fuentes")]
+        [Tooltip("Fuente inicial (cuando el fondo es negro)")]
+        [SerializeField] private TMP_FontAsset initialFont;
+
+        [Tooltip("Tamaño de la fuente inicial")]
+        [SerializeField] private float initialFontSize = 100f;
+
+        [Tooltip("Fuente final (cuando el fondo pasa a blanco)")]
+        [SerializeField] private TMP_FontAsset targetFont;
+
+        [Tooltip("Tamaño de la fuente final")]
+        [SerializeField] private float targetFontSize = 100f;
+
         private bool hasPressedKey = false;
 
         private void Start()
         {
             // Estado inicial: Fondo negro, textos blancos, menú invisible pero activo
             if (backgroundImage != null) backgroundImage.color = Color.black;
-            if (titleText != null) titleText.color = Color.white;
+            if (titleText != null) 
+            {
+                titleText.color = Color.white;
+                if (initialFont != null) titleText.font = initialFont;
+                titleText.fontSize = initialFontSize;
+            }
             if (subtitleText != null) subtitleText.color = Color.white;
             
             // Asegurarse de que el contenedor esté activo pero invisible mediante el CanvasGroup
@@ -58,6 +83,13 @@ namespace Shatter.UI
             if (!hasPressedKey && Input.anyKeyDown)
             {
                 hasPressedKey = true;
+                
+                // Reproducir el sonido de transición
+                if (audioSource != null && transitionSound != null)
+                {
+                    audioSource.PlayOneShot(transitionSound);
+                }
+                
                 StartCoroutine(TransitionRoutine());
             }
         }
@@ -75,6 +107,8 @@ namespace Shatter.UI
             Color initialTitleColor = Color.white;
             Color targetTitleColor = Color.black;
 
+            bool fontChanged = false;
+
             // Transición suave de colores (Fade) y aparición de los botones
             while (elapsedTime < fadeDuration)
             {
@@ -88,7 +122,17 @@ namespace Shatter.UI
                     backgroundImage.color = Color.Lerp(initialBgColor, targetBgColor, smoothT);
                 
                 if (titleText != null) 
+                {
                     titleText.color = Color.Lerp(initialTitleColor, targetTitleColor, smoothT);
+                    
+                    // Cambiar la fuente a la mitad de la transición
+                    if (!fontChanged && t >= 0.5f)
+                    {
+                        if (targetFont != null) titleText.font = targetFont;
+                        titleText.fontSize = targetFontSize;
+                        fontChanged = true;
+                    }
+                }
 
                 // Aparecer los botones gradualmente
                 if (menuOptionsCanvasGroup != null)
@@ -99,7 +143,12 @@ namespace Shatter.UI
 
             // Asegurar los colores finales y la visibilidad de los botones
             if (backgroundImage != null) backgroundImage.color = targetBgColor;
-            if (titleText != null) titleText.color = targetTitleColor;
+            if (titleText != null)
+            {
+                titleText.color = targetTitleColor;
+                if (targetFont != null) titleText.font = targetFont;
+                titleText.fontSize = targetFontSize;
+            }
 
             if (menuOptionsCanvasGroup != null)
             {
