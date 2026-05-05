@@ -75,11 +75,8 @@ namespace Shatter.UI
         {
             estaAbierto = !estaAbierto;
             
-            if (uiAudioSource != null)
-            {
-                if (estaAbierto && openMenuSound != null) uiAudioSource.PlayOneShot(openMenuSound);
-                else if (!estaAbierto && closeMenuSound != null) uiAudioSource.PlayOneShot(closeMenuSound);
-            }
+            if (estaAbierto && openMenuSound != null) ReproducirSonidoUI(openMenuSound);
+            else if (!estaAbierto && closeMenuSound != null) ReproducirSonidoUI(closeMenuSound);
 
             if (panelPausa != null) panelPausa.SetActive(estaAbierto);
             
@@ -101,9 +98,24 @@ namespace Shatter.UI
             if (estaAbierto) AlternarPausa();
         }
 
+        private void ReproducirSonidoUI(AudioClip clip)
+        {
+            if (clip == null) return;
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.ReproducirEfecto(clip);
+            }
+            else if (uiAudioSource != null)
+            {
+                float master = PlayerPrefs.GetFloat("MasterVolumePreference", 1f);
+                float sfx = PlayerPrefs.GetFloat("SFXVolumePreference", 1f);
+                uiAudioSource.PlayOneShot(clip, master * sfx);
+            }
+        }
+
         public void ReiniciarNivel()
         {
-            if (uiAudioSource != null && openMenuSound != null) uiAudioSource.PlayOneShot(openMenuSound);
+            ReproducirSonidoUI(openMenuSound);
             Time.timeScale = 1f; // Asegurar que el tiempo vuelva a la normalidad
             if (GameManager.Instance != null) 
             { 
@@ -118,7 +130,7 @@ namespace Shatter.UI
 
         public void IrAlMenuPrincipal()
         {
-            if (uiAudioSource != null && openMenuSound != null) uiAudioSource.PlayOneShot(openMenuSound);
+            ReproducirSonidoUI(openMenuSound);
             Time.timeScale = 1f;
             // Cambia "MainMenu" por el nombre exacto de la escena de tu menú principal
             SceneManager.LoadScene("Menu Principal"); 
@@ -126,21 +138,21 @@ namespace Shatter.UI
 
         public void AbrirAjustes()
         {
-            if (uiAudioSource != null && openMenuSound != null) uiAudioSource.PlayOneShot(openMenuSound);
+            ReproducirSonidoUI(openMenuSound);
             if (panelPausa != null) panelPausa.SetActive(false);
             if (panelAjustes != null) panelAjustes.SetActive(true);
         }
 
         public void CerrarAjustes()
         {
-            if (uiAudioSource != null && closeMenuSound != null) uiAudioSource.PlayOneShot(closeMenuSound);
+            ReproducirSonidoUI(closeMenuSound);
             if (panelAjustes != null) panelAjustes.SetActive(false);
             if (panelPausa != null) panelPausa.SetActive(true);
         }
 
         public void SalirDelJuego()
         {
-            if (uiAudioSource != null && openMenuSound != null) uiAudioSource.PlayOneShot(openMenuSound);
+            ReproducirSonidoUI(openMenuSound);
             Debug.Log("Saliendo del juego...");
             Application.Quit();
 #if UNITY_EDITOR
@@ -152,7 +164,7 @@ namespace Shatter.UI
 
         public void AbrirInventario()
         {
-            if (uiAudioSource != null && openMenuSound != null) uiAudioSource.PlayOneShot(openMenuSound);
+            ReproducirSonidoUI(openMenuSound);
             if (gestorIdentidad == null)
             {
                 var jugador = GameObject.FindGameObjectWithTag("Player");
@@ -167,7 +179,7 @@ namespace Shatter.UI
 
         public void CerrarInventario()
         {
-            if (uiAudioSource != null && closeMenuSound != null) uiAudioSource.PlayOneShot(closeMenuSound);
+            ReproducirSonidoUI(closeMenuSound);
             if (panelInventario != null) panelInventario.SetActive(false);
             if (panelPausa != null) panelPausa.SetActive(true); // Mostrar menú de pausa otra vez
         }

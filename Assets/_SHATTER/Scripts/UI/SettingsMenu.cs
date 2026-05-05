@@ -23,8 +23,10 @@ namespace Shatter.UI
         public TMP_Dropdown languageDropdown;
         public TMP_Dropdown resolutionDropdown;
         public Toggle fullscreenToggle;
-        public Slider volumeSlider;
-        public Slider sensitivitySlider;
+        public Toggle screenShakeToggle;
+        public Slider masterVolumeSlider;
+        public Slider volumeSlider; // Music Volume
+        public Slider sfxVolumeSlider;
 
         [Header("Audio de UI")]
         [Tooltip("El AudioSource encargado de reproducir los efectos de sonido de la UI")]
@@ -60,8 +62,10 @@ namespace Shatter.UI
         public TMP_Text languageLabelText;
         public TMP_Text resolutionLabelText;
         public TMP_Text fullscreenLabelText;
-        public TMP_Text volumeLabelText;
-        public TMP_Text sensitivityLabelText;
+        public TMP_Text screenShakeLabelText;
+        public TMP_Text masterVolumeLabelText;
+        public TMP_Text volumeLabelText; // Music Label
+        public TMP_Text sfxVolumeLabelText;
         public TMP_Text backBtnText;
         public TMP_Text openControlsBtnText;
 
@@ -122,6 +126,25 @@ namespace Shatter.UI
                 fullscreenToggle.isOn = isFullscreen;
             }
 
+            // Vibración de cámara
+            if (screenShakeToggle != null)
+            {
+                bool shakeEnabled = PlayerPrefs.GetInt("ScreenShakePreference", 1) == 1;
+                screenShakeToggle.isOn = shakeEnabled;
+            }
+
+            // Volumen Maestro
+            if (masterVolumeSlider != null)
+            {
+                float masterVolume = PlayerPrefs.GetFloat("MasterVolumePreference", 1f);
+                masterVolumeSlider.value = masterVolume;
+                if (AudioManager.Instance != null)
+                {
+                    AudioManager.Instance.volumenMaestro = masterVolume;
+                    AudioManager.Instance.AplicarVolumenes();
+                }
+            }
+
             // Volumen de la música
             if (volumeSlider != null)
             {
@@ -134,11 +157,15 @@ namespace Shatter.UI
                 }
             }
 
-            // Sensibilidad del mouse
-            if (sensitivitySlider != null)
+            // Volumen SFX
+            if (sfxVolumeSlider != null)
             {
-                float sensitivity = PlayerPrefs.GetFloat("MouseSensitivityPreference", 5f);
-                sensitivitySlider.value = sensitivity;
+                float sfxVolume = PlayerPrefs.GetFloat("SFXVolumePreference", 1f);
+                sfxVolumeSlider.value = sfxVolume;
+                if (AudioManager.Instance != null)
+                {
+                    AudioManager.Instance.volumenEfectos = sfxVolume;
+                }
             }
 
             // Lenguaje (0 = Español, 1 = Inglés)
@@ -168,7 +195,22 @@ namespace Shatter.UI
             PlayerPrefs.SetInt("FullscreenPreference", isFullscreen ? 1 : 0);
         }
 
-        public void SetVolume(float volume)
+        public void SetScreenShake(bool isEnabled)
+        {
+            PlayerPrefs.SetInt("ScreenShakePreference", isEnabled ? 1 : 0);
+        }
+
+        public void SetMasterVolume(float volume)
+        {
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.volumenMaestro = volume;
+                AudioManager.Instance.AplicarVolumenes();
+            }
+            PlayerPrefs.SetFloat("MasterVolumePreference", volume);
+        }
+
+        public void SetVolume(float volume) // Music Volume
         {
             if (AudioManager.Instance != null)
             {
@@ -178,10 +220,13 @@ namespace Shatter.UI
             PlayerPrefs.SetFloat("MusicVolumePreference", volume);
         }
 
-        public void SetMouseSensitivity(float sensitivity)
+        public void SetSFXVolume(float volume)
         {
-            // Guardamos la sensibilidad. El script de tu jugador/cámara deberá leer "MouseSensitivityPreference" con PlayerPrefs.GetFloat
-            PlayerPrefs.SetFloat("MouseSensitivityPreference", sensitivity);
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.volumenEfectos = volume;
+            }
+            PlayerPrefs.SetFloat("SFXVolumePreference", volume);
         }
 
         public void SetLanguage(int languageIndex)
@@ -193,16 +238,31 @@ namespace Shatter.UI
             ActualizarTextos(languageIndex);
         }
 
+        private void ReproducirSonidoUI(AudioClip clip)
+        {
+            if (clip == null) return;
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.ReproducirEfecto(clip);
+            }
+            else if (uiAudioSource != null)
+            {
+                float master = PlayerPrefs.GetFloat("MasterVolumePreference", 1f);
+                float sfx = PlayerPrefs.GetFloat("SFXVolumePreference", 1f);
+                uiAudioSource.PlayOneShot(clip, master * sfx);
+            }
+        }
+
         public void OpenControls()
         {
-            if (uiAudioSource != null && openMenuSound != null) uiAudioSource.PlayOneShot(openMenuSound);
+            ReproducirSonidoUI(openMenuSound);
             if (settingsPanel != null) settingsPanel.SetActive(false);
             if (controlsPanel != null) controlsPanel.SetActive(true);
         }
 
         public void CloseControls()
         {
-            if (uiAudioSource != null && closeMenuSound != null) uiAudioSource.PlayOneShot(closeMenuSound);
+            ReproducirSonidoUI(closeMenuSound);
             if (controlsPanel != null) controlsPanel.SetActive(false);
             if (settingsPanel != null) settingsPanel.SetActive(true);
         }
@@ -225,7 +285,7 @@ namespace Shatter.UI
                 if (restartBtnText != null) restartBtnText.text = "REINICIAR";
 
                 if (pauseTitleText != null) pauseTitleText.text = "PAUSA";
-                if (inventoryTitleText != null) inventoryTitleText.text = "FRAGMENTOS DE IDENTIDAD";
+                if (inventoryTitleText != null) inventoryTitleText.text = "INVENTARIO";
                 if (inventorySubtitleText != null) inventorySubtitleText.text = "Click para equipar/desequipar (máx. 3)";
                 if (closeInventoryBtnText != null) closeInventoryBtnText.text = "CERRAR";
 
@@ -233,8 +293,10 @@ namespace Shatter.UI
                 if (languageLabelText != null) languageLabelText.text = "Idioma";
                 if (resolutionLabelText != null) resolutionLabelText.text = "Resolución";
                 if (fullscreenLabelText != null) fullscreenLabelText.text = "Pantalla Completa";
+                if (screenShakeLabelText != null) screenShakeLabelText.text = "Vibración de Cámara";
+                if (masterVolumeLabelText != null) masterVolumeLabelText.text = "Volumen de Juego";
                 if (volumeLabelText != null) volumeLabelText.text = "Volumen de Música";
-                if (sensitivityLabelText != null) sensitivityLabelText.text = "Sensibilidad del Mouse";
+                if (sfxVolumeLabelText != null) sfxVolumeLabelText.text = "Volumen de Efectos";
                 if (backBtnText != null) backBtnText.text = "VOLVER";
                 if (openControlsBtnText != null) openControlsBtnText.text = "CONTROLES";
 
@@ -243,7 +305,7 @@ namespace Shatter.UI
             }
             else 
             {
-                // INGLÉS
+                // ENGLISH
                 if (subtitleText != null) subtitleText.text = "(press any key)";
 
                 if (playBtnText != null) playBtnText.text = "PLAY";
@@ -256,7 +318,7 @@ namespace Shatter.UI
                 if (restartBtnText != null) restartBtnText.text = "RESTART";
 
                 if (pauseTitleText != null) pauseTitleText.text = "PAUSE";
-                if (inventoryTitleText != null) inventoryTitleText.text = "IDENTITY FRAGMENTS";
+                if (inventoryTitleText != null) inventoryTitleText.text = "INVENTORY";
                 if (inventorySubtitleText != null) inventorySubtitleText.text = "Click to equip/unequip (max 3)";
                 if (closeInventoryBtnText != null) closeInventoryBtnText.text = "CLOSE";
 
@@ -264,8 +326,10 @@ namespace Shatter.UI
                 if (languageLabelText != null) languageLabelText.text = "Language";
                 if (resolutionLabelText != null) resolutionLabelText.text = "Resolution";
                 if (fullscreenLabelText != null) fullscreenLabelText.text = "Fullscreen";
+                if (screenShakeLabelText != null) screenShakeLabelText.text = "Screen Shake";
+                if (masterVolumeLabelText != null) masterVolumeLabelText.text = "Game Volume";
                 if (volumeLabelText != null) volumeLabelText.text = "Music Volume";
-                if (sensitivityLabelText != null) sensitivityLabelText.text = "Mouse Sensitivity";
+                if (sfxVolumeLabelText != null) sfxVolumeLabelText.text = "SFX Volume";
                 if (backBtnText != null) backBtnText.text = "BACK";
                 if (openControlsBtnText != null) openControlsBtnText.text = "CONTROLS";
 
@@ -279,7 +343,7 @@ namespace Shatter.UI
         // Llamar a este método desde el botón "SETTINGS" del Menú Principal
         public void OpenSettings()
         {
-            if (uiAudioSource != null && openMenuSound != null) uiAudioSource.PlayOneShot(openMenuSound);
+            ReproducirSonidoUI(openMenuSound);
             if (mainPanel != null) mainPanel.SetActive(false);
             if (settingsPanel != null) settingsPanel.SetActive(true);
         }
@@ -287,7 +351,7 @@ namespace Shatter.UI
         // Llamar a este método desde el botón "VOLVER" (BACK) del menú de ajustes
         public void CloseSettings()
         {
-            if (uiAudioSource != null && closeMenuSound != null) uiAudioSource.PlayOneShot(closeMenuSound);
+            ReproducirSonidoUI(closeMenuSound);
             if (settingsPanel != null) settingsPanel.SetActive(false);
             if (mainPanel != null) mainPanel.SetActive(true);
             PlayerPrefs.Save(); // Asegurar que todo se guarde en disco
