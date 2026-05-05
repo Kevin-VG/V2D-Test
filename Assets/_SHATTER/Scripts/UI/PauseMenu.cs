@@ -49,24 +49,44 @@ namespace Shatter.UI
             if (panelAjustes != null) panelAjustes.SetActive(false);
         }
 
+        private static int ultimoFrameEsc = -1;
+
         private void Update()
         {
             if (Input.GetKeyDown(teclaAlternar))
             {
-                // Si ajustes está abierto, cerrarlo primero
+                // Prevenir ejecución múltiple si hay varios PauseMenu en la escena
+                if (Time.frameCount == ultimoFrameEsc) return;
+                ultimoFrameEsc = Time.frameCount;
+
+                // 1. Comprobar si la pantalla de controles está abierta.
+                // Buscamos todos los menús de ajustes, incluso los desactivados.
+                SettingsMenu[] menusAjustes = Resources.FindObjectsOfTypeAll<SettingsMenu>();
+                foreach (var menu in menusAjustes)
+                {
+                    // Si pertenece a la escena actual y su panel de controles está activo por sí mismo
+                    if (menu.gameObject.scene.isLoaded && menu.controlsPanel != null && menu.controlsPanel.activeSelf)
+                    {
+                        menu.CloseControls();
+                        return; // Salir para no hacer nada más este frame
+                    }
+                }
+
+                // 2. Si ajustes está abierto, cerrarlo
                 if (panelAjustes != null && panelAjustes.activeSelf)
                 {
                     CerrarAjustes();
                     return;
                 }
 
-                // Si el inventario está abierto, la tecla escape lo cierra
+                // 3. Si el inventario está abierto, cerrarlo
                 if (panelInventario != null && panelInventario.activeSelf) 
                 { 
                     CerrarInventario(); 
                     return; 
                 }
                 
+                // 4. Si nada de lo anterior estaba abierto, alternamos la pausa general
                 AlternarPausa();
             }
         }

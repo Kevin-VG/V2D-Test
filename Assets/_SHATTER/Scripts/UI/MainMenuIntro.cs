@@ -92,6 +92,27 @@ namespace Shatter.UI
                 
                 StartCoroutine(TransitionRoutine());
             }
+            else if (hasPressedKey && Input.GetKeyDown(KeyCode.Escape))
+            {
+                // Permite regresar entre pantallas con la tecla Escape
+                SettingsMenu[] menusAjustes = Resources.FindObjectsOfTypeAll<SettingsMenu>();
+                foreach (var menu in menusAjustes)
+                {
+                    if (menu.gameObject.scene.isLoaded)
+                    {
+                        if (menu.controlsPanel != null && menu.controlsPanel.activeSelf)
+                        {
+                            menu.CloseControls();
+                            return;
+                        }
+                        else if (menu.settingsPanel != null && menu.settingsPanel.activeSelf)
+                        {
+                            menu.CloseSettings();
+                            return;
+                        }
+                    }
+                }
+            }
         }
 
         private IEnumerator TransitionRoutine()
