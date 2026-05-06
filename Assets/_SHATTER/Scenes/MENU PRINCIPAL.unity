@@ -1223,7 +1223,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.0000076295}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: -0.000015259}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &315312984
@@ -3648,7 +3648,7 @@ MonoBehaviour:
   inventoryTitleText: {fileID: 0}
   inventorySubtitleText: {fileID: 0}
   closeInventoryBtnText: {fileID: 0}
-  settingsTitleText: {fileID: 1545629345}
+  settingsTitleText: {fileID: 14035222}
   languageLabelText: {fileID: 1322402429}
   resolutionLabelText: {fileID: 354039963}
   fullscreenLabelText: {fileID: 1706159028}

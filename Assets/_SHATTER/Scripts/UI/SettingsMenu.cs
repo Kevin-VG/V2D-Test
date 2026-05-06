@@ -6,6 +6,13 @@ using Shatter.Core; // Para acceder al AudioManager
 
 namespace Shatter.UI
 {
+    [System.Serializable]
+    public struct KeyIconMapping
+    {
+        public KeyCode key;
+        public Sprite icon;
+    }
+
     /// <summary>
     /// Script para gestionar el menú de ajustes (Settings).
     /// </summary>
@@ -73,7 +80,17 @@ namespace Shatter.UI
         public TMP_Text controlsTitleText;
         public TMP_Text backFromControlsBtnText;
 
+        [Header("Iconos de Teclas (Controles)")]
+        [Tooltip("Imagen que se muestra cuando el botón se presiona (aplastado) esperando una tecla")]
+        public Sprite botonAplastadoIcon;
+        [Tooltip("Imagen por defecto si la tecla asignada no tiene un icono configurado")]
+        public Sprite iconoPorDefecto;
+        [Tooltip("Lista de iconos específicos por tecla (ej. Space -> Sprite Barra Espaciadora)")]
+        public KeyIconMapping[] iconosDeTeclas;
+
         private Resolution[] resolutions;
+
+        private static int ultimoFrameEsc = -1;
 
         private void Start()
         {
@@ -83,6 +100,28 @@ namespace Shatter.UI
 
             ConfigurarResoluciones();
             CargarAjustes();
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                // Prevenir múltiples ejecuciones en el mismo frame (ej. si PauseMenu también lo detecta)
+                if (Time.frameCount == ultimoFrameEsc) return;
+
+                // 1. Si los controles están abiertos, volver a Ajustes
+                if (controlsPanel != null && controlsPanel.activeInHierarchy)
+                {
+                    ultimoFrameEsc = Time.frameCount;
+                    CloseControls();
+                }
+                // 2. Si ajustes está abierto y estamos en el Menú Principal (mainPanel asignado)
+                else if (settingsPanel != null && settingsPanel.activeInHierarchy && mainPanel != null)
+                {
+                    ultimoFrameEsc = Time.frameCount;
+                    CloseSettings();
+                }
+            }
         }
 
         private void ConfigurarResoluciones()
@@ -257,7 +296,11 @@ namespace Shatter.UI
         {
             ReproducirSonidoUI(openMenuSound);
             if (settingsPanel != null) settingsPanel.SetActive(false);
-            if (controlsPanel != null) controlsPanel.SetActive(true);
+            if (controlsPanel != null) 
+            {
+                controlsPanel.SetActive(true);
+                GenerarBotonesControles();
+            }
         }
 
         public void CloseControls()
@@ -355,6 +398,204 @@ namespace Shatter.UI
             if (settingsPanel != null) settingsPanel.SetActive(false);
             if (mainPanel != null) mainPanel.SetActive(true);
             PlayerPrefs.Save(); // Asegurar que todo se guarde en disco
+        }
+
+        // --- SISTEMA DE REASIGNACION DE TECLAS (KEYBINDINGS VISUALES) ---
+        private bool esperandoTecla = false;
+        private string accionAReasignar = "";
+        private Image imagenBotonReasignando;
+        private List<GameObject> botonesGenerados = new List<GameObject>();
+
+        private Sprite ObtenerIconoDeTecla(KeyCode tecla)
+        {
+            if (iconosDeTeclas != null)
+            {
+                foreach (var mapping in iconosDeTeclas)
+                {
+                    if (mapping.key == tecla) return mapping.icon;
+                }
+            }
+            return iconoPorDefecto; // Si no hay dibujo para esta tecla
+        }
+
+        private void GenerarBotonesControles()
+        {
+            if (controlsPanel == null || Shatter.Core.InputManager.Instance == null) return;
+
+            // Limpiar botones anteriores
+            foreach (var btn in botonesGenerados)
+            {
+                if (btn != null) Destroy(btn);
+            }
+            botonesGenerados.Clear();
+
+            int i = 0;
+            // Las posiciones Y van bajando desde el centro arriba. Ajusta -100 y 60 según la escala de tu UI.
+            float startY = -120f; 
+            float spacingY = 60f;
+
+            foreach (var kvp in Shatter.Core.InputManager.Instance.Teclas)
+            {
+                string accion = kvp.Key;
+                KeyCode tecla = kvp.Value;
+                
+                // Texto a mostrar, ej: "Saltar"
+                string etiqueta = TraducirAccion(accion);
+                Sprite iconoTecla = ObtenerIconoDeTecla(tecla);
+                
+                var botonGo = CrearBotonControl(controlsPanel.transform, etiqueta, new Vector2(0, startY - (i * spacingY)), accion, iconoTecla, tecla.ToString());
+                botonesGenerados.Add(botonGo);
+                i++;
+            }
+        }
+
+        private GameObject CrearBotonControl(Transform padre, string etiqueta, Vector2 posicionAnclada, string accion, Sprite icono, string nombreTeclaStr)
+        {
+            var go = new GameObject("BtnKey_" + accion);
+            go.transform.SetParent(padre, false);
+            var rt = go.AddComponent<RectTransform>();
+            rt.anchorMin = new Vector2(0.5f, 1f); 
+            rt.anchorMax = new Vector2(0.5f, 1f);
+            rt.pivot = new Vector2(0.5f, 1f);
+            rt.sizeDelta = new Vector2(400, 50);
+            rt.anchoredPosition = posicionAnclada;
+            
+            var img = go.AddComponent<Image>();
+            // El fondo del botón será transparente o semitransparente para que destaquen las imagenes
+            img.color = new Color(0.1f, 0.1f, 0.1f, 0.8f);
+            
+            var btn = go.AddComponent<Button>();
+            btn.targetGraphic = img;
+
+            // 1. Crear el objeto de Texto (Nombre de la Acción, a la izquierda)
+            var etiquetaGo = new GameObject("Text_Action");
+            etiquetaGo.transform.SetParent(go.transform, false);
+            
+            var t = etiquetaGo.AddComponent<Text>();
+            t.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+            if (t.font == null) t.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+            t.text = etiqueta;
+            t.fontSize = 24;
+            t.color = Color.white;
+            t.alignment = TextAnchor.MiddleLeft;
+            
+            var lrt = t.rectTransform;
+            lrt.anchorMin = new Vector2(0.05f, 0f); 
+            lrt.anchorMax = new Vector2(0.5f, 1f);
+            lrt.offsetMin = Vector2.zero; lrt.offsetMax = Vector2.zero;
+
+            // 2. Crear el objeto de Imagen (Icono de la Tecla, a la derecha)
+            var iconoGo = new GameObject("Image_Key");
+            iconoGo.transform.SetParent(go.transform, false);
+            var imgKey = iconoGo.AddComponent<Image>();
+            imgKey.sprite = icono;
+            imgKey.preserveAspect = true;
+
+            var irt = imgKey.rectTransform;
+            irt.anchorMin = new Vector2(0.6f, 0.1f);
+            irt.anchorMax = new Vector2(0.95f, 0.9f);
+            irt.offsetMin = Vector2.zero; irt.offsetMax = Vector2.zero;
+
+            // 3. Crear texto de respaldo (si no hay imagen, mostrar el nombre de la tecla encima)
+            if (icono == null && iconoPorDefecto == null)
+            {
+                var txtFallback = new GameObject("Text_Fallback").AddComponent<Text>();
+                txtFallback.transform.SetParent(iconoGo.transform, false);
+                txtFallback.font = t.font;
+                txtFallback.text = nombreTeclaStr;
+                txtFallback.fontSize = 20;
+                txtFallback.color = Color.yellow;
+                txtFallback.alignment = TextAnchor.MiddleCenter;
+                
+                var frt = txtFallback.rectTransform;
+                frt.anchorMin = Vector2.zero; frt.anchorMax = Vector2.one;
+                frt.offsetMin = Vector2.zero; frt.offsetMax = Vector2.zero;
+            }
+            
+            btn.onClick.AddListener(() => {
+                if (!esperandoTecla)
+                {
+                    ReproducirSonidoUI(openMenuSound);
+                    IniciarReasignacion(accion, imgKey);
+                }
+            });
+
+            return go;
+        }
+
+        private string TraducirAccion(string accion)
+        {
+            // Traducir según el idioma actual (0 = Español, 1 = Inglés)
+            int idioma = PlayerPrefs.GetInt("LanguagePreference", 0);
+            if (idioma == 1) // Inglés
+            {
+                switch (accion)
+                {
+                    case "Izquierda": return "Left";
+                    case "Derecha": return "Right";
+                    case "Abajo": return "Down";
+                    case "Saltar": return "Jump";
+                    case "Dash": return "Dash";
+                    case "Interactuar": return "Interact";
+                }
+            }
+            return accion; // Español es por defecto la clave
+        }
+
+        private void IniciarReasignacion(string accion, Image imagenBoton)
+        {
+            esperandoTecla = true;
+            accionAReasignar = accion;
+            imagenBotonReasignando = imagenBoton;
+            
+            if (botonAplastadoIcon != null)
+            {
+                imagenBotonReasignando.sprite = botonAplastadoIcon;
+            }
+            else
+            {
+                // Respaldo visual si no asignan icono de aplastado
+                imagenBotonReasignando.color = Color.yellow;
+            }
+        }
+
+        // OnGUI se llama varias veces por frame y es util para capturar Event.current (teclas raw)
+        private void OnGUI()
+        {
+            if (esperandoTecla)
+            {
+                Event e = Event.current;
+                if (e != null && e.isKey && e.type == EventType.KeyDown && e.keyCode != KeyCode.None)
+                {
+                    if (e.keyCode != KeyCode.Escape) // Evitar que Escape se asigne accidentalmente
+                    {
+                        AsignarNuevaTecla(e.keyCode);
+                    }
+                    else
+                    {
+                        // Si presionó escape, cancelar la reasignación
+                        CancelarReasignacion();
+                    }
+                }
+            }
+        }
+
+        private void AsignarNuevaTecla(KeyCode nuevaTecla)
+        {
+            if (Shatter.Core.InputManager.Instance != null)
+            {
+                Shatter.Core.InputManager.Instance.ReasignarTecla(accionAReasignar, nuevaTecla);
+                ReproducirSonidoUI(closeMenuSound); // Sonido de confirmación
+            }
+            
+            esperandoTecla = false;
+            GenerarBotonesControles(); // Regenerar todo para refrescar la UI
+        }
+
+        private void CancelarReasignacion()
+        {
+            esperandoTecla = false;
+            GenerarBotonesControles();
         }
     }
 }

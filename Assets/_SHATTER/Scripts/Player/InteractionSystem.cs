@@ -16,7 +16,7 @@ namespace Shatter.Player
     {
         [SerializeField] private float radioDeteccion = 1.6f;
         [SerializeField] private LayerMask capaInteractuable = ~0;
-        [SerializeField] private KeyCode teclaInteraccion = KeyCode.E;
+        // La tecla ahora viene del InputManager
 
         private readonly Collider2D[] resultados = new Collider2D[8];
         private IInteractable actual;
@@ -27,8 +27,14 @@ namespace Shatter.Player
         private void Update()
         {
             EncontrarMasCercano();
-            if (actual != null && actual.PuedeInteractuar && Input.GetKeyDown(teclaInteraccion))
-                actual.AlInteractuar(gameObject);
+            if (actual != null && actual.PuedeInteractuar)
+            {
+                KeyCode tecla = Shatter.Core.InputManager.Instance != null ? Shatter.Core.InputManager.Instance.Interactuar : KeyCode.E;
+                if (Input.GetKeyDown(tecla))
+                {
+                    actual.AlInteractuar(gameObject);
+                }
+            }
         }
 
         private void EncontrarMasCercano()

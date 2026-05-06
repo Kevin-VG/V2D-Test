@@ -129,14 +129,29 @@ namespace Shatter.Player
             if (congelamientoExterno) { entradaMovimiento = 0f; return; }
 
             // --- Lectura de input ---
-            float crudo = Input.GetAxisRaw("Horizontal");
+            float crudo = 0f;
+            var im = Shatter.Core.InputManager.Instance;
+            if (im != null)
+            {
+                if (Input.GetKey(im.MoverDerecha)) crudo += 1f;
+                if (Input.GetKey(im.MoverIzquierda)) crudo -= 1f;
+            }
+            else
+            {
+                crudo = Input.GetAxisRaw("Horizontal");
+            }
+            
             if (controlesInvertidos) crudo = -crudo;
             entradaMovimiento = crudo;
 
-            saltoPresionadoEsteFrame = Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow);
-            saltoMantenido = Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
-            dashPresionadoEsteFrame = Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.K);
-            abajoMantenido = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
+            KeyCode kSaltar = im != null ? im.Saltar : KeyCode.Space;
+            KeyCode kDash = im != null ? im.Dash : KeyCode.LeftShift;
+            KeyCode kAbajo = im != null ? im.Abajo : KeyCode.S;
+
+            saltoPresionadoEsteFrame = Input.GetKeyDown(kSaltar);
+            saltoMantenido = Input.GetKey(kSaltar);
+            dashPresionadoEsteFrame = Input.GetKeyDown(kDash);
+            abajoMantenido = Input.GetKey(kAbajo);
 
             // --- Drop through one-way (ANTES de agacharse para no interferir) ---
             if (estaEnSuelo && abajoMantenido && saltoPresionadoEsteFrame)
