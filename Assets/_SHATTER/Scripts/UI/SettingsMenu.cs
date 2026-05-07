@@ -85,9 +85,17 @@ namespace Shatter.UI
         public Sprite botonAplastadoIcon;
         [Tooltip("Imagen por defecto si la tecla asignada no tiene un icono configurado")]
         public Sprite iconoPorDefecto;
+        [Tooltip("La tipografía (Font) que se usará para los textos del menú de controles (ej. fuente pixelada)")]
+        public Font fuenteControles;
         [Tooltip("Lista de iconos específicos por tecla (ej. Space -> Sprite Barra Espaciadora)")]
         public KeyIconMapping[] iconosDeTeclas;
-
+        [Tooltip("Prefab de la fila de control (opcional). Si lo arrastras, podrás diseñar tus botones libremente en el Canvas de Unity.")]
+        public GameObject filaControlPrefab;
+        [Header("Configuración de Layout")]
+        [Tooltip("Posición Y donde inicia el primer control (ej: -180f). Ajusta este valor en el Inspector para alejarlo del título.")]
+        public float startY = -180f;
+        [Tooltip("Espacio vertical de separación entre cada fila de control (ej: 75f). Ajusta esto en el Inspector para separarlos más.")]
+        public float spacingY = 75f;
         private Resolution[] resolutions;
 
         private static int ultimoFrameEsc = -1;
@@ -430,9 +438,6 @@ namespace Shatter.UI
             botonesGenerados.Clear();
 
             int i = 0;
-            // Las posiciones Y van bajando desde el centro arriba. Ajusta -100 y 60 según la escala de tu UI.
-            float startY = -120f; 
-            float spacingY = 60f;
 
             foreach (var kvp in Shatter.Core.InputManager.Instance.Teclas)
             {
@@ -443,8 +448,51 @@ namespace Shatter.UI
                 string etiqueta = TraducirAccion(accion);
                 Sprite iconoTecla = ObtenerIconoDeTecla(tecla);
                 
-                var botonGo = CrearBotonControl(controlsPanel.transform, etiqueta, new Vector2(0, startY - (i * spacingY)), accion, iconoTecla, tecla.ToString());
-                botonesGenerados.Add(botonGo);
+                if (filaControlPrefab != null)
+                {
+                    // --- FORMA PROFESIONAL: USANDO TU PREFAB DEL CANVAS ---
+                    GameObject filaGo = Instantiate(filaControlPrefab, controlsPanel.transform);
+                    
+                    // Posicionarla en el panel
+                    RectTransform rt = filaGo.GetComponent<RectTransform>();
+                    if (rt != null)
+                    {
+                        rt.anchorMin = new Vector2(0.5f, 1f); 
+                        rt.anchorMax = new Vector2(0.5f, 1f);
+                        rt.pivot = new Vector2(0.5f, 1f);
+                        rt.anchoredPosition = new Vector2(0, startY - (i * spacingY));
+                    }
+
+                    FilaControlUI filaUI = filaGo.GetComponent<FilaControlUI>();
+                    if (filaUI != null)
+                    {
+                        // Configurar textos, imagen y textos de respaldo
+                        filaUI.ConfigurarFila(etiqueta, iconoTecla, tecla.ToString(), iconoPorDefecto);
+                        
+                        // Configurar el click del botón para remapear
+                        if (filaUI.botonRemapeo != null)
+                        {
+                            string acc = accion; // Cachear variable
+                            Image imgKey = filaUI.imagenTecla;
+                            filaUI.botonRemapeo.onClick.RemoveAllListeners();
+                            filaUI.botonRemapeo.onClick.AddListener(() => {
+                                if (!esperandoTecla)
+                                {
+                                    ReproducirSonidoUI(openMenuSound);
+                                    IniciarReasignacion(acc, imgKey);
+                                }
+                            });
+                        }
+                    }
+                    botonesGenerados.Add(filaGo);
+                }
+                else
+                {
+                    // --- FORMA POR DEFECTO: GENERADO POR CÓDIGO (FALLBACK) ---
+                    var botonGo = CrearBotonControl(controlsPanel.transform, etiqueta, new Vector2(0, startY - (i * spacingY)), accion, iconoTecla, tecla.ToString());
+                    botonesGenerados.Add(botonGo);
+                }
+                
                 i++;
             }
         }
@@ -457,7 +505,7 @@ namespace Shatter.UI
             rt.anchorMin = new Vector2(0.5f, 1f); 
             rt.anchorMax = new Vector2(0.5f, 1f);
             rt.pivot = new Vector2(0.5f, 1f);
-            rt.sizeDelta = new Vector2(400, 50);
+            rt.sizeDelta = new Vector2(450, 65); // Botón un poco más grande y ancho para que luzcan los iconos
             rt.anchoredPosition = posicionAnclada;
             
             var img = go.AddComponent<Image>();
@@ -472,8 +520,15 @@ namespace Shatter.UI
             etiquetaGo.transform.SetParent(go.transform, false);
             
             var t = etiquetaGo.AddComponent<Text>();
-            t.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-            if (t.font == null) t.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+            if (fuenteControles != null)
+            {
+                t.font = fuenteControles;
+            }
+            else
+            {
+                t.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+                if (t.font == null) t.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+            }
             t.text = etiqueta;
             t.fontSize = 24;
             t.color = Color.white;
@@ -484,7 +539,7 @@ namespace Shatter.UI
             lrt.anchorMax = new Vector2(0.5f, 1f);
             lrt.offsetMin = Vector2.zero; lrt.offsetMax = Vector2.zero;
 
-            // 2. Crear el objeto de Imagen (Icono de la Tecla, a la derecha)
+            // 2. Crear el objeto de Imagen (Icono de la Tecla, a la derecha con proporción dinámica)
             var iconoGo = new GameObject("Image_Key");
             iconoGo.transform.SetParent(go.transform, false);
             var imgKey = iconoGo.AddComponent<Image>();
@@ -492,19 +547,34 @@ namespace Shatter.UI
             imgKey.preserveAspect = true;
 
             var irt = imgKey.rectTransform;
-            irt.anchorMin = new Vector2(0.6f, 0.1f);
-            irt.anchorMax = new Vector2(0.95f, 0.9f);
-            irt.offsetMin = Vector2.zero; irt.offsetMax = Vector2.zero;
+            
+            // Calculamos el alto fijo y el ancho dinámico según el aspecto real de la imagen
+            float height = 48f; // Alto perfecto alineado con el botón de 65px
+            float aspect = 1f;
+            
+            Sprite spriteReferencia = (icono != null) ? icono : iconoPorDefecto;
+            if (spriteReferencia != null)
+            {
+                aspect = (float)spriteReferencia.rect.width / spriteReferencia.rect.height;
+            }
+            float width = height * aspect;
 
-            // 3. Crear texto de respaldo (si no hay imagen, mostrar el nombre de la tecla encima)
-            if (icono == null && iconoPorDefecto == null)
+            // Forzar anclaje al centro de la mitad derecha del botón de fila (crece simétricamente hacia ambos lados)
+            irt.anchorMin = new Vector2(0.78f, 0.5f);
+            irt.anchorMax = new Vector2(0.78f, 0.5f);
+            irt.pivot = new Vector2(0.5f, 0.5f);
+            irt.sizeDelta = new Vector2(width, height);
+            irt.anchoredPosition = Vector2.zero; // Perfectamente centrado en ese anclaje
+
+            // 3. Crear texto de respaldo (si no hay imagen o si está usando el icono gris por defecto)
+            if (icono == null || icono == iconoPorDefecto)
             {
                 var txtFallback = new GameObject("Text_Fallback").AddComponent<Text>();
                 txtFallback.transform.SetParent(iconoGo.transform, false);
                 txtFallback.font = t.font;
                 txtFallback.text = nombreTeclaStr;
-                txtFallback.fontSize = 20;
-                txtFallback.color = Color.yellow;
+                txtFallback.fontSize = 18; // Tamaño ideal para que quepa bien dentro de la tecla
+                txtFallback.color = Color.white; // Blanco para que combine con el pixel art de la piedra
                 txtFallback.alignment = TextAnchor.MiddleCenter;
                 
                 var frt = txtFallback.rectTransform;

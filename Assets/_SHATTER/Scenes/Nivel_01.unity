@@ -8700,6 +8700,105 @@ MonoBehaviour:
   openControlsBtnText: {fileID: 1101542082}
   controlsTitleText: {fileID: 398718986}
   backFromControlsBtnText: {fileID: 795483800}
+  botonAplastadoIcon: {fileID: -767254072147618993, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  iconoPorDefecto: {fileID: -767254072147618993, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  fuenteControles: {fileID: 12800000, guid: 83d0941392eaade43afed8ef01f2040a, type: 3}
+  iconosDeTeclas:
+  - key: 256
+    icon: {fileID: 5796162540467339326, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 257
+    icon: {fileID: -7410377673804869123, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 258
+    icon: {fileID: 7440296053746363429, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 259
+    icon: {fileID: -3146170708978401230, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 260
+    icon: {fileID: 1411534160203456843, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 261
+    icon: {fileID: -2065921808056554179, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 262
+    icon: {fileID: 2514089357899654379, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 263
+    icon: {fileID: -3904871010856640904, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 264
+    icon: {fileID: 8269733600407023045, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 265
+    icon: {fileID: 7956185070450066694, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 308
+    icon: {fileID: -5483402695455435755, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 306
+    icon: {fileID: 4447045496597841872, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 27
+    icon: {fileID: -7150705882922226843, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 32
+    icon: {fileID: 1965696587822360493, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 9
+    icon: {fileID: 1404792429700843447, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 304
+    icon: {fileID: 249458323390072067, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 97
+    icon: {fileID: -3480734838312557511, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 98
+    icon: {fileID: 9166659919629773472, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 99
+    icon: {fileID: -723672749922979657, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 100
+    icon: {fileID: -5091470310586743657, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 101
+    icon: {fileID: -1076199237514542954, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 102
+    icon: {fileID: -6045715860026620015, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 103
+    icon: {fileID: 5772063747531844838, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 104
+    icon: {fileID: 2972338604101709805, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 105
+    icon: {fileID: -4513558895775630823, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 106
+    icon: {fileID: 8448436739886341259, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 107
+    icon: {fileID: -1342892868428538550, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 108
+    icon: {fileID: 4316898804438333451, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 109
+    icon: {fileID: 7535620309469709324, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 110
+    icon: {fileID: -6670066038865782860, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 111
+    icon: {fileID: -878187799573153877, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 112
+    icon: {fileID: 838659970138246171, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 113
+    icon: {fileID: 6355762203087353705, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 114
+    icon: {fileID: 8110718851579810946, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 115
+    icon: {fileID: -8162243222977723961, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 116
+    icon: {fileID: 8482980919080803957, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 117
+    icon: {fileID: 3014138303303732618, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 118
+    icon: {fileID: -8364658066414152062, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 119
+    icon: {fileID: -8566617371744742739, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 120
+    icon: {fileID: -7957941208801556841, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 121
+    icon: {fileID: 1836834587861789504, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 122
+    icon: {fileID: 8052144763983808758, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 273
+    icon: {fileID: -7725960554358324379, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 274
+    icon: {fileID: 3082503109730084177, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 276
+    icon: {fileID: 8142472448280163930, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  - key: 275
+    icon: {fileID: -3082579775687340958, guid: d372ef4646e23d04282a73ce25f43990, type: 3}
+  filaControlPrefab: {fileID: 5911132507285579007, guid: 55ee693de50ec6244ad3ebd847eb7786, type: 3}
+  startY: -280
+  spacingY: 90
 --- !u!1 &2042541262
 GameObject:
   m_ObjectHideFlags: 0
