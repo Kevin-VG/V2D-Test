@@ -1,4 +1,4 @@
-# SHATTER — Registro de Progreso
+# INWARD — Registro de Progreso
 
 ## Sprint 0 — Reestructuración a Platformer 2D con fondos 2.5D
 
@@ -8,14 +8,14 @@
 
 ## Decisión de reestructuración
 
-El proyecto arrancó como 2.5D **isométrico** con movimiento diagonal. Se decide descartar todo lo hecho y reestructurar como **platformer 2D estilo Mario** con fondos 2.5D (parallax multicapa + profundidad visual), manteniendo únicamente el **concepto base** de SHATTER (Mateo, salud mental adolescente, Destellos de Lucidez). La narrativa, niveles y mecánicas originales quedan como referencia en `doc.md` pero se reinventan.
+El proyecto arrancó como 2.5D **isométrico** con movimiento diagonal. Se decide descartar todo lo hecho y reestructurar como **platformer 2D estilo Mario** con fondos 2.5D (parallax multicapa + profundidad visual), manteniendo únicamente el **concepto base** de INWARD (Mateo, salud mental adolescente, Destellos de Lucidez). La narrativa, niveles y mecánicas originales quedan como referencia en `doc.md` pero se reinventan.
 
 **Decisiones clave:**
 - Perspectiva: platformer 2D (A/D camina, Espacio/W salta, S agacha), fondos 2.5D parallax
 - Movimiento: habilidades avanzadas (salto variable, coyote time, jump buffer, doble salto, wall slide + wall jump, dash, drop-through)
 - Combate: no convencional — esquivar + power-ups + debuffs + personalización
 - Alcance del sprint: core + Nivel 1 prototipo jugable
-- **Borrado:** carpeta `_SHATTER` anterior, sprites de Mateo isométricos, tilesets Classroom/Industrial/DevilsWork, FogOfWar, PROGRESO.md antiguo
+- **Borrado:** carpeta `_INWARD` anterior, sprites de Mateo isométricos, tilesets Classroom/Industrial/DevilsWork, FogOfWar, PROGRESO.md antiguo
 
 **Requisitos UPN preservados:**
 - Singleton: `GameManager`, `ObjectPool`, `AudioManager`
@@ -28,7 +28,7 @@ El proyecto arrancó como 2.5D **isométrico** con movimiento diagonal. Se decid
 ## Estructura creada
 
 ```
-Assets/_SHATTER/
+Assets/_INWARD/
 ├── Scripts/
 │   ├── Core/               GameManager, ObjectPool, AudioManager, GameEvents
 │   ├── Player/             PlayerController2D, PlayerHealth, PlayerAnimatorBridge,
@@ -52,88 +52,88 @@ Assets/_SHATTER/
 
 ## Scripts implementados
 
-### Core (Shatter.Core)
+### Core (Inward.Core)
 
-**[Assets/_SHATTER/Scripts/Core/GameManager.cs](Assets/_SHATTER/Scripts/Core/GameManager.cs)**
+**[Assets/_INWARD/Scripts/Core/GameManager.cs](Assets/_INWARD/Scripts/Core/GameManager.cs)**
 - Singleton DontDestroyOnLoad. Tracking de Destellos, nivel actual, checkpoint, estado (Playing/Paused/GameOver/Cutscene), muertes.
 - Eventos: `OnDestellosChanged`, `OnPlayerDeath`, `OnLevelCompleted`, `OnStateChanged`.
 - API: `AddDestellos`, `SetCheckpoint`, `GetRespawnPosition`, `TogglePause`, `LoadLevel`, `RestartCurrentScene`.
 
-**[Assets/_SHATTER/Scripts/Core/ObjectPool.cs](Assets/_SHATTER/Scripts/Core/ObjectPool.cs)**
+**[Assets/_INWARD/Scripts/Core/ObjectPool.cs](Assets/_INWARD/Scripts/Core/ObjectPool.cs)**
 - Pool genérico tag-based. `Spawn(tag, pos, rot)` / `Despawn(tag, obj)`. Interfaz `IPoolable { OnSpawn, OnDespawn }`. Registrable desde Inspector o via `RegisterPool(tag, prefab, initialSize)`.
 
-**[Assets/_SHATTER/Scripts/Core/AudioManager.cs](Assets/_SHATTER/Scripts/Core/AudioManager.cs)**
+**[Assets/_INWARD/Scripts/Core/AudioManager.cs](Assets/_INWARD/Scripts/Core/AudioManager.cs)**
 - 3 AudioSources (music/sfx/ambient). `PlayMusic/PlaySFX/PlayAmbient`, volúmenes master/music/sfx/ambient.
 
-**[Assets/_SHATTER/Scripts/Core/GameEvents.cs](Assets/_SHATTER/Scripts/Core/GameEvents.cs)**
+**[Assets/_INWARD/Scripts/Core/GameEvents.cs](Assets/_INWARD/Scripts/Core/GameEvents.cs)**
 - Bus de eventos estáticos. Player, Collectibles, Enemigos, Power-ups, Debuffs, Cámara.
 
-### Player (Shatter.Player)
+### Player (Inward.Player)
 
-**[Assets/_SHATTER/Scripts/Player/PlayerController2D.cs](Assets/_SHATTER/Scripts/Player/PlayerController2D.cs)**
+**[Assets/_INWARD/Scripts/Player/PlayerController2D.cs](Assets/_INWARD/Scripts/Player/PlayerController2D.cs)**
 - Platformer 2D avanzado: aceleración/fricción, salto variable, coyote time (0.12s), jump buffer (0.15s), **doble salto**, **wall slide + wall jump**, **dash** (intangible), **crouch**, **drop-through** desde OneWayPlatforms.
 - Ground check y wall check con `Physics2D.OverlapBox`.
 - Input legacy: A/D horizontal, Espacio/W salto, LeftShift/K dash, S crouch/drop.
 - API: `StopMovement`, `ResumeMovement`, `ApplySpeedMultiplier`, `SetControlsInverted`, `SetExtraJumps`.
 
-**[Assets/_SHATTER/Scripts/Player/PlayerHealth.cs](Assets/_SHATTER/Scripts/Player/PlayerHealth.cs)**
+**[Assets/_INWARD/Scripts/Player/PlayerHealth.cs](Assets/_INWARD/Scripts/Player/PlayerHealth.cs)**
 - Vida por "Fragmentos" (4 default). IFrames 1s con blink, knockback, respawn por checkpoint. `TakeDamage(int, sourcePos)`, `SetDamageReduction`.
 
-**[Assets/_SHATTER/Scripts/Player/PlayerAnimatorBridge.cs](Assets/_SHATTER/Scripts/Player/PlayerAnimatorBridge.cs)**
+**[Assets/_INWARD/Scripts/Player/PlayerAnimatorBridge.cs](Assets/_INWARD/Scripts/Player/PlayerAnimatorBridge.cs)**
 - Puente opcional con Animator (speed, vy, grounded, dashing, wallSliding). Voltea SpriteRenderer por facing.
 
-**[Assets/_SHATTER/Scripts/Player/InteractionSystem.cs](Assets/_SHATTER/Scripts/Player/InteractionSystem.cs)**
+**[Assets/_INWARD/Scripts/Player/InteractionSystem.cs](Assets/_INWARD/Scripts/Player/InteractionSystem.cs)**
 - `Physics2D.OverlapCircleNonAlloc` detecta `IInteractable` más cercano. Tecla E ejecuta.
 
-**[Assets/_SHATTER/Scripts/Player/IdentityManager.cs](Assets/_SHATTER/Scripts/Player/IdentityManager.cs)**
+**[Assets/_INWARD/Scripts/Player/IdentityManager.cs](Assets/_INWARD/Scripts/Player/IdentityManager.cs)**
 - Máximo 3 Fragmentos de Identidad equipados. Recalcula tint del sprite, speed multiplier, extra jumps, damage reduction, particle effects al equipar/desequipar.
 
-### Systems (Shatter.Systems)
+### Systems (Inward.Systems)
 
-**[Assets/_SHATTER/Scripts/Systems/PowerUpManager.cs](Assets/_SHATTER/Scripts/Systems/PowerUpManager.cs)**
+**[Assets/_INWARD/Scripts/Systems/PowerUpManager.cs](Assets/_INWARD/Scripts/Systems/PowerUpManager.cs)**
 - Solo 1 power-up activo. Tipos: *Latido Calmado* (slowdown enemigos en radio), *Destello Guía* (resalta coleccionables), *Escudo Respiración* (ignora 1 golpe), *Memoria Clara* (+velocidad), *Foco Claridad* (+salto extra).
 
-**[Assets/_SHATTER/Scripts/Systems/DebuffManager.cs](Assets/_SHATTER/Scripts/Systems/DebuffManager.cs)**
+**[Assets/_INWARD/Scripts/Systems/DebuffManager.cs](Assets/_INWARD/Scripts/Systems/DebuffManager.cs)**
 - Solo 1 debuff activo. *Tunnel Vision* (lento), *Pasos de Plomo* (salto reducido), *Controles Invertidos*. El escudo del PowerUp consume automáticamente un debuff entrante.
 
-**[Assets/_SHATTER/Scripts/Systems/Collectible.cs](Assets/_SHATTER/Scripts/Systems/Collectible.cs)**
+**[Assets/_INWARD/Scripts/Systems/Collectible.cs](Assets/_INWARD/Scripts/Systems/Collectible.cs)**
 - `CollectibleKind.Destello/PowerUp/IdentityFragment`. Bob sinusoidal, highlight pulse, devuelve al pool al recoger si hay pool registrado.
 
-**[Assets/_SHATTER/Scripts/Systems/Checkpoint.cs](Assets/_SHATTER/Scripts/Systems/Checkpoint.cs)**
+**[Assets/_INWARD/Scripts/Systems/Checkpoint.cs](Assets/_INWARD/Scripts/Systems/Checkpoint.cs)**
 - Trigger que registra posición en `GameManager.SetCheckpoint`. Cambia color al activarse.
 
-### Camera (Shatter.CameraSystem)
+### Camera (Inward.CameraSystem)
 
-**[Assets/_SHATTER/Scripts/Camera/CameraFollow2D.cs](Assets/_SHATTER/Scripts/Camera/CameraFollow2D.cs)**
+**[Assets/_INWARD/Scripts/Camera/CameraFollow2D.cs](Assets/_INWARD/Scripts/Camera/CameraFollow2D.cs)**
 - `Vector3.SmoothDamp` + look-ahead según velocidad X del target. Bounds opcionales. Screen shake via `GameEvents.OnCameraShake`.
 
-**[Assets/_SHATTER/Scripts/Camera/ParallaxLayer.cs](Assets/_SHATTER/Scripts/Camera/ParallaxLayer.cs)**
+**[Assets/_INWARD/Scripts/Camera/ParallaxLayer.cs](Assets/_INWARD/Scripts/Camera/ParallaxLayer.cs)**
 - Mueve el transform proporcional al delta de cámara. `parallaxFactorX/Y` 0..1.5. `infiniteScrollX` opcional.
 
-### AI (Shatter.AI)
+### AI (Inward.AI)
 
-**[Assets/_SHATTER/Scripts/AI/EnemyBase.cs](Assets/_SHATTER/Scripts/AI/EnemyBase.cs)**
+**[Assets/_INWARD/Scripts/AI/EnemyBase.cs](Assets/_INWARD/Scripts/AI/EnemyBase.cs)**
 - Abstracta. Daño al contacto + debuff al player. Jump-stomp: si el player cae encima con velocidad negativa, el enemigo recibe daño y el player rebota.
 
-**[Assets/_SHATTER/Scripts/AI/WalkerEnemy.cs](Assets/_SHATTER/Scripts/AI/WalkerEnemy.cs)**
+**[Assets/_INWARD/Scripts/AI/WalkerEnemy.cs](Assets/_INWARD/Scripts/AI/WalkerEnemy.cs)**
 - Patrulla horizontal, gira al detectar borde o pared con raycast. Aplica *Tunnel Vision*.
 
-**[Assets/_SHATTER/Scripts/AI/FlyerEnemy.cs](Assets/_SHATTER/Scripts/AI/FlyerEnemy.cs)**
+**[Assets/_INWARD/Scripts/AI/FlyerEnemy.cs](Assets/_INWARD/Scripts/AI/FlyerEnemy.cs)**
 - Patrulla entre 2 puntos ignorando gravedad con bob sinusoidal. Aplica *Controles Invertidos*.
 
-### Levels (Shatter.Levels)
+### Levels (Inward.Levels)
 
 **LevelManager** (abstracta), **Level01Manager**, **LevelGoal**, **OneWayPlatform**, **Hazard**.
 
-### UI (Shatter.UI)
+### UI (Inward.UI)
 
-**[Assets/_SHATTER/Scripts/UI/HUDManager.cs](Assets/_SHATTER/Scripts/UI/HUDManager.cs)**
+**[Assets/_INWARD/Scripts/UI/HUDManager.cs](Assets/_INWARD/Scripts/UI/HUDManager.cs)**
 - HUD construido en código: contador de destellos, vida, power-up activo con tiempo, debuff activo con tiempo, prompt de interacción.
 
-**[Assets/_SHATTER/Scripts/UI/PauseMenu.cs](Assets/_SHATTER/Scripts/UI/PauseMenu.cs)**
+**[Assets/_INWARD/Scripts/UI/PauseMenu.cs](Assets/_INWARD/Scripts/UI/PauseMenu.cs)**
 - ESC pausa/despausa. Panel con Reanudar / Inventario Emocional / Reiniciar Nivel / Salir. Inventario permite equipar/desequipar Fragmentos de Identidad.
 
-### Utils (Shatter.Utils)
+### Utils (Inward.Utils)
 
 **PlaceholderSpriteGenerator2D** — genera rects, círculos y gradientes en runtime.
 **PlaceholderTileGenerator2D** — construye el Nivel 1 procedural con piso, huecos, escalones, plataforma flotante, pared para wall-jump, zona baja, one-way platforms.
@@ -141,7 +141,7 @@ Assets/_SHATTER/
 
 ### ScriptableObjects
 
-`IdentityFragmentSO`, `PowerUpSO`, `DebuffSO` — data containers con menú `Create → Shatter → ...`.
+`IdentityFragmentSO`, `PowerUpSO`, `DebuffSO` — data containers con menú `Create → Inward → ...`.
 
 ---
 
@@ -168,7 +168,7 @@ Si no creas las layers, el prototipo igual corre pero el ground check, wall chec
 1. Abrir Unity, cargar `Assets/Scenes/SampleScene.unity`.
 2. Vaciar la escena (si tiene objetos de ensayos previos).
 3. Crear un GameObject vacío llamado **"Bootstrapper"**.
-4. Adjuntarle el script `Shatter.Utils.SceneBootstrapper`.
+4. Adjuntarle el script `Inward.Utils.SceneBootstrapper`.
 5. Dejar todos los flags activos en el Inspector.
 6. Dar **Play**.
 
@@ -233,13 +233,13 @@ Si no creas las layers, el prototipo igual corre pero el ground check, wall chec
 
 | Script | Namespace | Responsabilidad |
 |---|---|---|
-| **`FocusSystem.cs`** | `Shatter.Player` | Stamina con chispas (3 default), consumo en dash/doble salto/wall jump (1 cada uno), recarga grounded 1.2s, recarga total al tocar Luz Cálida o Santuario, modificadores por nivel via `IFocusModifier` |
-| **`EmotionalWeight.cs`** | `Shatter.Player` | Peso emocional global (0-100%). Sube por daño/quietud/preguntas evasivas. Baja por Anclas/Bancas/Memorias positivas/Santuarios. Aplica efectos por umbral (recarga focus −25%, max focus −1, salto −25%). Visual de niebla en sprite. |
-| **`SanctuarySystem.cs`** | `Shatter.Systems` | Save real persistente (escribe a disco), heal completo, depósito de Destellos, reequipar fragmentos, mostrar mapa del nivel, comerciar con Eco Amable. Activación E sostenido 2s con animación ritual. |
-| **`WarmLight.cs`** | `Shatter.Systems` | Objeto ambiental. Al tocar: recarga focus 100% + heal +1 + −20% peso. Único uso. Reset al Desvanecerse. Compatible con Light2D. |
-| **`TeaItem.cs`** | `Shatter.Systems` | Consumible de inventario. Stack máx 3. Tecla H. Heal +1. Animación 1.5s. |
-| **`SanctuaryDataSO.cs`** | `Shatter.ScriptableObjects` | Data container: nombre temático, sprite, motif corto, descripción ambiental por nivel |
-| **`ConsumableSO.cs`** | `Shatter.ScriptableObjects` | Data container: efecto, animación, stack máximo, ícono |
+| **`FocusSystem.cs`** | `Inward.Player` | Stamina con chispas (3 default), consumo en dash/doble salto/wall jump (1 cada uno), recarga grounded 1.2s, recarga total al tocar Luz Cálida o Santuario, modificadores por nivel via `IFocusModifier` |
+| **`EmotionalWeight.cs`** | `Inward.Player` | Peso emocional global (0-100%). Sube por daño/quietud/preguntas evasivas. Baja por Anclas/Bancas/Memorias positivas/Santuarios. Aplica efectos por umbral (recarga focus −25%, max focus −1, salto −25%). Visual de niebla en sprite. |
+| **`SanctuarySystem.cs`** | `Inward.Systems` | Save real persistente (escribe a disco), heal completo, depósito de Destellos, reequipar fragmentos, mostrar mapa del nivel, comerciar con Eco Amable. Activación E sostenido 2s con animación ritual. |
+| **`WarmLight.cs`** | `Inward.Systems` | Objeto ambiental. Al tocar: recarga focus 100% + heal +1 + −20% peso. Único uso. Reset al Desvanecerse. Compatible con Light2D. |
+| **`TeaItem.cs`** | `Inward.Systems` | Consumible de inventario. Stack máx 3. Tecla H. Heal +1. Animación 1.5s. |
+| **`SanctuaryDataSO.cs`** | `Inward.ScriptableObjects` | Data container: nombre temático, sprite, motif corto, descripción ambiental por nivel |
+| **`ConsumableSO.cs`** | `Inward.ScriptableObjects` | Data container: efecto, animación, stack máximo, ícono |
 
 ### Scripts a modificar
 

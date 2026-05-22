@@ -1,4 +1,4 @@
-# SHATTER — Documento de Diseño
+# INWARD — Documento de Diseño
 
 > **Versión 2.1 — Refinamiento de sistemas (2026-04-11)**
 >
@@ -12,7 +12,7 @@
 
 | Campo | Detalle |
 |---|---|
-| **Nombre** | SHATTER |
+| **Nombre** | INWARD |
 | **Género** | Platformer 2D narrativo / exploración emocional |
 | **Tema** | Salud mental adolescente |
 | **Perspectiva** | Platformer lateral 2D con fondos 2.5D (parallax multicapa + profundidad) |
@@ -30,7 +30,7 @@
 
 > *"A veces la mente más ruidosa es la que más necesita ser escuchada."*
 
-SHATTER es la historia de **Mateo**, un adolescente de 17 años que un día despierta y descubre que no puede salir de su propia mente. El mundo exterior sigue girando, pero él está atrapado adentro — en un universo interior hecho de miedos, recuerdos y pequeñas luces que todavía no se apagan. Para volver a casa debe atravesar cinco mundos que representan estados emocionales, enfrentar a una sombra que es él mismo, y aprender que **pedir ayuda no es rendirse**.
+INWARD es la historia de **Mateo**, un adolescente de 17 años que un día despierta y descubre que no puede salir de su propia mente. El mundo exterior sigue girando, pero él está atrapado adentro — en un universo interior hecho de miedos, recuerdos y pequeñas luces que todavía no se apagan. Para volver a casa debe atravesar cinco mundos que representan estados emocionales, enfrentar a una sombra que es él mismo, y aprender que **pedir ayuda no es rendirse**.
 
 ## 3. Pilares de diseño
 
@@ -1088,7 +1088,7 @@ Puente dorado → borde del archivo → Mateo se asoma al abismo gris → cae en
 
 *"Bajar es a veces el único camino."* Es el **único nivel principalmente descendente** — Mateo cae por un abismo gris por los primeros dos actos, y asciende en el tercero tras el momento de la banca. Es también el único nivel donde **el sistema de juego penaliza al jugador emocionalmente pero nunca lo mata** — el peso emocional reduce velocidad y altura de salto, pero nunca hay un game over por "estar triste". La única salida es la paciencia.
 
-**Twist de diseño emocional:** el momento pico del nivel **no es una pelea ni un puzzle** — es **sentarse en una banca durante 60 segundos reales sin hacer nada**. Es el anti-gameplay como clímax. Celeste lo hace en el Capítulo 7; SHATTER lo pone antes.
+**Twist de diseño emocional:** el momento pico del nivel **no es una pelea ni un puzzle** — es **sentarse en una banca durante 60 segundos reales sin hacer nada**. Es el anti-gameplay como clímax. Celeste lo hace en el Capítulo 7; INWARD lo pone antes.
 
 **El dash como acto de voluntad:** narrativamente, el dash representa *"atreverte a moverte cuando todo pesa"*. Mecánicamente, los frames de invulnerabilidad del dash permiten atravesar Pesos sin adherirlos — una metáfora del "empujar a pesar de".
 
@@ -2042,21 +2042,21 @@ Cada sistema central tiene su propio breve motif sonoro reconocible:
 
 ## 19. Arquitectura de scripts
 
-Detallada en [PROGRESO.md](PROGRESO.md). Namespace root: `Shatter`. Sub-namespaces por dominio. Los scripts marcados ★ son nuevos en v2.1 (Sprint 1 planeado):
+Detallada en [PROGRESO.md](PROGRESO.md). Namespace root: `Inward`. Sub-namespaces por dominio. Los scripts marcados ★ son nuevos en v2.1 (Sprint 1 planeado):
 
 ```
-Shatter.Core          → GameManager, ObjectPool, AudioManager, GameEvents
-Shatter.Player        → PlayerController2D, PlayerHealth, IdentityManager,
+Inward.Core          → GameManager, ObjectPool, AudioManager, GameEvents
+Inward.Player        → PlayerController2D, PlayerHealth, IdentityManager,
                         ★ FocusSystem, ★ EmotionalWeight
-Shatter.Systems       → PowerUpManager, DebuffManager, Collectible,
+Inward.Systems       → PowerUpManager, DebuffManager, Collectible,
                         ★ Bench (renombrado de Checkpoint),
                         ★ SanctuarySystem, ★ WarmLight, ★ TeaItem
-Shatter.CameraSystem  → CameraFollow2D, ParallaxLayer
-Shatter.AI            → EnemyBase, WalkerEnemy, FlyerEnemy
-Shatter.Levels        → LevelManager, Level01Manager, OneWayPlatform, Hazard
-Shatter.UI            → HUDManager (refactor a HUD diegético), PauseMenu
-Shatter.Utils         → Placeholders, SceneBootstrapper
-Shatter.ScriptableObjects → IdentityFragmentSO, PowerUpSO, DebuffSO,
+Inward.CameraSystem  → CameraFollow2D, ParallaxLayer
+Inward.AI            → EnemyBase, WalkerEnemy, FlyerEnemy
+Inward.Levels        → LevelManager, Level01Manager, OneWayPlatform, Hazard
+Inward.UI            → HUDManager (refactor a HUD diegético), PauseMenu
+Inward.Utils         → Placeholders, SceneBootstrapper
+Inward.ScriptableObjects → IdentityFragmentSO, PowerUpSO, DebuffSO,
                             ★ SanctuaryDataSO, ★ ConsumableSO
 ```
 
