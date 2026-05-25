@@ -1,79 +1,145 @@
 using UnityEngine;
-using Shatter.Core;
 
 namespace Shatter.CameraSystem
 {
     /// <summary>
-    /// Smooth follow 2D con look-ahead horizontal, deadzone vertical y screen shake.
+    /// Controlador de cámara 2D personalizado que sigue al jugador usando SmoothDamp.
+    /// Incluye look-ahead (anticipación de movimiento), límites de mapa (bounds) y sacudida de pantalla (screen shake).
     /// </summary>
     public class CameraFollow2D : MonoBehaviour
     {
+        [Header("Objetivo")]
         [SerializeField] private Transform objetivo;
-        [SerializeField] private Vector3 desplazamiento = new Vector3(0f, 1.2f, -10f);
-        [SerializeField] private float tiempoSuavizado = 0.15f;
+
+        [Header("Ajustes de seguimiento")]
+        [SerializeField] private Vector3 offset = new Vector3(0f, 1f, -10f);
+        [Range(0f, 1f)] [SerializeField] private float suavizadoX = 0.15f;
+        [Range(0f, 1f)] [SerializeField] private float suavizadoY = 0.25f;
+
+        [Header("Anticipación (Look Ahead)")]
         [SerializeField] private float distanciaAnticipacion = 2f;
-        [SerializeField] private float suavizadoAnticipacion = 0.3f;
+        [SerializeField] private float velocidadAnticipacion = 4f;
+        [SerializeField] private float umbralMovimientoX = 0.1f;
 
-        [Header("Limites opcionales")]
-        [SerializeField] private bool usarLimites;
-        [SerializeField] private Vector2 limitesMinimos;
-        [SerializeField] private Vector2 limitesMaximos;
+        [Header("Límites del Mapa (Bounds)")]
+        [SerializeField] private bool usarLimites = false;
+        [SerializeField] private Vector2 limiteMin = new Vector2(-50f, -10f);
+        [SerializeField] private Vector2 limiteMax = new Vector2(50f, 10f);
 
-        private Vector3 velocidadActual;
-        private float anticipacionActual;
-        private float velocidadAnticipacion;
+        [Header("Suavizado Vertical al Saltar")]
+        [Tooltip("Si está activo, la cámara será más suave verticalmente cuando el jugador esté en el aire para evitar mareos.")]
+        [SerializeField] private bool amortiguarSalto = true;
+        [Range(0f, 1f)] [SerializeField] private float suavizadoSaltoY = 0.45f;
 
-        private float intensidadTemblor;
-        private float temporizadorTemblor;
+        private Vector3 velocidadCamara;
+        private float anticipacionActualX;
 
-        public void EstablecerObjetivo(Transform t) { objetivo = t; }
+        // Variables de Screen Shake
+        private float duracionSacudida;
+        private float magnitudSacudida;
+        private Vector3 offsetSacudida;
 
-        private void OnEnable() { GameEvents.AlAgitarCamara += ManejarTemblor; }
-        private void OnDisable() { GameEvents.AlAgitarCamara -= ManejarTemblor; }
-
-        private void ManejarTemblor(float intensidad, float duracion)
+        private void Start()
         {
-            if (intensidad > intensidadTemblor) intensidadTemblor = intensidad;
-            if (duracion > temporizadorTemblor) temporizadorTemblor = duracion;
+            if (objetivo == null)
+            {
+                // Buscamos automáticamente al jugador usando el tag "Player"
+                GameObject jugador = GameObject.FindWithTag("Player");
+                if (jugador != null)
+                {
+                    objetivo = jugador.transform;
+                }
+            }
+
+            // Posicionamos la cámara instantáneamente al iniciar para evitar transiciones feas
+            if (objetivo != null)
+            {
+                Vector3 posicionInicial = objetivo.position + offset;
+                if (usarLimites)
+                {
+                    posicionInicial.x = Mathf.Clamp(posicionInicial.x, limiteMin.x, limiteMax.x);
+                    posicionInicial.y = Mathf.Clamp(posicionInicial.y, limiteMin.y, limiteMax.y);
+                }
+                transform.position = new Vector3(posicionInicial.x, posicionInicial.y, offset.z);
+            }
         }
 
         private void LateUpdate()
         {
-            if (objetivo == null)
+            if (objetivo == null) return;
+
+            // 1. Obtener la velocidad horizontal del Rigidbody2D del objetivo
+            float velocidadTargetX = 0f;
+            var rb = objetivo.GetComponent<Rigidbody2D>();
+            if (rb != null)
             {
-                var p = GameObject.FindGameObjectWithTag("Player");
-                if (p != null) objetivo = p.transform;
-                else return;
+                velocidadTargetX = rb.linearVelocity.x;
             }
 
-            float velXObjetivo = 0f;
-            var rb = objetivo.GetComponent<Rigidbody2D>();
-            if (rb != null) velXObjetivo = rb.linearVelocity.x;
+            // 2. Calcular la anticipación horizontal (hacia dónde se mueve el jugador)
+            float anticipacionObjetivoX = 0f;
+            if (Mathf.Abs(velocidadTargetX) > umbralMovimientoX)
+            {
+                anticipacionObjetivoX = Mathf.Sign(velocidadTargetX) * distanciaAnticipacion;
+            }
 
-            float anticipacionDeseada = Mathf.Clamp(velXObjetivo / 10f, -1f, 1f) * distanciaAnticipacion;
-            anticipacionActual = Mathf.SmoothDamp(anticipacionActual, anticipacionDeseada, ref velocidadAnticipacion, suavizadoAnticipacion);
+            // Transicionar suavemente hacia la anticipación horizontal
+            anticipacionActualX = Mathf.MoveTowards(anticipacionActualX, anticipacionObjetivoX, velocidadAnticipacion * Time.deltaTime);
 
-            Vector3 deseada = objetivo.position + desplazamiento + new Vector3(anticipacionActual, 0f, 0f);
-            Vector3 suavizada = Vector3.SmoothDamp(transform.position, deseada, ref velocidadActual, tiempoSuavizado);
+            // 3. Suavizado vertical dinámico si está en el aire saltando/cayendo
+            float suavizadoActualY = suavizadoY;
+            if (amortiguarSalto && rb != null && Mathf.Abs(rb.linearVelocity.y) > 0.1f)
+            {
+                suavizadoActualY = suavizadoSaltoY;
+            }
 
+            // 4. Posición deseada
+            Vector3 posicionDeseada = objetivo.position + offset;
+            posicionDeseada.x += anticipacionActualX;
+
+            // 5. Interpolación suave e independiente para cada eje (SmoothDamp)
+            float nuevoX = Mathf.SmoothDamp(transform.position.x, posicionDeseada.x, ref velocidadCamara.x, suavizadoX);
+            float nuevoY = Mathf.SmoothDamp(transform.position.y, posicionDeseada.y, ref velocidadCamara.y, suavizadoActualY);
+
+            // 6. Aplicar límites de movimiento (Bounds) si están activos
             if (usarLimites)
             {
-                suavizada.x = Mathf.Clamp(suavizada.x, limitesMinimos.x, limitesMaximos.x);
-                suavizada.y = Mathf.Clamp(suavizada.y, limitesMinimos.y, limitesMaximos.y);
+                nuevoX = Mathf.Clamp(nuevoX, limiteMin.x, limiteMax.x);
+                nuevoY = Mathf.Clamp(nuevoY, limiteMin.y, limiteMax.y);
             }
 
-            if (temporizadorTemblor > 0f)
+            // 7. Procesar el Screen Shake (Sacudida de pantalla)
+            ManejarSacudida();
+
+            // 8. Aplicar la posición final con el desplazamiento Z y el screen shake
+            transform.position = new Vector3(nuevoX, nuevoY, offset.z) + offsetSacudida;
+        }
+
+        private void ManejarSacudida()
+        {
+            if (duracionSacudida > 0)
             {
-                temporizadorTemblor -= Time.deltaTime;
-                Vector3 ruido = new Vector3(
-                    (Mathf.PerlinNoise(Time.time * 30f, 0f) - 0.5f) * 2f,
-                    (Mathf.PerlinNoise(0f, Time.time * 30f) - 0.5f) * 2f,
-                    0f) * intensidadTemblor;
-                suavizada += ruido;
-                if (temporizadorTemblor <= 0f) intensidadTemblor = 0f;
-            }
+                float shakeX = Random.Range(-1f, 1f) * magnitudSacudida;
+                float shakeY = Random.Range(-1f, 1f) * magnitudSacudida;
+                offsetSacudida = new Vector3(shakeX, shakeY, 0f);
 
-            transform.position = suavizada;
+                duracionSacudida -= Time.deltaTime;
+            }
+            else
+            {
+                offsetSacudida = Vector3.zero;
+            }
+        }
+
+        /// <summary>
+        /// Activa una sacudida de pantalla (Screen Shake) para impactos, explosiones, caídas, etc.
+        /// </summary>
+        /// <param name="duracion">Duración del efecto en segundos.</param>
+        /// <param name="magnitud">Intensidad del temblor.</param>
+        public void SacudirPantalla(float duracion, float magnitud)
+        {
+            duracionSacudida = duracion;
+            magnitudSacudida = magnitud;
         }
     }
 }

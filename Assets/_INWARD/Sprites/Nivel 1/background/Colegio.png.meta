@@ -1,0 +1,4615 @@
+fileFormatVersion: 2
+guid: 960fce789bbf16b4e8902e29335c71b2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6374878936312055112
+    second: Colegio_0
+  - first:
+      213: 7559174657322970647
+    second: Colegio_1
+  - first:
+      213: -5945817230068384335
+    second: Colegio_2
+  - first:
+      213: -752664813295261608
+    second: Colegio_3
+  - first:
+      213: -1266602215300651565
+    second: Colegio_4
+  - first:
+      213: -4191912558730081139
+    second: Colegio_5
+  - first:
+      213: 3399921940997065100
+    second: Colegio_6
+  - first:
+      213: -8225008928236026573
+    second: Colegio_7
+  - first:
+      213: -1063352328752225979
+    second: Colegio_8
+  - first:
+      213: -7778193334643062724
+    second: Colegio_9
+  - first:
+      213: -4446230213819120232
+    second: Colegio_10
+  - first:
+      213: 1182174677126904158
+    second: Colegio_11
+  - first:
+      213: -5211473591329555191
+    second: Colegio_12
+  - first:
+      213: -1029964454373117129
+    second: Colegio_13
+  - first:
+      213: -4580813365677605379
+    second: Colegio_14
+  - first:
+      213: -8410050438012549319
+    second: Colegio_15
+  - first:
+      213: -5263591234495009135
+    second: Colegio_16
+  - first:
+      213: 4706898057204245536
+    second: Colegio_17
+  - first:
+      213: -1861865692469421273
+    second: Colegio_18
+  - first:
+      213: 3160491535002080618
+    second: Colegio_19
+  - first:
+      213: -655836420933583436
+    second: Colegio_20
+  - first:
+      213: -5274119692779827391
+    second: Colegio_21
+  - first:
+      213: -1168555581869264283
+    second: Colegio_22
+  - first:
+      213: 7298492757404970879
+    second: Colegio_23
+  - first:
+      213: 7771782053254406305
+    second: Colegio_24
+  - first:
+      213: -8081788346259974921
+    second: Colegio_25
+  - first:
+      213: -1490870661575592607
+    second: Colegio_26
+  - first:
+      213: -2245312636667883339
+    second: Colegio_27
+  - first:
+      213: -8318918752709466179
+    second: Colegio_28
+  - first:
+      213: 613787911141326027
+    second: Colegio_29
+  - first:
+      213: -1808855681966764911
+    second: Colegio_30
+  - first:
+      213: -3173696062501756999
+    second: Colegio_31
+  - first:
+      213: 9208754990054106913
+    second: Colegio_32
+  - first:
+      213: 7781144501795027599
+    second: Colegio_33
+  - first:
+      213: -7788626788654519524
+    second: Colegio_34
+  - first:
+      213: 2754040760519345193
+    second: Colegio_35
+  - first:
+      213: 6394849957384035440
+    second: Colegio_36
+  - first:
+      213: 164672860448090906
+    second: Colegio_37
+  - first:
+      213: 844199423825244802
+    second: Colegio_38
+  - first:
+      213: -8076926937004749760
+    second: Colegio_39
+  - first:
+      213: -2304812526323801798
+    second: Colegio_40
+  - first:
+      213: -7915536137889855305
+    second: Colegio_41
+  - first:
+      213: -7334398518895950485
+    second: Colegio_42
+  - first:
+      213: 7914549802097808611
+    second: Colegio_43
+  - first:
+      213: 8502373225836039454
+    second: Colegio_44
+  - first:
+      213: 633687878582107195
+    second: Colegio_45
+  - first:
+      213: 6475821521434664503
+    second: Colegio_46
+  - first:
+      213: 2159958672550401691
+    second: Colegio_47
+  - first:
+      213: -2560132231499863457
+    second: Colegio_48
+  - first:
+      213: -2666241953913736166
+    second: Colegio_49
+  - first:
+      213: 7548915259721261945
+    second: Colegio_50
+  - first:
+      213: -3641909096516044898
+    second: Colegio_51
+  - first:
+      213: 8052710321941433715
+    second: Colegio_52
+  - first:
+      213: -8232099402322997567
+    second: Colegio_53
+  - first:
+      213: 5019855997383089854
+    second: Colegio_54
+  - first:
+      213: 6216471931888032114
+    second: Colegio_55
+  - first:
+      213: 739577645456376383
+    second: Colegio_56
+  - first:
+      213: -7739088790528321321
+    second: Colegio_57
+  - first:
+      213: 7343816800046286495
+    second: Colegio_58
+  - first:
+      213: 7174538269869253109
+    second: Colegio_59
+  - first:
+      213: -7004560811154103367
+    second: Colegio_60
+  - first:
+      213: 764811670202142687
+    second: Colegio_61
+  - first:
+      213: -4587118051973210049
+    second: Colegio_62
+  - first:
+      213: 6252678876756035729
+    second: Colegio_63
+  - first:
+      213: -949643056095447053
+    second: Colegio_64
+  - first:
+      213: 6678381581168944378
+    second: Colegio_65
+  - first:
+      213: -6875676784106054511
+    second: Colegio_66
+  - first:
+      213: 7331522433350483577
+    second: Colegio_67
+  - first:
+      213: 4181014242437642806
+    second: Colegio_68
+  - first:
+      213: -7479256649303833008
+    second: Colegio_69
+  - first:
+      213: -4689360695193162992
+    second: Colegio_70
+  - first:
+      213: 1373525948660334244
+    second: Colegio_71
+  - first:
+      213: -3712138195788184159
+    second: Colegio_72
+  - first:
+      213: 5493979988524093840
+    second: Colegio_73
+  - first:
+      213: 2657404937169112909
+    second: Colegio_74
+  - first:
+      213: 375399750795392987
+    second: Colegio_75
+  - first:
+      213: -176311512751267794
+    second: Colegio_76
+  - first:
+      213: -1200111046226612863
+    second: Colegio_77
+  - first:
+      213: -7434342198865632937
+    second: Colegio_78
+  - first:
+      213: -3503655159445005471
+    second: Colegio_79
+  - first:
+      213: -3592759182838999889
+    second: Colegio_80
+  - first:
+      213: 5016633561577125433
+    second: Colegio_81
+  - first:
+      213: -4035560521172345168
+    second: Colegio_82
+  - first:
+      213: 396577629409720995
+    second: Colegio_83
+  - first:
+      213: 3789315787565676828
+    second: Colegio_84
+  - first:
+      213: -2601287859825515018
+    second: Colegio_85
+  - first:
+      213: 1042144985217974668
+    second: Colegio_86
+  - first:
+      213: 3917998995411881019
+    second: Colegio_87
+  - first:
+      213: 8332415879884897491
+    second: Colegio_88
+  - first:
+      213: -7541423012189002685
+    second: Colegio_89
+  - first:
+      213: 993391362573760639
+    second: Colegio_90
+  - first:
+      213: -4800839162604562324
+    second: Colegio_91
+  - first:
+      213: -8444505312719546440
+    second: Colegio_92
+  - first:
+      213: 1109139131168203735
+    second: Colegio_93
+  - first:
+      213: -6895178422934521323
+    second: Colegio_94
+  - first:
+      213: -8521247910928385897
+    second: Colegio_95
+  - first:
+      213: -6665222430009571458
+    second: Colegio_96
+  - first:
+      213: 2499480054031349503
+    second: Colegio_97
+  - first:
+      213: -4734459180958010348
+    second: Colegio_98
+  - first:
+      213: -3049604191491322511
+    second: Colegio_99
+  - first:
+      213: -968484707278270275
+    second: Colegio_100
+  - first:
+      213: -4471131140718595511
+    second: Colegio_101
+  - first:
+      213: 6660587601173753482
+    second: Colegio_102
+  - first:
+      213: 3858336294845367896
+    second: Colegio_103
+  - first:
+      213: 3832877017642699958
+    second: Colegio_104
+  - first:
+      213: 7623347182954895681
+    second: Colegio_105
+  - first:
+      213: -5364556966610063867
+    second: Colegio_106
+  - first:
+      213: -5670462222573251080
+    second: Colegio_107
+  - first:
+      213: 397670804368218852
+    second: Colegio_108
+  - first:
+      213: -1385033479683531326
+    second: Colegio_109
+  - first:
+      213: -4160975592307431232
+    second: Colegio_110
+  - first:
+      213: 6568890818449924671
+    second: Colegio_111
+  - first:
+      213: 5153621391804606205
+    second: Colegio_112
+  - first:
+      213: -6972628556583093610
+    second: Colegio_113
+  - first:
+      213: -1371006672566202665
+    second: Colegio_114
+  - first:
+      213: 2181420415446007530
+    second: Colegio_115
+  - first:
+      213: -2546180299654309213
+    second: Colegio_116
+  - first:
+      213: -2332347413102071205
+    second: Colegio_117
+  - first:
+      213: 4651448213421825835
+    second: Colegio_118
+  - first:
+      213: -1995173971017121238
+    second: Colegio_119
+  - first:
+      213: 283868894777713887
+    second: Colegio_120
+  - first:
+      213: 2647485518895809006
+    second: Colegio_121
+  - first:
+      213: 7718904981830028395
+    second: Colegio_122
+  - first:
+      213: -5413670910437768843
+    second: Colegio_123
+  - first:
+      213: 1829202664479839657
+    second: Colegio_124
+  - first:
+      213: -146793372359086880
+    second: Colegio_125
+  - first:
+      213: -21740867103584507
+    second: Colegio_126
+  - first:
+      213: 6402998578291312469
+    second: Colegio_127
+  - first:
+      213: 5515279551173971550
+    second: Colegio_128
+  - first:
+      213: -4016715602731013244
+    second: Colegio_129
+  - first:
+      213: -1475890346280492789
+    second: Colegio_130
+  - first:
+      213: -1614412746388491416
+    second: Colegio_131
+  - first:
+      213: -530965238153922734
+    second: Colegio_132
+  - first:
+      213: 2266063232508970524
+    second: Colegio_133
+  - first:
+      213: 3346070610471895504
+    second: Colegio_134
+  - first:
+      213: 476223590113340552
+    second: Colegio_135
+  - first:
+      213: -4553039458071252250
+    second: Colegio_136
+  - first:
+      213: -326312272783625273
+    second: Colegio_137
+  - first:
+      213: 895649030630141337
+    second: Colegio_138
+  - first:
+      213: -6690935066792553627
+    second: Colegio_139
+  - first:
+      213: -7183112466437828512
+    second: Colegio_140
+  - first:
+      213: -4527131587943903023
+    second: Colegio_141
+  - first:
+      213: 1412614341456039294
+    second: Colegio_142
+  - first:
+      213: 7414179381576352974
+    second: Colegio_143
+  - first:
+      213: -7778647520651376587
+    second: Colegio_144
+  - first:
+      213: 2621316016162295536
+    second: Colegio_145
+  - first:
+      213: 8440687018957101747
+    second: Colegio_146
+  - first:
+      213: 7803898692001146474
+    second: Colegio_147
+  - first:
+      213: 836998333995809444
+    second: Colegio_148
+  - first:
+      213: 8446222100332393029
+    second: Colegio_149
+  - first:
+      213: 5446158976668086703
+    second: Colegio_150
+  - first:
+      213: 3890636066745221042
+    second: Colegio_151
+  - first:
+      213: -1878353273091181303
+    second: Colegio_152
+  - first:
+      213: -251160429130546968
+    second: Colegio_153
+  - first:
+      213: -421553091032320535
+    second: Colegio_154
+  - first:
+      213: -8301831313461560358
+    second: Colegio_155
+  - first:
+      213: 788104769757332869
+    second: Colegio_156
+  - first:
+      213: 8091673932218479622
+    second: Colegio_157
+  - first:
+      213: -5430332187680911672
+    second: Colegio_158
+  - first:
+      213: -7021590650466046233
+    second: Colegio_159
+  - first:
+      213: -8376123972838171226
+    second: Colegio_160
+  - first:
+      213: -6325247552570439250
+    second: Colegio_161
+  - first:
+      213: -8746508281435612141
+    second: Colegio_162
+  - first:
+      213: 5019107920367669983
+    second: Colegio_163
+  - first:
+      213: 2372313077519885241
+    second: Colegio_164
+  - first:
+      213: 2180262047519867270
+    second: Colegio_165
+  - first:
+      213: 4354262272096299309
+    second: Colegio_166
+  - first:
+      213: -736753313072838366
+    second: Colegio_167
+  - first:
+      213: 5745941432174809851
+    second: Colegio_168
+  - first:
+      213: 7071354085916298358
+    second: Colegio_169
+  - first:
+      213: -1317495460887650321
+    second: Colegio_170
+  - first:
+      213: -146233113537098785
+    second: Colegio_171
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 24
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Colegio_0
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 811
+        width: 41
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8450005fd9e187850800000000000000
+      internalID: 6374878936312055112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_1
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 811
+        width: 41
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71eeed4fc4597e860800000000000000
+      internalID: 7559174657322970647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_2
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 811
+        width: 41
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bd70664bb63c7da0800000000000000
+      internalID: -5945817230068384335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_3
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 811
+        width: 41
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 858a990175ffd85f0800000000000000
+      internalID: -752664813295261608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_4
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 797
+        width: 39
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d52845feff1c6ee0800000000000000
+      internalID: -1266602215300651565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_5
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 797
+        width: 38
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8c056fccb553d5c0800000000000000
+      internalID: -4191912558730081139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_6
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 797
+        width: 40
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c89cf25edf2fe2f20800000000000000
+      internalID: 3399921940997065100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_7
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 797
+        width: 40
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 335431e25f5eadd80800000000000000
+      internalID: -8225008928236026573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_8
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 700
+        width: 46
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 541a3add0b63e31f0800000000000000
+      internalID: -1063352328752225979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_9
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 700
+        width: 46
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c380a4e6f5e4e0490800000000000000
+      internalID: -7778193334643062724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_10
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 700
+        width: 46
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 895c3bb7d21db42c0800000000000000
+      internalID: -4446230213819120232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_11
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 699
+        width: 45
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e597c9cfa9de76010800000000000000
+      internalID: 1182174677126904158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_12
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 758
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90df87851602da7b0800000000000000
+      internalID: -5211473591329555191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_13
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 748
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 733bfc529c4d4b1f0800000000000000
+      internalID: -1029964454373117129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_14
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 748
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfdbc6c938ead60c0800000000000000
+      internalID: -4580813365677605379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_15
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 756
+        width: 36
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 937c42b5faf794b80800000000000000
+      internalID: -8410050438012549319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_16
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 748
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19ea011f8a7f3f6b0800000000000000
+      internalID: -5263591234495009135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_17
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 748
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 024a2a548d2425140800000000000000
+      internalID: 4706898057204245536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_18
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 748
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72b9fdc64035926e0800000000000000
+      internalID: -1861865692469421273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_19
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 748
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a659d6b5e425cdb20800000000000000
+      internalID: 3160491535002080618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_20
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 748
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bd7d7bff3006e6f0800000000000000
+      internalID: -655836420933583436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_21
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 758
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14f47f835109ec6b0800000000000000
+      internalID: -5274119692779827391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_22
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 748
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 562f16ab3e478cfe0800000000000000
+      internalID: -1168555581869264283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_23
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 743
+        width: 63
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7f62e86e74794560800000000000000
+      internalID: 7298492757404970879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_24
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 738
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a02cfbc99aeadb60800000000000000
+      internalID: 7771782053254406305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_25
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 728
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f458477158b7df80800000000000000
+      internalID: -8081788346259974921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_26
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 738
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1653cb2480d5f4be0800000000000000
+      internalID: -1490870661575592607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_27
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 728
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b017b99d0c07d0e0800000000000000
+      internalID: -2245312636667883339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_28
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 728
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db7aa6d48734d8c80800000000000000
+      internalID: -8318918752709466179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_29
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 728
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bccf10b6adc948800800000000000000
+      internalID: 613787911141326027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_30
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 728
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19c8c6a4757a5e6e0800000000000000
+      internalID: -1808855681966764911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_31
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 728
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bfd6810f34c4f3d0800000000000000
+      internalID: -3173696062501756999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_32
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 728
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 127e7c59fd11ccf70800000000000000
+      internalID: 9208754990054106913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_33
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 728
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8af977b2bd2cfb60800000000000000
+      internalID: 7781144501795027599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_34
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 728
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1be72e933d39e390800000000000000
+      internalID: -7788626788654519524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_35
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 728
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 924c3bbea71583620800000000000000
+      internalID: 2754040760519345193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_36
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 728
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07c1cc5a7221fb850800000000000000
+      internalID: 6394849957384035440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_37
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 728
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1be7271819094200800000000000000
+      internalID: 164672860448090906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_38
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 738
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28271b837e237bb00800000000000000
+      internalID: 844199423825244802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_39
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 728
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04c4c038ebdf8ef80800000000000000
+      internalID: -8076926937004749760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_40
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 738
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a31699ef739a300e0800000000000000
+      internalID: -2304812526323801798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_41
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 728
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b8ce4622dd562290800000000000000
+      internalID: -7915536137889855305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_42
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 738
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b654e08086bf63a90800000000000000
+      internalID: -7334398518895950485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_43
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 728
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e49d27ac1126dd60800000000000000
+      internalID: 7914549802097808611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_44
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 738
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1dcfb1c66f7ef570800000000000000
+      internalID: 8502373225836039454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_45
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 728
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3c7b55a4cf4bc800800000000000000
+      internalID: 633687878582107195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_46
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 738
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73e51f50d5dbed950800000000000000
+      internalID: 6475821521434664503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_47
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 728
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9614eef7f6b9fd10800000000000000
+      internalID: 2159958672550401691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_48
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 738
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5a2c63bc45987cd0800000000000000
+      internalID: -2560132231499863457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_49
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 728
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a147abbb11b9ffad0800000000000000
+      internalID: -2666241953913736166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_50
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 717
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 973263fce6223c860800000000000000
+      internalID: 7548915259721261945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_51
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 707
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e97b5ede8f6557dc0800000000000000
+      internalID: -3641909096516044898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_52
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 717
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37dc07a6f59f0cf60800000000000000
+      internalID: 8052710321941433715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_53
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 707
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ce05d88535b1cd80800000000000000
+      internalID: -8232099402322997567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_54
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 717
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebe12abee6c1aa540800000000000000
+      internalID: 5019855997383089854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_55
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 717
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2795f582948554650800000000000000
+      internalID: 6216471931888032114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_56
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 707
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f324f3933f1834a00800000000000000
+      internalID: 739577645456376383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_57
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 717
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d81a5b9fbb399490800000000000000
+      internalID: -7739088790528321321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_58
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 707
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f960e4e687a7ae560800000000000000
+      internalID: 7343816800046286495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_59
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 717
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f1a00b4b84119360800000000000000
+      internalID: 7174538269869253109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_60
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 707
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b3a983dd0dcace90800000000000000
+      internalID: -7004560811154103367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_61
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 717
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdfc87279282d9a00800000000000000
+      internalID: 764811670202142687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_62
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 707
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f30ea517f684750c0800000000000000
+      internalID: -4587118051973210049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_63
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 717
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 198c1af6f4af5c650800000000000000
+      internalID: 6252678876756035729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_64
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 707
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f7b3020ca032d2f0800000000000000
+      internalID: -949643056095447053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_65
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 717
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af4261c1aa06eac50800000000000000
+      internalID: 6678381581168944378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_66
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 707
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19c55fcc460b490a0800000000000000
+      internalID: -6875676784106054511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_67
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 717
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97eb9ae1fccceb560800000000000000
+      internalID: 7331522433350483577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_68
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 707
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63a38513d42f50a30800000000000000
+      internalID: 4181014242437642806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_69
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 717
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 056444a44b7543890800000000000000
+      internalID: -7479256649303833008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_70
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 707
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01b25530b4b0ceeb0800000000000000
+      internalID: -4689360695193162992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_71
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 717
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ae3ea3b29ebf0310800000000000000
+      internalID: 1373525948660334244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_72
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 707
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a5c2ea8af5db7cc0800000000000000
+      internalID: -3712138195788184159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_73
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 717
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0915513f0b98e3c40800000000000000
+      internalID: 5493979988524093840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_74
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 707
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4f8558f5bff0e420800000000000000
+      internalID: 2657404937169112909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_75
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 717
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd7fdea9510b53500800000000000000
+      internalID: 375399750795392987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_76
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 707
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2026a00d9d9d8df0800000000000000
+      internalID: -176311512751267794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_77
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 717
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18de3a6ac59585fe0800000000000000
+      internalID: -1200111046226612863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_78
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 707
+        width: 21
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 751eae1b829e3d890800000000000000
+      internalID: -7434342198865632937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_79
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 717
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16bd0d51234806fc0800000000000000
+      internalID: -3503655159445005471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_80
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 717
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa4db57fe84f32ec0800000000000000
+      internalID: -3592759182838999889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_81
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 707
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9367b1e15a9ae9540800000000000000
+      internalID: 5016633561577125433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_82
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 717
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0be9ee9561fcef7c0800000000000000
+      internalID: -4035560521172345168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_83
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 707
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3aa35d6b04de08500800000000000000
+      internalID: 396577629409720995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_84
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 693
+        width: 63
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c19b1a3d1aa569430800000000000000
+      internalID: 3789315787565676828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_85
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 697
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f56094497e56ebd0800000000000000
+      internalID: -2601287859825515018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_86
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 697
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c814f50b751767e00800000000000000
+      internalID: 1042144985217974668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_87
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 688
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3cccdfe3578f5630800000000000000
+      internalID: 3917998995411881019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_88
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 697
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dcfc518810b2a370800000000000000
+      internalID: 8332415879884897491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_89
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 688
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 344a4810abb775790800000000000000
+      internalID: -7541423012189002685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_90
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 697
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7876295e2c39cd00800000000000000
+      internalID: 993391362573760639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_91
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 688
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c68db21b73eff5db0800000000000000
+      internalID: -4800839162604562324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_92
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 697
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b7d373b8271fca80800000000000000
+      internalID: -8444505312719546440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_93
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 688
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d324cfc924746f00800000000000000
+      internalID: 1109139131168203735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_94
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 697
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51abc0ea1c76f40a0800000000000000
+      internalID: -6895178422934521323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_95
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 688
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 798f21a2c227eb980800000000000000
+      internalID: -8521247910928385897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_96
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 697
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e774056838f5083a0800000000000000
+      internalID: -6665222430009571458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_97
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 688
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff676b7cddfefa220800000000000000
+      internalID: 2499480054031349503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_98
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 697
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 414396b8572db4eb0800000000000000
+      internalID: -4734459180958010348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_99
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 688
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17d0e943521ada5d0800000000000000
+      internalID: -3049604191491322511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_100
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 697
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db0d74c3a404f82f0800000000000000
+      internalID: -968484707278270275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_101
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 688
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 942f745aae953f1c0800000000000000
+      internalID: -4471131140718595511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_102
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 697
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8e255b42292f6c50800000000000000
+      internalID: 6660587601173753482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_103
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 688
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8564146fa609b8530800000000000000
+      internalID: 3858336294845367896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_104
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 697
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bc0a50175d113530800000000000000
+      internalID: 3832877017642699958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_105
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 688
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14950876fd19bc960800000000000000
+      internalID: 7623347182954895681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_106
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 697
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50e2cdb8cd34d85b0800000000000000
+      internalID: -5364556966610063867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_107
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 688
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f5df37e6a87e41b0800000000000000
+      internalID: -5670462222573251080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_108
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 697
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ea59e75d7fc48500800000000000000
+      internalID: 397670804368218852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_109
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 688
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cd9071736f57cce0800000000000000
+      internalID: -1385033479683531326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_110
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 697
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c8e17d9ebe3146c0800000000000000
+      internalID: -4160975592307431232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_111
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 688
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f32680a5563692b50800000000000000
+      internalID: 6568890818449924671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_112
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 697
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df62e5dc957558740800000000000000
+      internalID: 5153621391804606205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_113
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 688
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69abe16354f3c3f90800000000000000
+      internalID: -6972628556583093610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_114
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 697
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7de4009f1b439fce0800000000000000
+      internalID: -1371006672566202665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_115
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 688
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aeeb1786f46f54e10800000000000000
+      internalID: 2181420415446007530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_116
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 697
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3aad109f1862aacd0800000000000000
+      internalID: -2546180299654309213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_117
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 679
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b52ff359266d1afd0800000000000000
+      internalID: -2332347413102071205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_118
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 679
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2f122471834d8040800000000000000
+      internalID: 4651448213421825835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_119
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 679
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a224b6028d7bf44e0800000000000000
+      internalID: -1995173971017121238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_120
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 679
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd4220c714180f300800000000000000
+      internalID: 283868894777713887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_121
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 679
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee186cd6d02cdb420800000000000000
+      internalID: 2647485518895809006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_122
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 679
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6cc8f83f2f0f1b60800000000000000
+      internalID: 7718904981830028395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_123
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 679
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 571cd746df6ced4b0800000000000000
+      internalID: -5413670910437768843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_124
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 679
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a5d48eb122a26910800000000000000
+      internalID: 1829202664479839657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_125
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 679
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0eca721a43c76fdf0800000000000000
+      internalID: -146793372359086880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_126
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 679
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50f8e2bebc2c2bff0800000000000000
+      internalID: -21740867103584507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_127
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 679
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 557826c48450cd850800000000000000
+      internalID: 6402998578291312469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_128
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 679
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5e43b4d7853a8c40800000000000000
+      internalID: 5515279551173971550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_129
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 679
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48be277d072c148c0800000000000000
+      internalID: -4016715602731013244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_130
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 679
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b01e586bc85948be0800000000000000
+      internalID: -1475890346280492789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_131
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 679
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 863b6a229247899e0800000000000000
+      internalID: -1614412746388491416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_132
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 670
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25731c7dde1a1a8f0800000000000000
+      internalID: -530965238153922734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_133
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 650
+        width: 6
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c16454cf08ca27f10800000000000000
+      internalID: 2266063232508970524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_134
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 650
+        width: 27
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d14d82fd71af6e20800000000000000
+      internalID: 3346070610471895504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_135
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 656
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88ced5205d2eb9600800000000000000
+      internalID: 476223590113340552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_136
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 632
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e273556cba50d0c0800000000000000
+      internalID: -4553039458071252250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_137
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 626
+        width: 34
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c3b1ee77b4b87bf0800000000000000
+      internalID: -326312272783625273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_138
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 637
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99de12a4c0cfd6c00800000000000000
+      internalID: 895649030630141337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_139
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 636
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56310a0c1060523a0800000000000000
+      internalID: -6690935066792553627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_140
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 604
+        width: 37
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0601b400545705c90800000000000000
+      internalID: -7183112466437828512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_141
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 605
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d057297ec56c21c0800000000000000
+      internalID: -4527131587943903023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_142
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 606
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7d0c1b524d9a9310800000000000000
+      internalID: 1412614341456039294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_143
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 611
+        width: 23
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec442e39dd474e660800000000000000
+      internalID: 7414179381576352974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_144
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 609
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5380a920b41bc0490800000000000000
+      internalID: -7778647520651376587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_145
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 595
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fe45634709c06420800000000000000
+      internalID: 2621316016162295536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_146
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 577
+        width: 6
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ba50318f18532570800000000000000
+      internalID: 8440687018957101747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_147
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 579
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a662dd773840d4c60800000000000000
+      internalID: 7803898692001146474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_148
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 583
+        width: 16
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4aaf967dc8d9d9b00800000000000000
+      internalID: 836998333995809444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_149
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 445
+        width: 336
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 542bd501042073570800000000000000
+      internalID: 8446222100332393029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_150
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 558
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa13b9afbb4a49b40800000000000000
+      internalID: 5446158976668086703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_151
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 559
+        width: 27
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bffba4a3e05ef530800000000000000
+      internalID: 3890636066745221042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_152
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 553
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90535ba66afbee5e0800000000000000
+      internalID: -1878353273091181303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_153
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 556
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e00a00abe2b38cf0800000000000000
+      internalID: -251160429130546968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_154
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 555
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e5fc0b72b7562af0800000000000000
+      internalID: -421553091032320535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_155
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 555
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adbb8e7c768f9cc80800000000000000
+      internalID: -8301831313461560358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_156
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 537
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5854d2fcc19efea00800000000000000
+      internalID: 788104769757332869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_157
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 541
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 604bb20e1966b4070800000000000000
+      internalID: 8091673932218479622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_158
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 527
+        width: 10
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cec8ec75a593a4b0800000000000000
+      internalID: -5430332187680911672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_159
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 541
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ee64c0618c4e8e90800000000000000
+      internalID: -7021590650466046233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_160
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 531
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6add85410a702cb80800000000000000
+      internalID: -8376123972838171226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_161
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 528
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea941a01dd43838a0800000000000000
+      internalID: -6325247552570439250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_162
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 531
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31c940c1f092e9680800000000000000
+      internalID: -8746508281435612141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_163
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 518
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd25ddaaf0477a540800000000000000
+      internalID: 5019107920367669983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_164
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 510
+        width: 20
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b32699cc262ce020800000000000000
+      internalID: 2372313077519885241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_165
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 511
+        width: 21
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68100bbd7c8d14e10800000000000000
+      internalID: 2180262047519867270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_166
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 292
+        width: 23
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d296f2377727d6c30800000000000000
+      internalID: 4354262272096299309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_167
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 252
+        width: 73
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2298337e3c686c5f0800000000000000
+      internalID: -736753313072838366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_168
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 257
+        width: 151
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf29afc0a4fadbf40800000000000000
+      internalID: 5745941432174809851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_169
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 258
+        width: 151
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67c4c04531f722260800000000000000
+      internalID: 7071354085916298358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_170
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 81
+        width: 336
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fef1a94dbd057bde0800000000000000
+      internalID: -1317495460887650321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Colegio_171
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 79
+        width: 151
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdbc83d02c978fdf0800000000000000
+      internalID: -146233113537098785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Colegio_0: 6374878936312055112
+      Colegio_1: 7559174657322970647
+      Colegio_10: -4446230213819120232
+      Colegio_100: -968484707278270275
+      Colegio_101: -4471131140718595511
+      Colegio_102: 6660587601173753482
+      Colegio_103: 3858336294845367896
+      Colegio_104: 3832877017642699958
+      Colegio_105: 7623347182954895681
+      Colegio_106: -5364556966610063867
+      Colegio_107: -5670462222573251080
+      Colegio_108: 397670804368218852
+      Colegio_109: -1385033479683531326
+      Colegio_11: 1182174677126904158
+      Colegio_110: -4160975592307431232
+      Colegio_111: 6568890818449924671
+      Colegio_112: 5153621391804606205
+      Colegio_113: -6972628556583093610
+      Colegio_114: -1371006672566202665
+      Colegio_115: 2181420415446007530
+      Colegio_116: -2546180299654309213
+      Colegio_117: -2332347413102071205
+      Colegio_118: 4651448213421825835
+      Colegio_119: -1995173971017121238
+      Colegio_12: -5211473591329555191
+      Colegio_120: 283868894777713887
+      Colegio_121: 2647485518895809006
+      Colegio_122: 7718904981830028395
+      Colegio_123: -5413670910437768843
+      Colegio_124: 1829202664479839657
+      Colegio_125: -146793372359086880
+      Colegio_126: -21740867103584507
+      Colegio_127: 6402998578291312469
+      Colegio_128: 5515279551173971550
+      Colegio_129: -4016715602731013244
+      Colegio_13: -1029964454373117129
+      Colegio_130: -1475890346280492789
+      Colegio_131: -1614412746388491416
+      Colegio_132: -530965238153922734
+      Colegio_133: 2266063232508970524
+      Colegio_134: 3346070610471895504
+      Colegio_135: 476223590113340552
+      Colegio_136: -4553039458071252250
+      Colegio_137: -326312272783625273
+      Colegio_138: 895649030630141337
+      Colegio_139: -6690935066792553627
+      Colegio_14: -4580813365677605379
+      Colegio_140: -7183112466437828512
+      Colegio_141: -4527131587943903023
+      Colegio_142: 1412614341456039294
+      Colegio_143: 7414179381576352974
+      Colegio_144: -7778647520651376587
+      Colegio_145: 2621316016162295536
+      Colegio_146: 8440687018957101747
+      Colegio_147: 7803898692001146474
+      Colegio_148: 836998333995809444
+      Colegio_149: 8446222100332393029
+      Colegio_15: -8410050438012549319
+      Colegio_150: 5446158976668086703
+      Colegio_151: 3890636066745221042
+      Colegio_152: -1878353273091181303
+      Colegio_153: -251160429130546968
+      Colegio_154: -421553091032320535
+      Colegio_155: -8301831313461560358
+      Colegio_156: 788104769757332869
+      Colegio_157: 8091673932218479622
+      Colegio_158: -5430332187680911672
+      Colegio_159: -7021590650466046233
+      Colegio_16: -5263591234495009135
+      Colegio_160: -8376123972838171226
+      Colegio_161: -6325247552570439250
+      Colegio_162: -8746508281435612141
+      Colegio_163: 5019107920367669983
+      Colegio_164: 2372313077519885241
+      Colegio_165: 2180262047519867270
+      Colegio_166: 4354262272096299309
+      Colegio_167: -736753313072838366
+      Colegio_168: 5745941432174809851
+      Colegio_169: 7071354085916298358
+      Colegio_17: 4706898057204245536
+      Colegio_170: -1317495460887650321
+      Colegio_171: -146233113537098785
+      Colegio_18: -1861865692469421273
+      Colegio_19: 3160491535002080618
+      Colegio_2: -5945817230068384335
+      Colegio_20: -655836420933583436
+      Colegio_21: -5274119692779827391
+      Colegio_22: -1168555581869264283
+      Colegio_23: 7298492757404970879
+      Colegio_24: 7771782053254406305
+      Colegio_25: -8081788346259974921
+      Colegio_26: -1490870661575592607
+      Colegio_27: -2245312636667883339
+      Colegio_28: -8318918752709466179
+      Colegio_29: 613787911141326027
+      Colegio_3: -752664813295261608
+      Colegio_30: -1808855681966764911
+      Colegio_31: -3173696062501756999
+      Colegio_32: 9208754990054106913
+      Colegio_33: 7781144501795027599
+      Colegio_34: -7788626788654519524
+      Colegio_35: 2754040760519345193
+      Colegio_36: 6394849957384035440
+      Colegio_37: 164672860448090906
+      Colegio_38: 844199423825244802
+      Colegio_39: -8076926937004749760
+      Colegio_4: -1266602215300651565
+      Colegio_40: -2304812526323801798
+      Colegio_41: -7915536137889855305
+      Colegio_42: -7334398518895950485
+      Colegio_43: 7914549802097808611
+      Colegio_44: 8502373225836039454
+      Colegio_45: 633687878582107195
+      Colegio_46: 6475821521434664503
+      Colegio_47: 2159958672550401691
+      Colegio_48: -2560132231499863457
+      Colegio_49: -2666241953913736166
+      Colegio_5: -4191912558730081139
+      Colegio_50: 7548915259721261945
+      Colegio_51: -3641909096516044898
+      Colegio_52: 8052710321941433715
+      Colegio_53: -8232099402322997567
+      Colegio_54: 5019855997383089854
+      Colegio_55: 6216471931888032114
+      Colegio_56: 739577645456376383
+      Colegio_57: -7739088790528321321
+      Colegio_58: 7343816800046286495
+      Colegio_59: 7174538269869253109
+      Colegio_6: 3399921940997065100
+      Colegio_60: -7004560811154103367
+      Colegio_61: 764811670202142687
+      Colegio_62: -4587118051973210049
+      Colegio_63: 6252678876756035729
+      Colegio_64: -949643056095447053
+      Colegio_65: 6678381581168944378
+      Colegio_66: -6875676784106054511
+      Colegio_67: 7331522433350483577
+      Colegio_68: 4181014242437642806
+      Colegio_69: -7479256649303833008
+      Colegio_7: -8225008928236026573
+      Colegio_70: -4689360695193162992
+      Colegio_71: 1373525948660334244
+      Colegio_72: -3712138195788184159
+      Colegio_73: 5493979988524093840
+      Colegio_74: 2657404937169112909
+      Colegio_75: 375399750795392987
+      Colegio_76: -176311512751267794
+      Colegio_77: -1200111046226612863
+      Colegio_78: -7434342198865632937
+      Colegio_79: -3503655159445005471
+      Colegio_8: -1063352328752225979
+      Colegio_80: -3592759182838999889
+      Colegio_81: 5016633561577125433
+      Colegio_82: -4035560521172345168
+      Colegio_83: 396577629409720995
+      Colegio_84: 3789315787565676828
+      Colegio_85: -2601287859825515018
+      Colegio_86: 1042144985217974668
+      Colegio_87: 3917998995411881019
+      Colegio_88: 8332415879884897491
+      Colegio_89: -7541423012189002685
+      Colegio_9: -7778193334643062724
+      Colegio_90: 993391362573760639
+      Colegio_91: -4800839162604562324
+      Colegio_92: -8444505312719546440
+      Colegio_93: 1109139131168203735
+      Colegio_94: -6895178422934521323
+      Colegio_95: -8521247910928385897
+      Colegio_96: -6665222430009571458
+      Colegio_97: 2499480054031349503
+      Colegio_98: -4734459180958010348
+      Colegio_99: -3049604191491322511
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

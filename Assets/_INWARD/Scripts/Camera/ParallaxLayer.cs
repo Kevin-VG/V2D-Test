@@ -3,46 +3,79 @@ using UnityEngine;
 namespace Shatter.CameraSystem
 {
     /// <summary>
-    /// Capa de parallax. Se mueve proporcional al desplazamiento de la camara.
-    /// factorParallax = 0 -> estatica (fondo infinito). 1 -> sigue 1:1 con la camara.
+    /// Hace que un GameObject de fondo (ej: montañas, nubes, cielo) siga a la cámara con efecto Parallax.
+    /// Soporta repetición infinita horizontal (tiling) para fondos continuos usando SpriteRenderer.
     /// </summary>
     public class ParallaxLayer : MonoBehaviour
     {
-        [Range(0f, 1.5f)] public float factorParallaxX = 0.5f;
-        [Range(0f, 1.5f)] public float factorParallaxY = 0.1f;
-        public bool desplazamientoInfinitoX;
+        [Header("Referencias")]
+        [SerializeField] private Transform camara;
 
-        private Transform camara;
-        private Vector3 ultimaPosicionCamara;
-        private float anchuraSprite;
+        [Header("Efecto Parallax")]
+        [Tooltip("Factor de movimiento horizontal. 0 = estático en el mundo. 1 = se mueve 1:1 con la cámara (cielo infinito). 0.8 = montañas lejanas.")]
+        [Range(0f, 1f)] [SerializeField] private float factorParallaxX = 0.5f;
+        [Tooltip("Factor de movimiento vertical. 0 = estático. 1 = se mueve 1:1 con la cámara.")]
+        [Range(0f, 1f)] [SerializeField] private float factorParallaxY = 0.3f;
+
+        [Header("Repetición Infinita (Tiling)")]
+        [Tooltip("¿El fondo debe repetirse infinitamente al avanzar horizontalmente? (Requiere SpriteRenderer)")]
+        [SerializeField] private bool repetirInfinitoX = false;
+
+        private float longitudSpriteX;
+        private float posicionInicialX;
+        private float posicionInicialY;
 
         private void Start()
         {
-            camara = Camera.main != null ? Camera.main.transform : null;
-            if (camara != null) ultimaPosicionCamara = camara.position;
-
-            if (desplazamientoInfinitoX)
+            // Si no se asigna la cámara, buscamos automáticamente la Main Camera
+            if (camara == null)
             {
-                var sr = GetComponentInChildren<SpriteRenderer>();
-                if (sr != null) anchuraSprite = sr.bounds.size.x;
+                var mainCam = Camera.main;
+                if (mainCam != null)
+                {
+                    camara = mainCam.transform;
+                }
+            }
+
+            posicionInicialX = transform.position.x;
+            posicionInicialY = transform.position.y;
+
+            // Obtener el ancho del sprite para la repetición infinita horizontal
+            var spriteRenderer = GetComponent<SpriteRenderer>();
+            if (spriteRenderer != null)
+            {
+                longitudSpriteX = spriteRenderer.bounds.size.x;
+            }
+            else
+            {
+                repetirInfinitoX = false; // Desactivar si no hay SpriteRenderer
             }
         }
 
         private void LateUpdate()
         {
-            if (camara == null) { camara = Camera.main != null ? Camera.main.transform : null; if (camara == null) return; ultimaPosicionCamara = camara.position; }
+            if (camara == null) return;
 
-            Vector3 delta = camara.position - ultimaPosicionCamara;
-            transform.position += new Vector3(delta.x * factorParallaxX, delta.y * factorParallaxY, 0f);
-            ultimaPosicionCamara = camara.position;
+            // 1. Calcular la distancia que la cámara se ha movido respecto al inicio, multiplicada por el factor
+            float distanciaX = camara.position.x * factorParallaxX;
+            float distanciaY = camara.position.y * factorParallaxY;
 
-            if (desplazamientoInfinitoX && anchuraSprite > 0f)
+            // 2. Mover el fondo a la nueva posición con el desplazamiento de desfase
+            transform.position = new Vector3(posicionInicialX + distanciaX, posicionInicialY + distanciaY, transform.position.z);
+
+            // 3. Lógica de repetición infinita (Tiling) horizontal
+            if (repetirInfinitoX)
             {
-                float dx = camara.position.x - transform.position.x;
-                if (Mathf.Abs(dx) >= anchuraSprite)
+                // Calcula el movimiento relativo de la cámara respecto al fondo
+                float temp = camara.position.x * (1 - factorParallaxX);
+
+                if (temp > posicionInicialX + longitudSpriteX)
                 {
-                    float offset = (dx % anchuraSprite);
-                    transform.position = new Vector3(camara.position.x - offset, transform.position.y, transform.position.z);
+                    posicionInicialX += longitudSpriteX;
+                }
+                else if (temp < posicionInicialX - longitudSpriteX)
+                {
+                    posicionInicialX -= longitudSpriteX;
                 }
             }
         }

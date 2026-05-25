@@ -17,6 +17,7 @@ namespace Shatter.Player
         private static readonly int HashEnSuelo = Animator.StringToHash("enSuelo");
         private static readonly int HashDash = Animator.StringToHash("dash");
         private static readonly int HashDeslizPared = Animator.StringToHash("deslizPared");
+        private static readonly int HashAgachado = Animator.StringToHash("estaAgachado");
 
         private void Reset()
         {
@@ -38,18 +39,20 @@ namespace Shatter.Player
 
             if (renderizadorSprite != null)
             {
+                // Volteamos el sprite horizontalmente según la dirección del movimiento
                 renderizadorSprite.flipX = controlador.Direccion < 0;
-                // Escalar sprite al agacharse como feedback visual
-                float escalaY = controlador.EstaAgachado ? 0.5f : 1f;
-                renderizadorSprite.transform.localScale = new Vector3(1f, escalaY, 1f);
             }
 
             if (animador == null || !animador.isActiveAndEnabled || animador.runtimeAnimatorController == null) return;
+
+            // Enviamos todos los parámetros físicos del PlayerController2D al Animator de Unity
             animador.SetFloat(HashVelocidad, Mathf.Abs(controlador.VelocidadX));
             animador.SetFloat(HashVertical, controlador.VelocidadY);
             animador.SetBool(HashEnSuelo, controlador.EstaEnSuelo);
             animador.SetBool(HashDash, controlador.EstaHaciendoDash);
             animador.SetBool(HashDeslizPared, controlador.EstaDeslizandoPared);
+            animador.SetBool(HashAgachado, controlador.EstaAgachado); // Habilitamos parámetro para animaciones reales de Crouch-Idle y Crouch-Walk
         }
     }
 }
+

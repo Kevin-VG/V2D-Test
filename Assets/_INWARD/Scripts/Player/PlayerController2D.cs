@@ -135,6 +135,18 @@ namespace Shatter.Player
             rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
             rb.interpolation = RigidbodyInterpolation2D.Interpolate;
 
+            // --- Fallback robusto para LayerMasks si no están asignados en el Inspector ---
+            if (capaSuelo.value == 0)
+            {
+                capaSuelo = ~0; // Todo (Everything) - ChequearOverlap ya se encarga de ignorar al propio jugador
+                Debug.LogWarning("PlayerController2D: capaSuelo no asignada en el Inspector. Usando Everything como fallback.");
+            }
+            if (capaPared.value == 0)
+            {
+                capaPared = ~0; // Todo (Everything)
+                Debug.LogWarning("PlayerController2D: capaPared no asignada en el Inspector. Usando Everything como fallback.");
+            }
+
             // Cargar si el doble salto ya fue desbloqueado anteriormente
             if (PlayerPrefs.GetInt("DobleSaltoDesbloqueado", 0) == 1)
             {
@@ -188,7 +200,8 @@ namespace Shatter.Player
             }
 
             // --- Agacharse (solo si no hizo drop-through) ---
-            agachadoMantenido = abajoMantenido && estaEnSuelo;
+            // Agregamos tolerancia a micro-rebotes verticales para evitar que se levante y salga volando por fluctuaciones de física
+            agachadoMantenido = abajoMantenido && (estaEnSuelo || (estaAgachado && Mathf.Abs(rb.linearVelocity.y) < 0.1f));
             if (agachadoMantenido && !estaAgachado)
             {
                 estaAgachado = true;
@@ -266,8 +279,14 @@ namespace Shatter.Player
         // --------- CHEQUEOS ---------
         private void VerificarSuelo()
         {
-            Vector2 origen = (Vector2)transform.position + new Vector2(0f, offsetChequeoSueloY);
-            bool enSuelo = ChequearOverlap(origen, tamanoChequeoSuelo, capaSuelo | capaUnaDireccion);
+            if (boxCol == null) return;
+
+            // Calculamos el origen basado en el borde inferior del BoxCollider2D real (independiente de escala)
+            Bounds bounds = boxCol.bounds;
+            Vector2 centroSuelo = new Vector2(bounds.center.x, bounds.min.y - 0.05f);
+            Vector2 tamanoSuelo = new Vector2(bounds.size.x * 0.9f, 0.1f); // 90% del ancho para evitar trabas en bordes
+
+            bool enSuelo = ChequearOverlap(centroSuelo, tamanoSuelo, capaSuelo | capaUnaDireccion);
 
             if (enSuelo && !estaEnSuelo)
             {
@@ -282,10 +301,16 @@ namespace Shatter.Player
 
         private void VerificarParedes()
         {
-            Vector2 posDer = (Vector2)transform.position + new Vector2(offsetChequeoParedX, 0f);
-            Vector2 posIzq = (Vector2)transform.position + new Vector2(-offsetChequeoParedX, 0f);
-            tocaParedDerecha = ChequearOverlap(posDer, tamanoChequeoParedes, capaPared);
-            tocaParedIzquierda = ChequearOverlap(posIzq, tamanoChequeoParedes, capaPared);
+            if (boxCol == null) return;
+
+            // Calculamos laterales basados en los bordes del BoxCollider2D real (independiente de escala)
+            Bounds bounds = boxCol.bounds;
+            Vector2 centroDerecha = new Vector2(bounds.max.x + 0.05f, bounds.center.y);
+            Vector2 centroIzquierda = new Vector2(bounds.min.x - 0.05f, bounds.center.y);
+            Vector2 tamanoPared = new Vector2(0.1f, bounds.size.y * 0.8f);
+
+            tocaParedDerecha = ChequearOverlap(centroDerecha, tamanoPared, capaPared);
+            tocaParedIzquierda = ChequearOverlap(centroIzquierda, tamanoPared, capaPared);
         }
 
         // --------- HORIZONTAL ---------
