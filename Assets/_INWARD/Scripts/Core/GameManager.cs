@@ -143,7 +143,7 @@ namespace Shatter.Core
 
                 string json = JsonUtility.ToJson(datos, true);
                 File.WriteAllText(ObtenerRutaGuardado(), json);
-                Debug.Log($"[Shatter Save System] Progreso guardado localmente en: {ObtenerRutaGuardado()}");
+                Debug.Log($"[Inward Save System] Progreso guardado localmente en: {ObtenerRutaGuardado()}");
 
                 // Auto-sincronizar con la nube (Google Play Games Services)
                 if (Shatter.Systems.PlayGamesSaveManager.Instance != null)
@@ -153,7 +153,7 @@ namespace Shatter.Core
             }
             catch (Exception e)
             {
-                Debug.LogError($"[Shatter Save System] Error al guardar progreso: {e.Message}");
+                Debug.LogError($"[Inward Save System] Error al guardar progreso: {e.Message}");
             }
         }
 
@@ -175,16 +175,16 @@ namespace Shatter.Core
 
                     // Disparamos evento para actualizar HUD
                     AlCambiarDestellos?.Invoke(destellosDeLucidez);
-                    Debug.Log($"[Shatter Save System] Progreso cargado exitosamente desde: {ruta}");
+                    Debug.Log($"[Inward Save System] Progreso cargado exitosamente desde: {ruta}");
                 }
                 else
                 {
-                    Debug.Log("[Shatter Save System] No se encontró ningún archivo de guardado previo.");
+                    Debug.Log("[Inward Save System] No se encontró ningún archivo de guardado previo.");
                 }
             }
             catch (Exception e)
             {
-                Debug.LogError($"[Shatter Save System] Error al cargar progreso: {e.Message}");
+                Debug.LogError($"[Inward Save System] Error al cargar progreso: {e.Message}");
             }
         }
 
@@ -196,7 +196,7 @@ namespace Shatter.Core
                 if (File.Exists(ruta))
                 {
                     File.Delete(ruta);
-                    Debug.Log("[Shatter Save System] Archivo de progreso eliminado.");
+                    Debug.Log("[Inward Save System] Archivo de progreso eliminado.");
                 }
                 
                 // Reiniciar a valores por defecto
@@ -210,7 +210,7 @@ namespace Shatter.Core
             }
             catch (Exception e)
             {
-                Debug.LogError($"[Shatter Save System] Error al borrar progreso: {e.Message}");
+                Debug.LogError($"[Inward Save System] Error al borrar progreso: {e.Message}");
             }
         }
 

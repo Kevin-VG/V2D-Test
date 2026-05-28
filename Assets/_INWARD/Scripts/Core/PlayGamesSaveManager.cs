@@ -20,7 +20,7 @@ namespace Shatter.Systems
         public static PlayGamesSaveManager Instance { get; private set; }
 
         [Header("Configuración de Guardado")]
-        [SerializeField] private string nombreArchivoNube = "shatter_cloud_save";
+        [SerializeField] private string nombreArchivoNube = "inward_cloud_save";
 
         private bool autenticado = false;
 
