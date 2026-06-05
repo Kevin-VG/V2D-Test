@@ -1,5 +1,7 @@
 # INWARD — Registro de Progreso
 
+> **Estado del diseño:** v3.0 (2026-06-04) — linearización. Este documento implementa los **sistemas y scripts** definidos en [`doc.md`](doc.md) (vigente a v3.0). La arquitectura espacial de los niveles vive en [`niveles_plano.md`](niveles_plano.md) (74 rooms lineales, reducido de ~152). Cualquier cambio al inventario de scripts debe coordinarse con el GDD.
+
 ## Sprint 0 — Reestructuración a Platformer 2D con fondos 2.5D
 
 ### Fecha: 2026-04-10
