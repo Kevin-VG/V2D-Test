@@ -77,6 +77,8 @@ namespace Shatter.Player
         private bool tocaParedDerecha;
         private bool tocaParedIzquierda;
         private bool estaDeslizandoPared;
+        private bool estaAdheridoPared;
+        private bool hizoDobleSalto;
 
         private bool estaHaciendoDash;
         private float temporizadorDash;
@@ -101,6 +103,10 @@ namespace Shatter.Player
         public bool EstaEnSuelo => estaEnSuelo;
         public bool EstaHaciendoDash => estaHaciendoDash;
         public bool EstaDeslizandoPared => estaDeslizandoPared;
+        public bool EstaAdheridoPared => estaAdheridoPared;
+        public bool TocaParedDerecha => tocaParedDerecha;
+        public bool TocaParedIzquierda => tocaParedIzquierda;
+        public bool HizoDobleSalto => hizoDobleSalto;
         public bool EstaAgachado => estaAgachado;
         public float VelocidadX => rb != null ? rb.linearVelocity.x : 0f;
         public float VelocidadY => rb != null ? rb.linearVelocity.y : 0f;
@@ -122,6 +128,32 @@ namespace Shatter.Player
             PlayerPrefs.SetInt("DobleSaltoDesbloqueado", 1);
             PlayerPrefs.Save();
         }
+
+        private float entradaJoystickHorizontal;
+        public float EntradaJoystickHorizontal
+        {
+            get => entradaJoystickHorizontal;
+            set => entradaJoystickHorizontal = Mathf.Clamp(value, -1f, 1f);
+        }
+
+        // Variables para botones táctiles virtuales
+        private bool virtualSaltoPresionadoEsteFrame;
+        private bool virtualSaltoMantenido;
+        private bool virtualDashPresionadoEsteFrame;
+        private bool virtualAbajoMantenido;
+        private bool virtualMoverIzquierdaMantenido;
+        private bool virtualMoverDerechaMantenido;
+
+        // Métodos públicos para que los botones UI controlen las acciones
+        public void IniciarSaltoVirtual() { virtualSaltoPresionadoEsteFrame = true; virtualSaltoMantenido = true; }
+        public void DetenerSaltoVirtual() { virtualSaltoMantenido = false; }
+        public void IniciarDashVirtual() { virtualDashPresionadoEsteFrame = true; }
+        public void IniciarAbajoVirtual() { virtualAbajoMantenido = true; }
+        public void DetenerAbajoVirtual() { virtualAbajoMantenido = false; }
+        public void IniciarMoverIzquierdaVirtual() { virtualMoverIzquierdaMantenido = true; }
+        public void DetenerMoverIzquierdaVirtual() { virtualMoverIzquierdaMantenido = false; }
+        public void IniciarMoverDerechaVirtual() { virtualMoverDerechaMantenido = true; }
+        public void DetenerMoverDerechaVirtual() { virtualMoverDerechaMantenido = false; }
 
         private void Awake()
         {
@@ -173,6 +205,17 @@ namespace Shatter.Player
             {
                 crudo = Input.GetAxisRaw("Horizontal");
             }
+
+            // Si hay entrada de joystick virtual, sobreescribimos la entrada del teclado
+            if (Mathf.Abs(entradaJoystickHorizontal) > 0.05f)
+            {
+                crudo = entradaJoystickHorizontal;
+            }
+            else
+            {
+                if (virtualMoverDerechaMantenido) crudo += 1f;
+                if (virtualMoverIzquierdaMantenido) crudo -= 1f;
+            }
             
             if (controlesInvertidos) crudo = -crudo;
             entradaMovimiento = crudo;
@@ -181,10 +224,14 @@ namespace Shatter.Player
             KeyCode kDash = im != null ? im.Dash : KeyCode.LeftShift;
             KeyCode kAbajo = im != null ? im.Abajo : KeyCode.S;
 
-            saltoPresionadoEsteFrame = Input.GetKeyDown(kSaltar);
-            saltoMantenido = Input.GetKey(kSaltar);
-            dashPresionadoEsteFrame = Input.GetKeyDown(kDash);
-            abajoMantenido = Input.GetKey(kAbajo);
+            saltoPresionadoEsteFrame = Input.GetKeyDown(kSaltar) || virtualSaltoPresionadoEsteFrame;
+            saltoMantenido = Input.GetKey(kSaltar) || virtualSaltoMantenido;
+            dashPresionadoEsteFrame = Input.GetKeyDown(kDash) || virtualDashPresionadoEsteFrame;
+            abajoMantenido = Input.GetKey(kAbajo) || virtualAbajoMantenido;
+
+            // Consumir los inputs táctiles de un solo frame inmediatamente después de leerlos
+            virtualSaltoPresionadoEsteFrame = false;
+            virtualDashPresionadoEsteFrame = false;
 
             // --- Drop through one-way (ANTES de agacharse para no interferir) ---
             if (estaEnSuelo && abajoMantenido && saltoPresionadoEsteFrame)
@@ -270,7 +317,7 @@ namespace Shatter.Player
             int cantidad = Physics2D.OverlapBoxNonAlloc(centro, tamano, 0f, resultadosChequeo, mascara);
             for (int i = 0; i < cantidad; i++)
             {
-                if (resultadosChequeo[i] != null && resultadosChequeo[i].gameObject != gameObject)
+                if (resultadosChequeo[i] != null && !resultadosChequeo[i].transform.IsChildOf(transform))
                     return true;
             }
             return false;
@@ -294,6 +341,7 @@ namespace Shatter.Player
                 saltosRestantes = saltosExtra;
                 temporizadorEnfriamientoDash = 0f;
                 saltoUsadoEnSuelo = false;
+                hizoDobleSalto = false;
             }
             estaEnSuelo = enSuelo;
             if (estaEnSuelo) contadorCoyote = tiempoCoyote;
@@ -352,6 +400,7 @@ namespace Shatter.Player
                         contadorBufferSalto = 0f;
                         contadorCoyote = 0f;
                         saltosRestantes = Mathf.Max(saltosRestantes, 0); // no regalar saltos extra
+                        hizoDobleSalto = false;
                         direccion = dirSalto;
 
                         if (focusSystem != null) focusSystem.ConsumirWallJump();
@@ -391,6 +440,7 @@ namespace Shatter.Player
                 {
                     rb.linearVelocity = new Vector2(rb.linearVelocity.x, fuerzaSalto);
                     saltosRestantes--;
+                    hizoDobleSalto = true;
                     contadorBufferSalto = 0f;
                     if (focusSystem != null) focusSystem.ConsumirDobleSalto();
                     Shatter.Core.GameEvents.LanzarSaltoJugador(rb.linearVelocity);
@@ -405,21 +455,36 @@ namespace Shatter.Player
         // --------- DESLIZ EN PARED ---------
         private void ManejarDeslizPared()
         {
-            bool estabaDeslizando = estaDeslizandoPared;
+            bool estabaDeslizando = estaDeslizandoPared || estaAdheridoPared;
             bool presionandoContraPared = (entradaMovimiento > 0.1f && tocaParedDerecha) || (entradaMovimiento < -0.1f && tocaParedIzquierda);
             
-            // Ahora se pega a la pared incluso si está subiendo (se eliminó la condición de rb.linearVelocity.y < 0f)
-            estaDeslizandoPared = !estaEnSuelo && presionandoContraPared;
+            bool enPared = !estaEnSuelo && presionandoContraPared;
 
-            if (estaDeslizandoPared)
+            if (enPared)
             {
-                // Si sube por la inercia del salto, frenamos un poco su ascenso para que sienta que "se pegó"
-                float velY = rb.linearVelocity.y > 0f ? rb.linearVelocity.y * 0.8f : Mathf.Max(rb.linearVelocity.y, -velocidadDeslizPared);
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, velY);
+                if (saltoMantenido)
+                {
+                    estaAdheridoPared = true;
+                    estaDeslizandoPared = false;
+                    rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f); // Se queda pegado verticalmente
+                }
+                else
+                {
+                    estaAdheridoPared = false;
+                    estaDeslizandoPared = true;
+                    // Desliza hacia abajo frenando la caída
+                    float velY = Mathf.Max(rb.linearVelocity.y, -velocidadDeslizPared);
+                    rb.linearVelocity = new Vector2(rb.linearVelocity.x, velY);
+                }
+            }
+            else
+            {
+                estaAdheridoPared = false;
+                estaDeslizandoPared = false;
             }
 
-            // Al iniciar desliz, restaurar 1 salto para wall jump
-            if (estaDeslizandoPared && !estabaDeslizando)
+            // Al iniciar desliz o adherencia, restaurar 1 salto para wall jump
+            if ((estaDeslizandoPared || estaAdheridoPared) && !estabaDeslizando)
                 saltosRestantes = Mathf.Max(saltosRestantes, 1);
         }
 
@@ -450,6 +515,7 @@ namespace Shatter.Player
         private void AplicarAjustesGravedad()
         {
             if (estaHaciendoDash) { rb.gravityScale = 0f; return; }
+            if (estaAdheridoPared) { rb.gravityScale = 0f; return; } // Sin gravedad al estar adherido
             if (estaDeslizandoPared) { rb.gravityScale = escalaGravedadSubida * 0.5f; return; }
             rb.gravityScale = rb.linearVelocity.y > 0f ? escalaGravedadSubida : escalaGravedadBajada;
         }
@@ -467,7 +533,7 @@ namespace Shatter.Player
             int cantidad = Physics2D.OverlapBoxNonAlloc(origen, tamanoChequeoSuelo, 0f, resultadosChequeo, capaUnaDireccion);
             for (int i = 0; i < cantidad; i++)
             {
-                if (resultadosChequeo[i] == null || resultadosChequeo[i].gameObject == gameObject) continue;
+                if (resultadosChequeo[i] == null || resultadosChequeo[i].transform.IsChildOf(transform)) continue;
                 var plataforma = resultadosChequeo[i].GetComponent<Shatter.Levels.OneWayPlatform>();
                 if (plataforma != null) { plataforma.DesactivarColisionTemporal(boxCol); return true; }
             }

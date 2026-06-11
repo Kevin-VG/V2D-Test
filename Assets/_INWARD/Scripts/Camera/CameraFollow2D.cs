@@ -138,6 +138,13 @@ namespace Shatter.CameraSystem
         /// <param name="magnitud">Intensidad del temblor.</param>
         public void SacudirPantalla(float duracion, float magnitud)
         {
+            // Si el jugador ha desactivado la vibración de pantalla en los ajustes, no hacemos nada
+            if (PlayerPrefs.GetInt("ScreenShakePreference", 1) == 0)
+            {
+                offsetSacudida = Vector3.zero;
+                return;
+            }
+
             duracionSacudida = duracion;
             magnitudSacudida = magnitud;
         }

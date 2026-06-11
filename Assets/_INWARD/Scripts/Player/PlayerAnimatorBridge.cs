@@ -18,6 +18,8 @@ namespace Shatter.Player
         private static readonly int HashDash = Animator.StringToHash("dash");
         private static readonly int HashDeslizPared = Animator.StringToHash("deslizPared");
         private static readonly int HashAgachado = Animator.StringToHash("estaAgachado");
+        private static readonly int HashAdheridoPared = Animator.StringToHash("adheridoPared");
+        private static readonly int HashDobleSalto = Animator.StringToHash("dobleSalto");
 
         private void Reset()
         {
@@ -33,14 +35,49 @@ namespace Shatter.Player
             if (renderizadorSprite == null) renderizadorSprite = GetComponentInChildren<SpriteRenderer>();
         }
 
+        private void OnEnable()
+        {
+            Shatter.Core.GameEvents.AlGolpearJugador += ActivarAnimacionGolpe;
+        }
+
+        private void OnDisable()
+        {
+            Shatter.Core.GameEvents.AlGolpearJugador -= ActivarAnimacionGolpe;
+        }
+
+        private void ActivarAnimacionGolpe(int dano)
+        {
+            if (animador != null && animador.isActiveAndEnabled && animador.runtimeAnimatorController != null)
+            {
+                animador.SetTrigger("hurt");
+            }
+        }
+
         private void Update()
         {
             if (controlador == null) return;
 
             if (renderizadorSprite != null)
             {
-                // Volteamos el sprite horizontalmente según la dirección del movimiento
-                renderizadorSprite.flipX = controlador.Direccion < 0;
+                if (controlador.EstaDeslizandoPared || controlador.EstaAdheridoPared)
+                {
+                    // Si el sprite por defecto mira a la izquierda:
+                    // Para mirar hacia la pared derecha (tocaParedDerecha), volteamos (flipX = true).
+                    // Para mirar hacia la pared izquierda (tocaParedIzquierda), no volteamos (flipX = false).
+                    if (controlador.TocaParedDerecha)
+                    {
+                        renderizadorSprite.flipX = true;
+                    }
+                    else if (controlador.TocaParedIzquierda)
+                    {
+                        renderizadorSprite.flipX = false;
+                    }
+                }
+                else
+                {
+                    // Volteamos el sprite horizontalmente según la dirección del movimiento normal
+                    renderizadorSprite.flipX = controlador.Direccion < 0;
+                }
             }
 
             if (animador == null || !animador.isActiveAndEnabled || animador.runtimeAnimatorController == null) return;
@@ -52,6 +89,11 @@ namespace Shatter.Player
             animador.SetBool(HashDash, controlador.EstaHaciendoDash);
             animador.SetBool(HashDeslizPared, controlador.EstaDeslizandoPared);
             animador.SetBool(HashAgachado, controlador.EstaAgachado); // Habilitamos parámetro para animaciones reales de Crouch-Idle y Crouch-Walk
+            animador.SetBool(HashAdheridoPared, controlador.EstaAdheridoPared);
+            animador.SetBool(HashDobleSalto, controlador.HizoDobleSalto);
+
+            // Debug en consola para verificar los valores enviados (puedes borrarlo o comentarlo luego)
+            // Debug.Log($"[AnimDebug] enSuelo: {controlador.EstaEnSuelo} | velocidad: {Mathf.Abs(controlador.VelocidadX):F2} | estaAgachado: {controlador.EstaAgachado} | dobleSalto: {controlador.HizoDobleSalto} | vy: {controlador.VelocidadY:F2} | deslizPared: {controlador.EstaDeslizandoPared} | adheridoPared: {controlador.EstaAdheridoPared}");
         }
     }
 }

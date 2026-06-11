@@ -38,7 +38,12 @@ namespace Shatter.UI
         [Tooltip("Sonido que se reproduce al cerrar un menú o panel")]
         [SerializeField] private AudioClip closeMenuSound;
 
+        [Header("Controles Móviles")]
+        [Tooltip("Referencia opcional al panel del HUD móvil (se auto-detecta si está vacío)")]
+        [SerializeField] private GameObject hudMobile;
+
         private bool estaAbierto;
+        private bool abiertoDesdeAccesoRapidoMobile;
         private IdentityManager gestorIdentidad;
 
         private void Start()
@@ -100,6 +105,9 @@ namespace Shatter.UI
 
             if (panelPausa != null) panelPausa.SetActive(estaAbierto);
             
+            // Ocultar o mostrar el HUD móvil al pausar/despausar
+            SetMobileHUDActive(!estaAbierto);
+
             if (GameManager.Instance != null) 
             {
                 GameManager.Instance.AlternarPausa();
@@ -108,6 +116,23 @@ namespace Shatter.UI
             {
                 // Fallback de seguridad si no hay GameManager en la escena
                 Time.timeScale = estaAbierto ? 0f : 1f; 
+            }
+        }
+
+        private void SetMobileHUDActive(bool active)
+        {
+            GameObject hud = hudMobile;
+            if (hud == null)
+            {
+                var activator = FindFirstObjectByType<MobileHUDActivator>(FindObjectsInactive.Include);
+                if (activator != null) hud = activator.gameObject;
+            }
+
+            if (hud != null)
+            {
+#if UNITY_EDITOR || UNITY_ANDROID || UNITY_IOS
+                hud.SetActive(active);
+#endif
             }
         }
 
@@ -197,11 +222,66 @@ namespace Shatter.UI
             ActualizarInventario();
         }
 
+        /// <summary>
+        /// Abre el inventario directamente desde el HUD móvil sin pasar por el panel de pausa general.
+        /// </summary>
+        public void AbrirInventarioDesdeMobile()
+        {
+            abiertoDesdeAccesoRapidoMobile = true;
+            estaAbierto = true;
+
+            if (openMenuSound != null) ReproducirSonidoUI(openMenuSound);
+
+            if (panelPausa != null) panelPausa.SetActive(false);
+            if (panelAjustes != null) panelAjustes.SetActive(false);
+            if (panelInventario != null) panelInventario.SetActive(true);
+
+            // Ocultar HUD móvil
+            SetMobileHUDActive(false);
+
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.EstablecerEstado(GameManager.EstadoJuego.Pausado);
+            }
+            else
+            {
+                Time.timeScale = 0f;
+            }
+
+            if (gestorIdentidad == null)
+            {
+                var jugador = GameObject.FindGameObjectWithTag("Player");
+                if (jugador != null) gestorIdentidad = jugador.GetComponent<IdentityManager>();
+            }
+            ActualizarInventario();
+        }
+
         public void CerrarInventario()
         {
             ReproducirSonidoUI(closeMenuSound);
             if (panelInventario != null) panelInventario.SetActive(false);
-            if (panelPausa != null) panelPausa.SetActive(true); // Mostrar menú de pausa otra vez
+
+            if (abiertoDesdeAccesoRapidoMobile)
+            {
+                abiertoDesdeAccesoRapidoMobile = false;
+                estaAbierto = false;
+                
+                // Mostrar el HUD móvil nuevamente
+                SetMobileHUDActive(true);
+
+                if (GameManager.Instance != null)
+                {
+                    GameManager.Instance.EstablecerEstado(GameManager.EstadoJuego.Jugando);
+                }
+                else
+                {
+                    Time.timeScale = 1f;
+                }
+            }
+            else
+            {
+                if (panelPausa != null) panelPausa.SetActive(true); // Mostrar menú de pausa otra vez
+            }
         }
 
         private void ActualizarInventario()

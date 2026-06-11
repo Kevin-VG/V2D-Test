@@ -170,11 +170,37 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player Idle 48x48_0
+      name: 1
       rect:
         serializedVersion: 2
         x: 0
@@ -196,7 +222,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Idle 48x48_1
+      name: 2
       rect:
         serializedVersion: 2
         x: 48
@@ -218,7 +244,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Idle 48x48_2
+      name: 3
       rect:
         serializedVersion: 2
         x: 96
@@ -240,7 +266,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Idle 48x48_3
+      name: 4
       rect:
         serializedVersion: 2
         x: 144
@@ -262,7 +288,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Idle 48x48_4
+      name: 5
       rect:
         serializedVersion: 2
         x: 192
@@ -284,7 +310,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Idle 48x48_5
+      name: 6
       rect:
         serializedVersion: 2
         x: 240
@@ -306,7 +332,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Idle 48x48_6
+      name: 7
       rect:
         serializedVersion: 2
         x: 288
@@ -328,7 +354,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Idle 48x48_7
+      name: 8
       rect:
         serializedVersion: 2
         x: 336
@@ -350,7 +376,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Idle 48x48_8
+      name: 9
       rect:
         serializedVersion: 2
         x: 384
@@ -372,7 +398,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Idle 48x48_9
+      name: 10
       rect:
         serializedVersion: 2
         x: 432
@@ -409,16 +435,16 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":48.0,"y":48.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Player Idle 48x48_0: 1502476870
-      Player Idle 48x48_1: -5002554111202923218
-      Player Idle 48x48_2: -2020844409934685739
-      Player Idle 48x48_3: 698562039
-      Player Idle 48x48_4: 2064571139
-      Player Idle 48x48_5: 1557559292
-      Player Idle 48x48_6: 6818239589509320238
-      Player Idle 48x48_7: 1146980078
-      Player Idle 48x48_8: -8860274237790193237
-      Player Idle 48x48_9: 592130113
+      1: 1502476870
+      10: 592130113
+      2: -5002554111202923218
+      3: -2020844409934685739
+      4: 698562039
+      5: 2064571139
+      6: 1557559292
+      7: 6818239589509320238
+      8: 1146980078
+      9: -8860274237790193237
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

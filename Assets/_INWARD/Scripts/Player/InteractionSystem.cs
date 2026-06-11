@@ -24,17 +24,27 @@ namespace Shatter.Player
         public IInteractable Actual => actual;
         public string TextoActual => actual != null ? actual.TextoInteraccion : null;
 
+        private bool virtualInteractPressed;
+
+        public void TriggerVirtualInteraction()
+        {
+            virtualInteractPressed = true;
+        }
+
         private void Update()
         {
             EncontrarMasCercano();
             if (actual != null && actual.PuedeInteractuar)
             {
                 KeyCode tecla = Shatter.Core.InputManager.Instance != null ? Shatter.Core.InputManager.Instance.Interactuar : KeyCode.E;
-                if (Input.GetKeyDown(tecla))
+                if (Input.GetKeyDown(tecla) || virtualInteractPressed)
                 {
                     actual.AlInteractuar(gameObject);
                 }
             }
+            
+            // Consumir el input virtual
+            virtualInteractPressed = false;
         }
 
         private void EncontrarMasCercano()

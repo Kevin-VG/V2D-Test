@@ -96,7 +96,7 @@ namespace Shatter.UI
         public float startY = -180f;
         [Tooltip("Espacio vertical de separación entre cada fila de control (ej: 75f). Ajusta esto en el Inspector para separarlos más.")]
         public float spacingY = 75f;
-        private Resolution[] resolutions;
+        private List<Resolution> resolutions = new List<Resolution>();
 
         private static int ultimoFrameEsc = -1;
 
@@ -106,8 +106,28 @@ namespace Shatter.UI
             if (settingsPanel != null) settingsPanel.SetActive(false);
             if (controlsPanel != null) controlsPanel.SetActive(false);
 
+            AdaptarUIParaMoviles();
             ConfigurarResoluciones();
             CargarAjustes();
+        }
+
+        private void AdaptarUIParaMoviles()
+        {
+            #if UNITY_ANDROID || UNITY_IOS
+            // Ocultar resolución (menú desplegable y etiqueta de texto)
+            if (resolutionDropdown != null) resolutionDropdown.gameObject.SetActive(false);
+            if (resolutionLabelText != null) resolutionLabelText.gameObject.SetActive(false);
+
+            // Ocultar pantalla completa (toggle y etiqueta de texto)
+            if (fullscreenToggle != null) fullscreenToggle.gameObject.SetActive(false);
+            if (fullscreenLabelText != null) fullscreenLabelText.gameObject.SetActive(false);
+
+            // Ocultar botón de controles de teclado (desactivando el botón padre del texto)
+            if (openControlsBtnText != null && openControlsBtnText.transform.parent != null)
+            {
+                openControlsBtnText.transform.parent.gameObject.SetActive(false);
+            }
+            #endif
         }
 
         private void Update()
@@ -136,21 +156,44 @@ namespace Shatter.UI
         {
             if (resolutionDropdown == null) return;
 
-            resolutions = Screen.resolutions;
+            Resolution[] allResolutions = Screen.resolutions;
+            resolutions.Clear();
             resolutionDropdown.ClearOptions();
 
             List<string> options = new List<string>();
             int currentResolutionIndex = 0;
 
-            for (int i = 0; i < resolutions.Length; i++)
+            int currentWidth = Screen.width;
+            int currentHeight = Screen.height;
+
+            for (int i = 0; i < allResolutions.Length; i++)
             {
-                // Formato: 1920 x 1080
+                bool yaExiste = false;
+                for (int j = 0; j < resolutions.Count; j++)
+                {
+                    if (resolutions[j].width == allResolutions[i].width &&
+                        resolutions[j].height == allResolutions[i].height)
+                    {
+                        yaExiste = true;
+                        // Unity ordena de menor a mayor Hz, nos quedamos con el de mayor tasa de refresco
+                        resolutions[j] = allResolutions[i];
+                        break;
+                    }
+                }
+
+                if (!yaExiste)
+                {
+                    resolutions.Add(allResolutions[i]);
+                }
+            }
+
+            for (int i = 0; i < resolutions.Count; i++)
+            {
                 string option = resolutions[i].width + " x " + resolutions[i].height;
                 options.Add(option);
 
-                // Verificar cuál es la resolución actual
-                if (resolutions[i].width == Screen.currentResolution.width &&
-                    resolutions[i].height == Screen.currentResolution.height)
+                if (resolutions[i].width == currentWidth &&
+                    resolutions[i].height == currentHeight)
                 {
                     currentResolutionIndex = i;
                 }
@@ -158,18 +201,32 @@ namespace Shatter.UI
 
             resolutionDropdown.AddOptions(options);
             
-            // Cargar resolución preferida si existe, sino usar la actual
-            int resIndex = PlayerPrefs.GetInt("ResolutionPreference", currentResolutionIndex);
-            resolutionDropdown.value = resIndex;
+            // Cargar resolución preferida por dimensiones para evitar bugs de índices en otros monitores
+            int savedWidth = PlayerPrefs.GetInt("ResolutionWidth", currentWidth);
+            int savedHeight = PlayerPrefs.GetInt("ResolutionHeight", currentHeight);
+
+            int indexToSelect = currentResolutionIndex;
+            for (int i = 0; i < resolutions.Count; i++)
+            {
+                if (resolutions[i].width == savedWidth &&
+                    resolutions[i].height == savedHeight)
+                {
+                    indexToSelect = i;
+                    break;
+                }
+            }
+
+            resolutionDropdown.value = indexToSelect;
             resolutionDropdown.RefreshShownValue();
         }
 
         private void CargarAjustes()
         {
             // Pantalla completa
+            bool isFullscreen = PlayerPrefs.GetInt("FullscreenPreference", Screen.fullScreen ? 1 : 0) == 1;
+            Screen.fullScreen = isFullscreen; // Asegurar que se aplique en pantalla al iniciar
             if (fullscreenToggle != null)
             {
-                bool isFullscreen = PlayerPrefs.GetInt("FullscreenPreference", Screen.fullScreen ? 1 : 0) == 1;
                 fullscreenToggle.isOn = isFullscreen;
             }
 
@@ -231,8 +288,14 @@ namespace Shatter.UI
 
         public void SetResolution(int resolutionIndex)
         {
+            if (resolutions == null || resolutionIndex < 0 || resolutionIndex >= resolutions.Count) return;
+
             Resolution resolution = resolutions[resolutionIndex];
             Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+            
+            // Guardamos ancho, alto e índice para máxima compatibilidad
+            PlayerPrefs.SetInt("ResolutionWidth", resolution.width);
+            PlayerPrefs.SetInt("ResolutionHeight", resolution.height);
             PlayerPrefs.SetInt("ResolutionPreference", resolutionIndex);
         }
 
