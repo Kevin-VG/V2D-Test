@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 12bc9297b4f94d04493de0a0d5782301
+guid: 19836fcad7b6a3e4db5bb68fa9e4b7a0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8218562612531766680
-    second: piso_16_n3_0
+      213: -5805823650306928052
+    second: piso_22_n3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: piso_16_n3_0
+      name: piso_22_n3_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 895234cf6233e0270800000000000000
-      internalID: 8218562612531766680
+      spriteID: c42d4ee86229d6fa0800000000000000
+      internalID: -5805823650306928052
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      piso_16_n3_0: 8218562612531766680
+      piso_22_n3_0: -5805823650306928052
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
