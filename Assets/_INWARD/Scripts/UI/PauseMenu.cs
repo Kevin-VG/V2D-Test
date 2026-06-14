@@ -26,6 +26,9 @@ namespace Shatter.UI
         [Tooltip("El panel de Ajustes (Opcional)")]
         [SerializeField] private GameObject panelAjustes;
 
+        [Tooltip("El panel de Ajustes Mobile (Opcional)")]
+        [SerializeField] private GameObject panelAjustesMobile;
+
         [Header("Inventario UI")]
         [Tooltip("El objeto vacío dentro del panel de inventario donde aparecerán los botones de los fragmentos")]
         [SerializeField] private Transform contenedorFragmentos;
@@ -42,16 +45,81 @@ namespace Shatter.UI
         [Tooltip("Referencia opcional al panel del HUD móvil (se auto-detecta si está vacío)")]
         [SerializeField] private GameObject hudMobile;
 
+        [Header("Pruebas en Editor")]
+        [Tooltip("Activa esto para forzar la UI móvil en el Editor sin cambiar de Build Target")]
+        [SerializeField] private bool simularMovil = false;
+
+        public static bool SimularMovilEnEditor = false;
+
+        public static bool UsarModoMovil()
+        {
+            return Application.isMobilePlatform || SimularMovilEnEditor;
+        }
+
+        private void Awake()
+        {
+            SimularMovilEnEditor = simularMovil;
+        }
+
+        private void OnValidate()
+        {
+            SimularMovilEnEditor = simularMovil;
+        }
+
         private bool estaAbierto;
         private bool abiertoDesdeAccesoRapidoMobile;
         private IdentityManager gestorIdentidad;
+        private GameObject cachedMobileHUD;
 
         private void Start()
         {
+            SimularMovilEnEditor = simularMovil;
+
+            // Cargar y cachear la referencia al HUD móvil antes de desactivar nada
+            if (hudMobile != null)
+            {
+                cachedMobileHUD = hudMobile;
+            }
+            else
+            {
+                // 1. Intentar buscar por componente en toda la escena (incluyendo inactivos)
+                var activator = FindFirstObjectByType<MobileHUDActivator>(FindObjectsInactive.Include);
+                if (activator != null)
+                {
+                    cachedMobileHUD = activator.gameObject;
+                }
+                else
+                {
+                    // 2. Fallback: Buscar por root objects en la escena
+                    var rootObjects = gameObject.scene.GetRootGameObjects();
+                    foreach (var root in rootObjects)
+                    {
+                        var act = root.GetComponentInChildren<MobileHUDActivator>(true);
+                        if (act != null)
+                        {
+                            cachedMobileHUD = act.gameObject;
+                            break;
+                        }
+                    }
+                }
+
+                // 3. Fallback final: Buscar por nombre exacto
+                if (cachedMobileHUD == null)
+                {
+                    cachedMobileHUD = GameObject.Find("MobileHUD");
+                }
+            }
+
+            if (cachedMobileHUD == null)
+            {
+                Debug.LogWarning("[PauseMenu] No se pudo encontrar el HUD móvil en la escena. Por favor, asígnalo manualmente en el campo 'Hud Mobile' del inspector de PauseMenu.");
+            }
+
             // Ocultar los paneles al iniciar el nivel
             if (panelPausa != null) panelPausa.SetActive(false);
             if (panelInventario != null) panelInventario.SetActive(false);
             if (panelAjustes != null) panelAjustes.SetActive(false);
+            if (panelAjustesMobile != null) panelAjustesMobile.SetActive(false);
         }
 
         private static int ultimoFrameEsc = -1;
@@ -78,7 +146,9 @@ namespace Shatter.UI
                 }
 
                 // 2. Si ajustes está abierto, cerrarlo
-                if (panelAjustes != null && panelAjustes.activeSelf)
+                bool pcAjustesAbierto = panelAjustes != null && panelAjustes.activeSelf;
+                bool mobileAjustesAbierto = panelAjustesMobile != null && panelAjustesMobile.activeSelf;
+                if (pcAjustesAbierto || mobileAjustesAbierto)
                 {
                     CerrarAjustes();
                     return;
@@ -121,18 +191,9 @@ namespace Shatter.UI
 
         private void SetMobileHUDActive(bool active)
         {
-            GameObject hud = hudMobile;
-            if (hud == null)
+            if (cachedMobileHUD != null)
             {
-                var activator = FindFirstObjectByType<MobileHUDActivator>(FindObjectsInactive.Include);
-                if (activator != null) hud = activator.gameObject;
-            }
-
-            if (hud != null)
-            {
-#if UNITY_EDITOR || UNITY_ANDROID || UNITY_IOS
-                hud.SetActive(active);
-#endif
+                cachedMobileHUD.SetActive(active && UsarModoMovil());
             }
         }
 
@@ -185,13 +246,32 @@ namespace Shatter.UI
         {
             ReproducirSonidoUI(openMenuSound);
             if (panelPausa != null) panelPausa.SetActive(false);
-            if (panelAjustes != null) panelAjustes.SetActive(true);
+            
+            if (UsarModoMovil())
+            {
+                if (panelAjustesMobile != null)
+                {
+                    panelAjustesMobile.SetActive(true);
+                }
+                else if (panelAjustes != null)
+                {
+                    panelAjustes.SetActive(true);
+                }
+            }
+            else
+            {
+                if (panelAjustes != null)
+                {
+                    panelAjustes.SetActive(true);
+                }
+            }
         }
 
         public void CerrarAjustes()
         {
             ReproducirSonidoUI(closeMenuSound);
             if (panelAjustes != null) panelAjustes.SetActive(false);
+            if (panelAjustesMobile != null) panelAjustesMobile.SetActive(false);
             if (panelPausa != null) panelPausa.SetActive(true);
         }
 

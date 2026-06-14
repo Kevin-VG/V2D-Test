@@ -42,6 +42,8 @@ namespace Shatter.UI
 
         public void OnPointerDown(PointerEventData eventData)
         {
+            if (DragHUDElement.ModoEdicionHUD) return;
+
             if (playerController == null)
             {
                 EncontrarJugador();
@@ -100,6 +102,8 @@ namespace Shatter.UI
 
         public void OnPointerUp(PointerEventData eventData)
         {
+            if (DragHUDElement.ModoEdicionHUD) return;
+
             if (playerController != null)
             {
                 switch (accion)

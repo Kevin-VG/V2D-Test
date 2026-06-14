@@ -74,3 +74,11 @@ crashlytics-build.properties
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Unity build and cache folders
+/[Bb]uild_Web_Prueba/
+/[Dd]ata/
+/[Ii]nward_BurstDebugInformation_DoNotShip/
+/*_BackUpThisFolder_ButDontShipItWithYourGame/
+/.utmp/
+

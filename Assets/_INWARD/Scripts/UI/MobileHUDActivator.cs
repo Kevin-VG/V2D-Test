@@ -12,14 +12,9 @@ namespace Shatter.UI
 
         private void Awake()
         {
-            #if UNITY_EDITOR
-            gameObject.SetActive(activarEnEditor);
-            #elif UNITY_ANDROID || UNITY_IOS
-            gameObject.SetActive(true);
-            #else
-            // Ocultar controles móviles en compilaciones de PC (Windows/Mac/Linux)
-            gameObject.SetActive(false);
-            #endif
+            // Solo activar si estamos en plataforma móvil real o si estamos simulando móvil en el editor
+            bool debaActivar = Application.isMobilePlatform || PauseMenu.UsarModoMovil();
+            gameObject.SetActive(debaActivar);
         }
     }
 }

@@ -61,9 +61,9 @@ namespace Shatter.Player
             {
                 if (controlador.EstaDeslizandoPared || controlador.EstaAdheridoPared)
                 {
-                    // Si el sprite por defecto mira a la izquierda:
-                    // Para mirar hacia la pared derecha (tocaParedDerecha), volteamos (flipX = true).
-                    // Para mirar hacia la pared izquierda (tocaParedIzquierda), no volteamos (flipX = false).
+                    // Para Wall Land y Slide los sprites por defecto miran a la derecha:
+                    // - Si toca la pared derecha, volteamos el sprite hacia la izquierda (flipX = true).
+                    // - Si toca la pared izquierda, no hacemos cambios (flipX = false, sigue mirando a la derecha).
                     if (controlador.TocaParedDerecha)
                     {
                         renderizadorSprite.flipX = true;
@@ -92,8 +92,8 @@ namespace Shatter.Player
             animador.SetBool(HashAdheridoPared, controlador.EstaAdheridoPared);
             animador.SetBool(HashDobleSalto, controlador.HizoDobleSalto);
 
-            // Debug en consola para verificar los valores enviados (puedes borrarlo o comentarlo luego)
-            // Debug.Log($"[AnimDebug] enSuelo: {controlador.EstaEnSuelo} | velocidad: {Mathf.Abs(controlador.VelocidadX):F2} | estaAgachado: {controlador.EstaAgachado} | dobleSalto: {controlador.HizoDobleSalto} | vy: {controlador.VelocidadY:F2} | deslizPared: {controlador.EstaDeslizandoPared} | adheridoPared: {controlador.EstaAdheridoPared}");
+            // Debug en consola para verificar los valores enviados
+            Debug.Log($"[AnimDebug] enSuelo: {controlador.EstaEnSuelo} | enSueloAnimator: {animador.GetBool(HashEnSuelo)} | vy: {controlador.VelocidadY:F2}");
         }
     }
 }

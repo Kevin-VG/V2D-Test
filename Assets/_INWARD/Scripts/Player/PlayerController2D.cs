@@ -23,7 +23,7 @@ namespace Shatter.Player
         [SerializeField] private float tiempoBufferSalto = 0.15f;
         [SerializeField] private int saltosExtra = 1;
         [Tooltip("Define si el doble salto ya fue desbloqueado (Ej: en la sala R.6A)")]
-        [SerializeField] private bool dobleSaltoDesbloqueado = false;
+        [SerializeField] private bool dobleSaltoDesbloqueado = true;
 
         [Header("Gravedad")]
         [SerializeField] private float escalaGravedadSubida = 3f;
@@ -328,12 +328,23 @@ namespace Shatter.Player
         {
             if (boxCol == null) return;
 
-            // Calculamos el origen basado en el borde inferior del BoxCollider2D real (independiente de escala)
-            Bounds bounds = boxCol.bounds;
-            Vector2 centroSuelo = new Vector2(bounds.center.x, bounds.min.y - 0.05f);
-            Vector2 tamanoSuelo = new Vector2(bounds.size.x * 0.9f, 0.1f); // 90% del ancho para evitar trabas en bordes
+            // Usamos la posición, escala y dimensiones del collider directamente 
+            // para evitar desfases de física y dar compatibilidad con personajes escalados.
+            Vector2 posicion = (Vector2)transform.position;
+            Vector2 escala = (Vector2)transform.lossyScale;
+
+            float bottomY = posicion.y + (boxCol.offset.y - boxCol.size.y / 2f) * escala.y;
+            // El sensor se centra 0.08 unidades por debajo de los pies, con una altura de 0.16
+            // lo que hace que cubra desde los pies hasta 0.16 unidades hacia abajo.
+            Vector2 centroSuelo = new Vector2(posicion.x + boxCol.offset.x * escala.x, bottomY - 0.08f * escala.y);
+            Vector2 tamanoSuelo = new Vector2(boxCol.size.x * escala.x * 0.9f, 0.16f * escala.y); 
 
             bool enSuelo = ChequearOverlap(centroSuelo, tamanoSuelo, capaSuelo | capaUnaDireccion);
+
+            if (estaAgachado)
+            {
+                Debug.Log($"[CrouchDebug] pos.y: {posicion.y:F3} | scale.y: {escala.y:F3} | offset.y: {boxCol.offset.y:F3} | size.y: {boxCol.size.y:F3} | bottomY: {bottomY:F3} | centroSuelo.y: {centroSuelo.y:F3} | enSuelo: {enSuelo}");
+            }
 
             if (enSuelo && !estaEnSuelo)
             {
@@ -351,11 +362,15 @@ namespace Shatter.Player
         {
             if (boxCol == null) return;
 
-            // Calculamos laterales basados en los bordes del BoxCollider2D real (independiente de escala)
-            Bounds bounds = boxCol.bounds;
-            Vector2 centroDerecha = new Vector2(bounds.max.x + 0.05f, bounds.center.y);
-            Vector2 centroIzquierda = new Vector2(bounds.min.x - 0.05f, bounds.center.y);
-            Vector2 tamanoPared = new Vector2(0.1f, bounds.size.y * 0.8f);
+            Vector2 posicion = (Vector2)transform.position;
+            Vector2 escala = (Vector2)transform.lossyScale;
+
+            float centroY = posicion.y + boxCol.offset.y * escala.y;
+            float mitadAncho = (boxCol.size.x / 2f) * escala.x;
+
+            Vector2 centroDerecha = new Vector2(posicion.x + (boxCol.offset.x * escala.x) + mitadAncho + 0.05f * escala.x, centroY);
+            Vector2 centroIzquierda = new Vector2(posicion.x + (boxCol.offset.x * escala.x) - mitadAncho - 0.05f * escala.x, centroY);
+            Vector2 tamanoPared = new Vector2(0.1f * escala.x, boxCol.size.y * escala.y * 0.8f);
 
             tocaParedDerecha = ChequearOverlap(centroDerecha, tamanoPared, capaPared);
             tocaParedIzquierda = ChequearOverlap(centroIzquierda, tamanoPared, capaPared);

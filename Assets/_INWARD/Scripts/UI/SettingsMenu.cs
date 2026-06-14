@@ -23,6 +23,8 @@ namespace Shatter.UI
         public GameObject mainPanel;
         [Tooltip("El panel que contiene todas las opciones de ajustes")]
         public GameObject settingsPanel;
+        [Tooltip("El panel específico para los ajustes en dispositivos móviles")]
+        public GameObject mobileSettingsPanel;
         [Tooltip("El panel que contiene los controles del juego")]
         public GameObject controlsPanel;
 
@@ -34,6 +36,24 @@ namespace Shatter.UI
         public Slider masterVolumeSlider;
         public Slider volumeSlider; // Music Volume
         public Slider sfxVolumeSlider;
+
+        [Header("Pestañas Móviles")]
+        [Tooltip("Contenedor de Sonido en la parte derecha")]
+        public GameObject soundContentPanel;
+        [Tooltip("Contenedor de Idioma en la parte derecha")]
+        public GameObject languageContentPanel;
+        [Tooltip("Contenedor de HUD en la parte derecha")]
+        public GameObject hudContentPanel;
+
+        [Header("Botones de Idioma Separados")]
+        public Button btnLanguageES;
+        public Button btnLanguageEN;
+        public Color colorIdiomaActivo = Color.green;
+        public Color colorIdiomaInactivo = Color.white;
+
+        [Header("Personalización de HUD")]
+        [Tooltip("El panel o pantalla completa de personalización de HUD")]
+        public GameObject hudEditPanel;
 
         [Header("Audio de UI")]
         [Tooltip("El AudioSource encargado de reproducir los efectos de sonido de la UI")]
@@ -99,12 +119,15 @@ namespace Shatter.UI
         private List<Resolution> resolutions = new List<Resolution>();
 
         private static int ultimoFrameEsc = -1;
+        private GameObject panelActivoAntesDeControles;
 
         private void Start()
         {
             // Ocultar panel de ajustes y controles al inicio
             if (settingsPanel != null) settingsPanel.SetActive(false);
+            if (mobileSettingsPanel != null) mobileSettingsPanel.SetActive(false);
             if (controlsPanel != null) controlsPanel.SetActive(false);
+            if (hudEditPanel != null) hudEditPanel.SetActive(false);
 
             AdaptarUIParaMoviles();
             ConfigurarResoluciones();
@@ -113,6 +136,8 @@ namespace Shatter.UI
 
         private void AdaptarUIParaMoviles()
         {
+            // Se desactivan las restricciones de plataforma móviles para conservar la visibilidad de resolución, pantalla completa y controles.
+            /*
             #if UNITY_ANDROID || UNITY_IOS
             // Ocultar resolución (menú desplegable y etiqueta de texto)
             if (resolutionDropdown != null) resolutionDropdown.gameObject.SetActive(false);
@@ -128,6 +153,7 @@ namespace Shatter.UI
                 openControlsBtnText.transform.parent.gameObject.SetActive(false);
             }
             #endif
+            */
         }
 
         private void Update()
@@ -144,7 +170,7 @@ namespace Shatter.UI
                     CloseControls();
                 }
                 // 2. Si ajustes está abierto y estamos en el Menú Principal (mainPanel asignado)
-                else if (settingsPanel != null && settingsPanel.activeInHierarchy && mainPanel != null)
+                else if (((settingsPanel != null && settingsPanel.activeInHierarchy) || (mobileSettingsPanel != null && mobileSettingsPanel.activeInHierarchy)) && mainPanel != null)
                 {
                     ultimoFrameEsc = Time.frameCount;
                     CloseSettings();
@@ -273,15 +299,16 @@ namespace Shatter.UI
             }
 
             // Lenguaje (0 = Español, 1 = Inglés)
+            int languageIndex = PlayerPrefs.GetInt("LanguagePreference", 0); // 0 como defecto (Español)
             if (languageDropdown != null)
             {
-                int languageIndex = PlayerPrefs.GetInt("LanguagePreference", 0); // 0 como defecto (Español)
                 languageDropdown.value = languageIndex;
                 languageDropdown.RefreshShownValue();
-
-                // Actualizar los textos de la interfaz al idioma correcto al iniciar
-                ActualizarTextos(languageIndex);
             }
+
+            // Actualizar los textos de la interfaz al idioma correcto al iniciar
+            ActualizarTextos(languageIndex);
+            ActualizarBotonesIdiomaVisuales();
         }
 
         // --- MÉTODOS PARA LOS EVENTOS DE LA UI ---
@@ -366,7 +393,23 @@ namespace Shatter.UI
         public void OpenControls()
         {
             ReproducirSonidoUI(openMenuSound);
+            
+            // Guardar cuál panel estaba activo antes de entrar a controles
+            if (settingsPanel != null && settingsPanel.activeSelf)
+            {
+                panelActivoAntesDeControles = settingsPanel;
+            }
+            else if (mobileSettingsPanel != null && mobileSettingsPanel.activeSelf)
+            {
+                panelActivoAntesDeControles = mobileSettingsPanel;
+            }
+            else
+            {
+                panelActivoAntesDeControles = null;
+            }
+
             if (settingsPanel != null) settingsPanel.SetActive(false);
+            if (mobileSettingsPanel != null) mobileSettingsPanel.SetActive(false);
             if (controlsPanel != null) 
             {
                 controlsPanel.SetActive(true);
@@ -378,7 +421,24 @@ namespace Shatter.UI
         {
             ReproducirSonidoUI(closeMenuSound);
             if (controlsPanel != null) controlsPanel.SetActive(false);
-            if (settingsPanel != null) settingsPanel.SetActive(true);
+            
+            if (panelActivoAntesDeControles != null)
+            {
+                panelActivoAntesDeControles.SetActive(true);
+            }
+            else
+            {
+                // Fallback de seguridad si no se guardó ningún panel activo
+                if (PauseMenu.UsarModoMovil())
+                {
+                    if (mobileSettingsPanel != null) mobileSettingsPanel.SetActive(true);
+                    else if (settingsPanel != null) settingsPanel.SetActive(true);
+                }
+                else
+                {
+                    if (settingsPanel != null) settingsPanel.SetActive(true);
+                }
+            }
         }
 
         private void ActualizarTextos(int idioma)
@@ -459,7 +519,16 @@ namespace Shatter.UI
         {
             ReproducirSonidoUI(openMenuSound);
             if (mainPanel != null) mainPanel.SetActive(false);
-            if (settingsPanel != null) settingsPanel.SetActive(true);
+            
+            if (PauseMenu.UsarModoMovil())
+            {
+                if (mobileSettingsPanel != null) mobileSettingsPanel.SetActive(true);
+                else if (settingsPanel != null) settingsPanel.SetActive(true);
+            }
+            else
+            {
+                if (settingsPanel != null) settingsPanel.SetActive(true);
+            }
         }
 
         // Llamar a este método desde el botón "VOLVER" (BACK) del menú de ajustes
@@ -467,6 +536,7 @@ namespace Shatter.UI
         {
             ReproducirSonidoUI(closeMenuSound);
             if (settingsPanel != null) settingsPanel.SetActive(false);
+            if (mobileSettingsPanel != null) mobileSettingsPanel.SetActive(false);
             if (mainPanel != null) mainPanel.SetActive(true);
             PlayerPrefs.Save(); // Asegurar que todo se guarde en disco
         }
@@ -729,6 +799,102 @@ namespace Shatter.UI
         {
             esperandoTecla = false;
             GenerarBotonesControles();
+        }
+
+        // --- MÉTODOS PARA PESTAÑAS MÓVILES ---
+
+        public void ShowSoundTab()
+        {
+            ReproducirSonidoUI(openMenuSound);
+            if (soundContentPanel != null) soundContentPanel.SetActive(true);
+            if (languageContentPanel != null) languageContentPanel.SetActive(false);
+            if (hudContentPanel != null) hudContentPanel.SetActive(false);
+        }
+
+        public void ShowLanguageTab()
+        {
+            ReproducirSonidoUI(openMenuSound);
+            if (soundContentPanel != null) soundContentPanel.SetActive(false);
+            if (languageContentPanel != null) languageContentPanel.SetActive(true);
+            if (hudContentPanel != null) hudContentPanel.SetActive(false);
+            
+            ActualizarBotonesIdiomaVisuales();
+        }
+
+        public void ShowHUDTab()
+        {
+            ReproducirSonidoUI(openMenuSound);
+            if (soundContentPanel != null) soundContentPanel.SetActive(false);
+            if (languageContentPanel != null) languageContentPanel.SetActive(false);
+            if (hudContentPanel != null) hudContentPanel.SetActive(true);
+        }
+
+        // --- SELECCIÓN Y HIGHLIGHT DE IDIOMA ---
+
+        public void SeleccionarIdiomaES()
+        {
+            SetLanguage(0);
+            ActualizarBotonesIdiomaVisuales();
+        }
+
+        public void SeleccionarIdiomaEN()
+        {
+            SetLanguage(1);
+            ActualizarBotonesIdiomaVisuales();
+        }
+
+        private void ActualizarBotonesIdiomaVisuales()
+        {
+            int idioma = PlayerPrefs.GetInt("LanguagePreference", 0);
+            if (btnLanguageES != null)
+            {
+                btnLanguageES.image.color = (idioma == 0) ? colorIdiomaActivo : colorIdiomaInactivo;
+            }
+            if (btnLanguageEN != null)
+            {
+                btnLanguageEN.image.color = (idioma == 1) ? colorIdiomaActivo : colorIdiomaInactivo;
+            }
+        }
+
+        // --- PERSONALIZACIÓN DE HUD MÓVIL ---
+
+        public void IniciarEdicionHUD()
+        {
+            ReproducirSonidoUI(openMenuSound);
+            DragHUDElement.ModoEdicionHUD = true;
+            if (hudEditPanel != null)
+            {
+                hudEditPanel.SetActive(true);
+                DragHUDElement[] dragElements = hudEditPanel.GetComponentsInChildren<DragHUDElement>(true);
+                foreach (var element in dragElements)
+                {
+                    element.CargarPosicion();
+                }
+            }
+        }
+
+        public void GuardarYTerminarEdicionHUD()
+        {
+            ReproducirSonidoUI(closeMenuSound);
+            DragHUDElement.ModoEdicionHUD = false;
+            if (hudEditPanel != null)
+            {
+                hudEditPanel.SetActive(false);
+            }
+            PlayerPrefs.Save();
+        }
+
+        public void RestablecerHUDPredeterminado()
+        {
+            ReproducirSonidoUI(closeMenuSound);
+            if (hudEditPanel != null)
+            {
+                DragHUDElement[] dragElements = hudEditPanel.GetComponentsInChildren<DragHUDElement>(true);
+                foreach (var element in dragElements)
+                {
+                    element.RestablecerOriginal();
+                }
+            }
         }
     }
 }
