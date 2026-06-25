@@ -12,14 +12,16 @@ namespace Shatter.CameraSystem
         [SerializeField] private Transform objetivo;
 
         [Header("Ajustes de seguimiento")]
-        [SerializeField] private Vector3 offset = new Vector3(0f, 1f, -10f);
+        [SerializeField] private Vector3 offset = new Vector3(0f, -1.5f, -10f);
         [Range(0f, 1f)] [SerializeField] private float suavizadoX = 0.15f;
         [Range(0f, 1f)] [SerializeField] private float suavizadoY = 0.25f;
 
         [Header("Anticipación (Look Ahead)")]
-        [SerializeField] private float distanciaAnticipacion = 2f;
+        [SerializeField] private float distanciaAnticipacionX = 3f;
+        [SerializeField] private float distanciaAnticipacionY = 2f;
         [SerializeField] private float velocidadAnticipacion = 4f;
         [SerializeField] private float umbralMovimientoX = 0.1f;
+        [SerializeField] private float umbralMovimientoY = 0.1f;
 
         [Header("Límites del Mapa (Bounds)")]
         [SerializeField] private bool usarLimites = false;
@@ -33,6 +35,7 @@ namespace Shatter.CameraSystem
 
         private Vector3 velocidadCamara;
         private float anticipacionActualX;
+        private float anticipacionActualY;
 
         // Variables de Screen Shake
         private float duracionSacudida;
@@ -76,19 +79,29 @@ namespace Shatter.CameraSystem
                 velocidadTargetX = rb.linearVelocity.x;
             }
 
-            // 2. Calcular la anticipación horizontal (hacia dónde se mueve el jugador)
+            // 2. Calcular la anticipación horizontal y vertical (hacia dónde se mueve el jugador)
             float anticipacionObjetivoX = 0f;
             if (Mathf.Abs(velocidadTargetX) > umbralMovimientoX)
             {
-                anticipacionObjetivoX = Mathf.Sign(velocidadTargetX) * distanciaAnticipacion;
+                anticipacionObjetivoX = Mathf.Sign(velocidadTargetX) * distanciaAnticipacionX;
             }
 
-            // Transicionar suavemente hacia la anticipación horizontal
+            float velocidadTargetY = rb != null ? rb.linearVelocity.y : 0f;
+            float anticipacionObjetivoY = 0f;
+            if (velocidadTargetY > umbralMovimientoY)
+            {
+                // Cuando salta, la cámara sube para ver más arriba
+                anticipacionObjetivoY = distanciaAnticipacionY;
+            }
+            // Cuando cae, anticipacionObjetivoY vuelve a 0 (se restaura)
+
+            // Transicionar suavemente hacia la anticipación
             anticipacionActualX = Mathf.MoveTowards(anticipacionActualX, anticipacionObjetivoX, velocidadAnticipacion * Time.deltaTime);
+            anticipacionActualY = Mathf.MoveTowards(anticipacionActualY, anticipacionObjetivoY, velocidadAnticipacion * Time.deltaTime);
 
             // 3. Suavizado vertical dinámico si está en el aire saltando/cayendo
             float suavizadoActualY = suavizadoY;
-            if (amortiguarSalto && rb != null && Mathf.Abs(rb.linearVelocity.y) > 0.1f)
+            if (amortiguarSalto && rb != null && Mathf.Abs(velocidadTargetY) > 0.1f)
             {
                 suavizadoActualY = suavizadoSaltoY;
             }
@@ -96,6 +109,7 @@ namespace Shatter.CameraSystem
             // 4. Posición deseada
             Vector3 posicionDeseada = objetivo.position + offset;
             posicionDeseada.x += anticipacionActualX;
+            posicionDeseada.y += anticipacionActualY;
 
             // 5. Interpolación suave e independiente para cada eje (SmoothDamp)
             float nuevoX = Mathf.SmoothDamp(transform.position.x, posicionDeseada.x, ref velocidadCamara.x, suavizadoX);

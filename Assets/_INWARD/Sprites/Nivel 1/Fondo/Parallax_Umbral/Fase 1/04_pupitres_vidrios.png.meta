@@ -1,0 +1,468 @@
+fileFormatVersion: 2
+guid: 6e668f0c8f41de344bc0668254c38e40
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8258783580750574336
+    second: 04_pupitres_vidrios_0
+  - first:
+      213: -7217678840664409453
+    second: 04_pupitres_vidrios_1
+  - first:
+      213: -6700181073954644479
+    second: 04_pupitres_vidrios_2
+  - first:
+      213: -1527442689899642992
+    second: 04_pupitres_vidrios_3
+  - first:
+      213: 5205090092920889328
+    second: 04_pupitres_vidrios_4
+  - first:
+      213: -313337988000591677
+    second: 04_pupitres_vidrios_5
+  - first:
+      213: -270429762899395052
+    second: 04_pupitres_vidrios_6
+  - first:
+      213: -3922229051664091909
+    second: 04_pupitres_vidrios_7
+  - first:
+      213: -7700808717876537901
+    second: 04_pupitres_vidrios_8
+  - first:
+      213: -8349038760389738654
+    second: 04_pupitres_vidrios_9
+  - first:
+      213: 5626923548510786328
+    second: 04_pupitres_vidrios_10
+  - first:
+      213: -7281810964268876239
+    second: 04_pupitres_vidrios_11
+  - first:
+      213: -8045580961033779642
+    second: 04_pupitres_vidrios_12
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 04_pupitres_vidrios_0
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 167
+        width: 38
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00d88881718e26d80800000000000000
+      internalID: -8258783580750574336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04_pupitres_vidrios_1
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 167
+        width: 38
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39a3857d557a5db90800000000000000
+      internalID: -7217678840664409453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04_pupitres_vidrios_2
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 167
+        width: 38
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10e5324ffcc2403a0800000000000000
+      internalID: -6700181073954644479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04_pupitres_vidrios_3
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 140
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09fb3cd57fe6dcae0800000000000000
+      internalID: -1527442689899642992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04_pupitres_vidrios_4
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 128
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ff547c9cd13c3840800000000000000
+      internalID: 5205090092920889328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04_pupitres_vidrios_5
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 126
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c0d69292ccc6abf0800000000000000
+      internalID: -313337988000591677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04_pupitres_vidrios_6
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 96
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41e30bd309d3f3cf0800000000000000
+      internalID: -270429762899395052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04_pupitres_vidrios_7
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 104
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf438d755717199c0800000000000000
+      internalID: -3922229051664091909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04_pupitres_vidrios_8
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 78
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d5dcbf854b312590800000000000000
+      internalID: -7700808717876537901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04_pupitres_vidrios_9
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 4
+        width: 110
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26f70078b71422c80800000000000000
+      internalID: -8349038760389738654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04_pupitres_vidrios_10
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 4
+        width: 110
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81314479729d61e40800000000000000
+      internalID: 5626923548510786328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04_pupitres_vidrios_11
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 4
+        width: 110
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13e7539328fc1fa90800000000000000
+      internalID: -7281810964268876239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04_pupitres_vidrios_12
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 4
+        width: 110
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6468fe54eba585090800000000000000
+      internalID: -8045580961033779642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      04_pupitres_vidrios_0: -8258783580750574336
+      04_pupitres_vidrios_1: -7217678840664409453
+      04_pupitres_vidrios_10: 5626923548510786328
+      04_pupitres_vidrios_11: -7281810964268876239
+      04_pupitres_vidrios_12: -8045580961033779642
+      04_pupitres_vidrios_2: -6700181073954644479
+      04_pupitres_vidrios_3: -1527442689899642992
+      04_pupitres_vidrios_4: 5205090092920889328
+      04_pupitres_vidrios_5: -313337988000591677
+      04_pupitres_vidrios_6: -270429762899395052
+      04_pupitres_vidrios_7: -3922229051664091909
+      04_pupitres_vidrios_8: -7700808717876537901
+      04_pupitres_vidrios_9: -8349038760389738654
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
