@@ -1,0 +1,1014 @@
+fileFormatVersion: 2
+guid: 9f76a6f70619d934f94a8dd5f72bdd2d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8825228390971387431
+    second: N5_Jardin_Tileset_32x32_v2_simple_transparent_0
+  - first:
+      213: -6730118710418164538
+    second: N5_Jardin_Tileset_32x32_v2_simple_transparent_1
+  - first:
+      213: -6378840860389779077
+    second: N5_Jardin_Tileset_32x32_v2_simple_transparent_2
+  - first:
+      213: 1068216862511044219
+    second: N5_Jardin_Tileset_32x32_v2_simple_transparent_3
+  - first:
+      213: -5434036439194025716
+    second: N5_Jardin_Tileset_32x32_v2_simple_transparent_4
+  - first:
+      213: 7417785270482467374
+    second: N5_Jardin_Tileset_32x32_v2_simple_transparent_5
+  - first:
+      213: -3526753272045344304
+    second: N5_Jardin_Tileset_32x32_v2_simple_transparent_6
+  - first:
+      213: 3324855485268761982
+    second: N5_Jardin_Tileset_32x32_v2_simple_transparent_7
+  - first:
+      213: -9160868197913593772
+    second: N5_Jardin_Tileset_32x32_v2_simple_transparent_8
+  - first:
+      213: 7067849724088299312
+    second: N5_Jardin_Tileset_32x32_v2_simple_transparent_9
+  - first:
+      213: -3059233907087361762
+    second: N5_Jardin_Tileset_32x32_v2_simple_transparent_10
+  - first:
+      213: 6544952984384880046
+    second: N5_Jardin_Tileset_32x32_v2_simple_transparent_11
+  - first:
+      213: -4277719355501503830
+    second: N5_Jardin_Tileset_32x32_v2_simple_transparent_12
+  - first:
+      213: 6420312709688176377
+    second: N5_Jardin_Tileset_32x32_v2_simple_transparent_13
+  - first:
+      213: 5509887903310694487
+    second: N5_Jardin_Tileset_32x32_v2_simple_transparent_14
+  - first:
+      213: 4344862672814719050
+    second: N5_Jardin_Tileset_32x32_v2_simple_transparent_15
+  - first:
+      213: -7552797493344604959
+    second: N5_Jardin_Tileset_32x32_v2_simple_transparent_16
+  - first:
+      213: 1155085711043867079
+    second: N5_Jardin_Tileset_32x32_v2_simple_transparent_17
+  - first:
+      213: -2327748010699387421
+    second: N5_Jardin_Tileset_32x32_v2_simple_transparent_18
+  - first:
+      213: -297311537913453412
+    second: N5_Jardin_Tileset_32x32_v2_simple_transparent_19
+  - first:
+      213: 8615938458834551243
+    second: N5_Jardin_Tileset_32x32_v2_simple_transparent_20
+  - first:
+      213: 4619132590888110224
+    second: N5_Jardin_Tileset_32x32_v2_simple_transparent_21
+  - first:
+      213: 1639222368865664048
+    second: N5_Jardin_Tileset_32x32_v2_simple_transparent_22
+  - first:
+      213: -2523876699726728136
+    second: N5_Jardin_Tileset_32x32_v2_simple_transparent_23
+  - first:
+      213: -4654869561129999634
+    second: N5_Jardin_Tileset_32x32_v2_simple_transparent_24
+  - first:
+      213: 8250633040430151931
+    second: N5_Jardin_Tileset_32x32_v2_simple_transparent_25
+  - first:
+      213: 3660480137533702653
+    second: N5_Jardin_Tileset_32x32_v2_simple_transparent_26
+  - first:
+      213: -19630226148558443
+    second: N5_Jardin_Tileset_32x32_v2_simple_transparent_27
+  - first:
+      213: -7902205952224860675
+    second: N5_Jardin_Tileset_32x32_v2_simple_transparent_28
+  - first:
+      213: -7738717014705782651
+    second: N5_Jardin_Tileset_32x32_v2_simple_transparent_29
+  - first:
+      213: 3508768106340844326
+    second: N5_Jardin_Tileset_32x32_v2_simple_transparent_30
+  - first:
+      213: 3006904759727407175
+    second: N5_Jardin_Tileset_32x32_v2_simple_transparent_31
+  - first:
+      213: 7928391950213858593
+    second: N5_Jardin_Tileset_32x32_v2_simple_transparent_32
+  - first:
+      213: -3865313641448905129
+    second: N5_Jardin_Tileset_32x32_v2_simple_transparent_33
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: N5_Jardin_Tileset_32x32_v2_simple_transparent_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 95
+        width: 129
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72eaa89a672897a70800000000000000
+      internalID: 8825228390971387431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N5_Jardin_Tileset_32x32_v2_simple_transparent_1
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 95
+        width: 24
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c4b059c0b0d992a0800000000000000
+      internalID: -6730118710418164538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N5_Jardin_Tileset_32x32_v2_simple_transparent_2
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 95
+        width: 30
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7958b5b80ec977a0800000000000000
+      internalID: -6378840860389779077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N5_Jardin_Tileset_32x32_v2_simple_transparent_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 99
+        width: 31
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b769d09a39113de00800000000000000
+      internalID: 1068216862511044219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N5_Jardin_Tileset_32x32_v2_simple_transparent_4
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 95
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c01cf4936ac6694b0800000000000000
+      internalID: -5434036439194025716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N5_Jardin_Tileset_32x32_v2_simple_transparent_5
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 64
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2a7b33076441f660800000000000000
+      internalID: 7417785270482467374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N5_Jardin_Tileset_32x32_v2_simple_transparent_6
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 63
+        width: 27
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d96a49a5947e0fc0800000000000000
+      internalID: -3526753272045344304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N5_Jardin_Tileset_32x32_v2_simple_transparent_7
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 66
+        width: 30
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7d14f0b272442e20800000000000000
+      internalID: 3324855485268761982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N5_Jardin_Tileset_32x32_v2_simple_transparent_8
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 66
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 458ff2d09ee0ed080800000000000000
+      internalID: -9160868197913593772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N5_Jardin_Tileset_32x32_v2_simple_transparent_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 66
+        width: 32
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03f202280eb061260800000000000000
+      internalID: 7067849724088299312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N5_Jardin_Tileset_32x32_v2_simple_transparent_10
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 70
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e193a3358fa6b85d0800000000000000
+      internalID: -3059233907087361762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N5_Jardin_Tileset_32x32_v2_simple_transparent_11
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 70
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eadb4e9001854da50800000000000000
+      internalID: 6544952984384880046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N5_Jardin_Tileset_32x32_v2_simple_transparent_12
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 70
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aaa158619ec72a4c0800000000000000
+      internalID: -4277719355501503830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N5_Jardin_Tileset_32x32_v2_simple_transparent_13
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 71
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fea3e7a468891950800000000000000
+      internalID: 6420312709688176377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N5_Jardin_Tileset_32x32_v2_simple_transparent_14
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 70
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7584e0dfadd077c40800000000000000
+      internalID: 5509887903310694487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N5_Jardin_Tileset_32x32_v2_simple_transparent_15
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 68
+        width: 28
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a40c9f2b49d0c4c30800000000000000
+      internalID: 4344862672814719050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N5_Jardin_Tileset_32x32_v2_simple_transparent_16
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 37
+        width: 28
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ecebbc32b21f2790800000000000000
+      internalID: -7552797493344604959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N5_Jardin_Tileset_32x32_v2_simple_transparent_17
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 34
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c136e39550b70010800000000000000
+      internalID: 1155085711043867079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N5_Jardin_Tileset_32x32_v2_simple_transparent_18
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 36
+        width: 30
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ed04a7648d22bfd0800000000000000
+      internalID: -2327748010699387421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N5_Jardin_Tileset_32x32_v2_simple_transparent_19
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 50
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c942b034bbcbfdbf0800000000000000
+      internalID: -297311537913453412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N5_Jardin_Tileset_32x32_v2_simple_transparent_20
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 33
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc1c57d0166f19770800000000000000
+      internalID: 8615938458834551243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N5_Jardin_Tileset_32x32_v2_simple_transparent_21
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 33
+        width: 27
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 098c0524e947a1040800000000000000
+      internalID: 4619132590888110224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N5_Jardin_Tileset_32x32_v2_simple_transparent_22
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 46
+        width: 18
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03cbc1c3f00bfb610800000000000000
+      internalID: 1639222368865664048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N5_Jardin_Tileset_32x32_v2_simple_transparent_23
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 36
+        width: 28
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83437ef738369fcd0800000000000000
+      internalID: -2523876699726728136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N5_Jardin_Tileset_32x32_v2_simple_transparent_24
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 35
+        width: 30
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee26115fbc4966fb0800000000000000
+      internalID: -4654869561129999634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N5_Jardin_Tileset_32x32_v2_simple_transparent_25
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 40
+        width: 28
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf8b0fa5903208270800000000000000
+      internalID: 8250633040430151931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N5_Jardin_Tileset_32x32_v2_simple_transparent_26
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 34
+        width: 30
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df1c1118a43acc230800000000000000
+      internalID: 3660480137533702653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N5_Jardin_Tileset_32x32_v2_simple_transparent_27
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 41
+        width: 20
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 599fd8fc9624abff0800000000000000
+      internalID: -19630226148558443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N5_Jardin_Tileset_32x32_v2_simple_transparent_28
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2
+        width: 28
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df5e8abdd89b55290800000000000000
+      internalID: -7902205952224860675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N5_Jardin_Tileset_32x32_v2_simple_transparent_29
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 3
+        width: 30
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 580c03960ed8a9490800000000000000
+      internalID: -7738717014705782651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N5_Jardin_Tileset_32x32_v2_simple_transparent_30
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 3
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6238aa1a006a1b030800000000000000
+      internalID: 3508768106340844326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N5_Jardin_Tileset_32x32_v2_simple_transparent_31
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 17
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 740cbfc92fbaab920800000000000000
+      internalID: 3006904759727407175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N5_Jardin_Tileset_32x32_v2_simple_transparent_32
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 3
+        width: 28
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1254098e87e470e60800000000000000
+      internalID: 7928391950213858593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: N5_Jardin_Tileset_32x32_v2_simple_transparent_33
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 0
+        width: 129
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75667ffe8b5ab5ac0800000000000000
+      internalID: -3865313641448905129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      N5_Jardin_Tileset_32x32_v2_simple_transparent_0: 8825228390971387431
+      N5_Jardin_Tileset_32x32_v2_simple_transparent_1: -6730118710418164538
+      N5_Jardin_Tileset_32x32_v2_simple_transparent_10: -3059233907087361762
+      N5_Jardin_Tileset_32x32_v2_simple_transparent_11: 6544952984384880046
+      N5_Jardin_Tileset_32x32_v2_simple_transparent_12: -4277719355501503830
+      N5_Jardin_Tileset_32x32_v2_simple_transparent_13: 6420312709688176377
+      N5_Jardin_Tileset_32x32_v2_simple_transparent_14: 5509887903310694487
+      N5_Jardin_Tileset_32x32_v2_simple_transparent_15: 4344862672814719050
+      N5_Jardin_Tileset_32x32_v2_simple_transparent_16: -7552797493344604959
+      N5_Jardin_Tileset_32x32_v2_simple_transparent_17: 1155085711043867079
+      N5_Jardin_Tileset_32x32_v2_simple_transparent_18: -2327748010699387421
+      N5_Jardin_Tileset_32x32_v2_simple_transparent_19: -297311537913453412
+      N5_Jardin_Tileset_32x32_v2_simple_transparent_2: -6378840860389779077
+      N5_Jardin_Tileset_32x32_v2_simple_transparent_20: 8615938458834551243
+      N5_Jardin_Tileset_32x32_v2_simple_transparent_21: 4619132590888110224
+      N5_Jardin_Tileset_32x32_v2_simple_transparent_22: 1639222368865664048
+      N5_Jardin_Tileset_32x32_v2_simple_transparent_23: -2523876699726728136
+      N5_Jardin_Tileset_32x32_v2_simple_transparent_24: -4654869561129999634
+      N5_Jardin_Tileset_32x32_v2_simple_transparent_25: 8250633040430151931
+      N5_Jardin_Tileset_32x32_v2_simple_transparent_26: 3660480137533702653
+      N5_Jardin_Tileset_32x32_v2_simple_transparent_27: -19630226148558443
+      N5_Jardin_Tileset_32x32_v2_simple_transparent_28: -7902205952224860675
+      N5_Jardin_Tileset_32x32_v2_simple_transparent_29: -7738717014705782651
+      N5_Jardin_Tileset_32x32_v2_simple_transparent_3: 1068216862511044219
+      N5_Jardin_Tileset_32x32_v2_simple_transparent_30: 3508768106340844326
+      N5_Jardin_Tileset_32x32_v2_simple_transparent_31: 3006904759727407175
+      N5_Jardin_Tileset_32x32_v2_simple_transparent_32: 7928391950213858593
+      N5_Jardin_Tileset_32x32_v2_simple_transparent_33: -3865313641448905129
+      N5_Jardin_Tileset_32x32_v2_simple_transparent_4: -5434036439194025716
+      N5_Jardin_Tileset_32x32_v2_simple_transparent_5: 7417785270482467374
+      N5_Jardin_Tileset_32x32_v2_simple_transparent_6: -3526753272045344304
+      N5_Jardin_Tileset_32x32_v2_simple_transparent_7: 3324855485268761982
+      N5_Jardin_Tileset_32x32_v2_simple_transparent_8: -9160868197913593772
+      N5_Jardin_Tileset_32x32_v2_simple_transparent_9: 7067849724088299312
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
