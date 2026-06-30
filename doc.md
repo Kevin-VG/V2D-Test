@@ -1,16 +1,16 @@
 # INWARD — Documento de Diseño
 
-> **Versión 3.0 — Linearización (2026-06-04)**
+> **Versión 3.1 — N5 con memorias ambientales (2026-06-30)**
 >
-> Esta es la versión vigente del documento. La v3.0 **linealiza y simplifica** el diseño de niveles, pasando de ~152 rooms con 11 ramas opcionales a **74 rooms estrictamente lineales** (sin bifurcaciones). Los sistemas, personajes, arcos emocionales y momentos pico narrativos se preservan intactos — solo cambia la arquitectura espacial y la complejidad de implementación. La referencia arquitectónica detallada de cada nivel (dimensiones, diagramas ASCII, blueprints de anclas y clímax) ahora vive en [`niveles_plano.md`](niveles_plano.md); este documento conserva la **definición de sistemas, mecánicas, personajes, narrativa y guía de implementación**.
+> Esta es la versión vigente del documento. La v3.0 **linealiza y simplifica** el diseño de niveles, pasando de ~152 rooms con 11 ramas opcionales a **74 rooms estrictamente lineales** (sin bifurcaciones). La v3.1 mantiene esa estructura y ajusta el Nivel 5 para producirlo con **Eco Amable + La Sombra + memorias ambientales**, sin requerir sprites de Mateos jóvenes. La referencia arquitectónica detallada de cada nivel (dimensiones, diagramas ASCII, blueprints de anclas y clímax) ahora vive en [`niveles_plano.md`](niveles_plano.md); este documento conserva la **definición de sistemas, mecánicas, personajes, narrativa y guía de implementación**.
 >
-> **Cambios principales v3.0 (vs v2.1):**
+> **Cambios principales v3.1 (vs v2.1):**
 > - N1: 31 → 14 rooms · N2: 28 → 14 · N3: 26+4 → 14 · N4: 26 → 14 · N5: 31 → 8 (lineal). Secreto: 10 (sin cambios).
 > - N3: estructura vertical simplificada (descenso + banca 60s + ascenso, 2 tramos claros).
 > - N4: 3 "Preguntas de La Sombra" consolidadas en 1 sola (R4.9).
-> - N5: hub-and-spokes eliminado, 5 Memorias Vivas en secuencia.
+> - N5: hub-and-spokes eliminado, 5 memorias ambientales en secuencia, guiadas por Eco Amable y Sombra condicional.
 > - **Llave Oxidada** movida de N3 (Rama eliminada) al Nivel Secreto R-S.1.
-> - **Aliento max** unificado a **9** fragmentos (4 base + 5 Galletas de Memoria Viva en N5).
+> - **Aliento max** unificado a **9** fragmentos (4 base + 5 Galletas de Memoria en N5).
 > - Inconsistencias de §8.1 resueltas: Aliento max, Acero Mental fuera del flujo principal, 5 fragmentos narrativos consolidados.
 >
 > Documentos relacionados: [`niveles_plano.md`](niveles_plano.md) (arquitectura de rooms, blueprints, coordenadas) · [`PROGRESO.md`](PROGRESO.md) (estado de implementación).
@@ -132,8 +132,8 @@ Silueta traslúcida con brillo cálido (inverso visual de Los Ecos enemigos). Es
 - **Nivel 4:** *"El espejo no miente. Pero tampoco cuenta toda la historia."*
 - **Nivel 5:** *"Ya casi. Llegar tarde no es lo mismo que no llegar."*
 
-### Las Memorias Vivas (Nivel 5)
-Versiones pasadas de Mateo a distintas edades (7, 10, 12, 14, 16). Cada una aparece en secuencia en una sala dedicada del Nivel 5 (R5.2 a R5.6) y entrega un **Fragmento de Identidad** + una **Galleta** (que sube +1 Aliento máximo permanente) tras una mini-interacción. Detalles de estructura y diálogos en §IV Nivel 5.
+### Las Memorias Ambientales (Nivel 5)
+Recuerdos vivos de Mateo a distintas edades (7, 10, 12, 14, 16). No aparecen como NPCs físicos ni requieren sprites de Mateo joven: cada memoria se manifiesta como un objeto, una luz, un sonido o una pequeña escena del jardín. El **Eco Amable** guía la lectura emocional de cada sala y entrega el **Fragmento de Identidad** + una **Galleta** (que sube +1 Aliento máximo permanente). La Sombra, si fue aceptada en N4, acompaña como presencia silenciosa y reconciliada. Detalles de estructura y diálogos en §IV Nivel 5.
 
 ### Bruno (Nivel secreto)
 El mejor amigo. Solo aparece si el jugador tiene la **Llave Oxidada** (entregada al inicio del propio Nivel Secreto en R-S.1 — v3.0: ya no se encuentra en el Nivel 3, eso cambió con la linearización). Sentado en una banca al final de un nivel lineal, solo. Mateo se sienta a su lado. No hay combate. Solo escuchar. Desbloquea un epílogo.
@@ -199,7 +199,7 @@ Las habilidades básicas son **gratis siempre**. Las habilidades avanzadas consu
 ### Reglas
 
 - **Default:** 4 fragmentos al empezar el juego.
-- **Máximo:** **9 fragmentos** absolutos (4 base + 5 Galletas de Memoria Viva entregadas una por cada Memoria en N5: R5.2, R5.3, R5.4, R5.5, R5.6). Cada Galleta sube el máximo +1 de forma permanente.
+- **Máximo:** **9 fragmentos** absolutos (4 base + 5 Galletas de Memoria entregadas una por cada memoria ambiental en N5: R5.2, R5.3, R5.4, R5.5, R5.6). Cada Galleta sube el máximo +1 de forma permanente.
 - **Pérdida de fragmento:**
   - Contacto con enemigo / hazard estándar: **−1 fragmento** + iframes 1s + knockback breve.
   - Pit gris (caída a vacío "blando"): **−1 fragmento**, respawn al borde.
@@ -210,7 +210,7 @@ Las habilidades básicas son **gratis siempre**. Las habilidades avanzadas consu
   3. **Power-up "Suspiro Profundo"** — restaura 2 fragmentos al activarlo.
   4. **Té de Tilo** (item de inventario, §11.b) — restaura 1 fragmento. Se usa con tecla H. Stack máx 3.
   5. **Luz Cálida** (§11.b) — restaura 1 fragmento al máximo.
-  6. **Galleta de Memoria Viva** (N5) — sube el máximo de Aliento permanentemente +1. Se obtiene una por cada Memoria Viva en R5.2, R5.3, R5.4, R5.5 y R5.6 (5 totales → max absoluto 9).
+  6. **Galleta de Memoria** (N5) — sube el máximo de Aliento permanentemente +1. Se obtiene una por cada memoria ambiental en R5.2, R5.3, R5.4, R5.5 y R5.6 (5 totales → max absoluto 9).
 - **NO hay regeneración pasiva por tiempo.** El heal es siempre intencional. La curación es un acto, no un segundo plano.
 
 ### Visual diegético
@@ -340,7 +340,7 @@ El refinamiento v2.1 separa las fuentes de heal en **3 categorías** según frec
 - **Cómo se obtiene:**
   - 1 garantizado por cada **Banca** activada por primera vez (nunca segunda).
   - Comprar con 10 Destellos al Eco Amable (§12).
-  - Drop raro de Memorias Vivas en N5.
+  - Drop raro de memorias ambientales en N5.
 - **Tecla:** **H** (nueva) — uso instantáneo.
 - **Reglas de uso:** no puedes usar mientras estás aturdido por debuff "Flash de Recuerdo" o "Controles Invertidos". Sí puedes durante "Tunnel Vision" o "Pasos de Plomo".
 
@@ -381,7 +381,7 @@ Pequeñas luces que aparecen al superar zonas, clasificar recuerdos, encontrar c
 | Recoger un coleccionable narrativo | +2 |
 | Usar un Ancla Sensorial (N3) | +2 |
 | Elección empática con La Sombra (N4) | +3 |
-| Mini-interacción con una Memoria Viva (N5) | +3 |
+| Mini-interacción con una memoria ambiental (N5) | +3 |
 | Completar un nivel | +10 |
 | Stomp a un enemigo | +1 |
 | Recoger un Destello suelto en el mundo | +1 (y +1 chispa de Enfoque) |
@@ -427,7 +427,7 @@ Coleccionables especiales que se equipan en el **Inventario Emocional** (menú d
 
 **Coleccionar ≠ Equipar:** puedes tener hasta 9 fragmentos en tu inventario pero solo 3 activos a la vez. Cambiar es libre desde un Santuario, también desde pausa pero con animación de 1.5s "respirando" para evitar swap táctico instantáneo en pleno combate.
 
-> **Cambio v3.0:** el set se reorganiza en dos categorías claras: los **5 Fragmentos Narrativos** (los que dan el estado cosmético "Integración" y se entregan uno por nivel como ancla narrativa) y los **Fragmentos de Memoria Viva** (los 4 cosméticos extra de N5 que no afectan la Integración). Esto resuelve la inconsistencia previa de v2.1 que mezclaba ambos sets.
+> **Cambio v3.1:** el set se organiza en dos categorías claras: los **5 Fragmentos Narrativos** (los que dan el estado cosmético "Integración" y se entregan uno por nivel como ancla narrativa) y los **Fragmentos de Memoria Ambiental** (los 4 cosméticos extra de N5 que no afectan la Integración). Esto resuelve la inconsistencia previa de v2.1 que mezclaba ambos sets y evita depender de sprites de Mateo joven.
 
 ### Los 5 Fragmentos Narrativos (anclas narrativas, dan "Integración")
 
@@ -439,24 +439,24 @@ Estos son los que se desbloquean en momentos emocionales clave de la historia, u
 | 2 | **Tinta de Estrellas** | N2 — R2.12 | Tint azul celeste + rastro de luces estelares | +1 salto extra (wall jump) |
 | 3 | **Chispa de Atreverse** | N3 — R3.8 | Aura blanca pulsante + chispa central | Desbloquea **dash** (no es stat, es la habilidad en sí) |
 | 4 | **Voz del Niño** | N4 — R4.7 | Bubble de luz infantil | Resetea el dash al hacer wall-jump |
-| 5 | **Última Guitarra** | N5 — R5.3 (Mateo 10 años) | Notas musicales flotantes | El dash deja un eco sonoro que aturde enemigos en línea recta |
+| 5 | **Última Guitarra** | N5 — R5.3 (memoria ambiental "El Ritmo") | Notas musicales flotantes | El dash deja un eco sonoro que aturde enemigos en línea recta |
 
-### Fragmentos de Memoria Viva (cosméticos extra de N5, no afectan "Integración")
+### Fragmentos de Memoria Ambiental (cosméticos extra de N5, no afectan "Integración")
 
-Estos 4 se entregan junto a las 5 Galletas en las salas de las Memorias Vivas de N5. Son flavor y stats puros — no son parte del set de los 5 narrativos. Cada uno viene con su Galleta que sube +1 Aliento máximo.
+Estos 4 se entregan junto a las 5 Galletas en las salas de memoria ambiental de N5. Son flavor y stats puros — no son parte del set de los 5 narrativos. Cada uno viene con su Galleta que sube +1 Aliento máximo.
 
 | # | Fragmento | Sala N5 | Visual | Efecto |
 |---|---|---|---|---|
-| 1 | **Alegría Sin Razón** | R5.2 (Mateo 7 años) | Destellos multicolores saltarines | +8% velocidad |
-| 2 | **Raíz Cálida** | R5.4 (Mateo 12 años) | Partículas rojo-naranja | +1 fragmento de Aliento máximo (efecto visual; el +1 real viene de la Galleta) |
-| 3 | **Ancla del Silencio** | R5.5 (Mateo 14 años) | Halo azul tenue | −50% chance de recibir debuff |
-| 4 | **Perdón** | R5.6 (Mateo 16 años, **solo si ya tienes Voz del Niño de N4**) | Luz cálida envolvente | +2 fragmentos de Aliento máximo (efecto visual; el +1 real viene de la Galleta) |
+| 1 | **Alegría Sin Razón** | R5.2 (La Luz, 7 años) | Destellos multicolores saltarines | +8% velocidad |
+| 2 | **Raíz Cálida** | R5.4 (El Silencio, 12 años) | Partículas rojo-naranja | +1 fragmento de Aliento máximo (efecto visual; el +1 real viene de la Galleta) |
+| 3 | **Ancla del Silencio** | R5.5 (La Carrera, 14 años) | Halo azul tenue | −50% chance de recibir debuff |
+| 4 | **Perdón** | R5.6 (La Conversación, 16 años, **solo si ya tienes Voz del Niño de N4**) | Luz cálida envolvente | +2 fragmentos de Aliento máximo (efecto visual; el +1 real viene de la Galleta) |
 
-> **Nota:** R5.6 entrega **Voz del Niño** si aún no la tenías (caso de replays o ruta sin N4.7); si ya la tienes, entrega **Perdón** como variante. **Acero Mental** (v2.1) fue removido del flujo principal en v3.0 — se reserva para expansiones futuras o secretos opcionales.
+> **Nota:** R5.6 entrega **Voz del Niño** si aún no la tenías (caso de replays o ruta sin N4.7); si ya la tienes, entrega **Perdón** como variante. Esta entrega ocurre a través del Eco Amable y una reacción silenciosa de La Sombra, no mediante un sprite de Mateo joven. **Acero Mental** (v2.1) fue removido del flujo principal en v3.0 — se reserva para expansiones futuras o secretos opcionales.
 
 ### Narrativa del sistema
 
-Los Fragmentos representan **partes de Mateo que se rompieron al alejarse Bruno**. Recuperarlos es literalmente *volver a ser él*. El juego lo indica visualmente: al tener los 5 Fragmentos Narrativos, el retrato cosmético cambia. Las Galletas y los Fragmentos de Memoria Viva, en cambio, son el regalo específico de N5 — representan el **alimento emocional** que cada versión pasada de Mateo le ofrece al presente. No son obligatorios para la Integración, pero dan +5 Aliento máximo entre todos.
+Los Fragmentos representan **partes de Mateo que se rompieron al alejarse Bruno**. Recuperarlos es literalmente *volver a ser él*. El juego lo indica visualmente: al tener los 5 Fragmentos Narrativos, el retrato cosmético cambia. Las Galletas y los Fragmentos de Memoria Ambiental, en cambio, son el regalo específico de N5 — representan el **alimento emocional** que cada recuerdo le ofrece al presente. No son obligatorios para la Integración, pero dan +5 Aliento máximo entre todos.
 
 ### Habilidades progresivas — desbloqueo diegético (geométrico vs narrativo)
 
@@ -590,13 +590,13 @@ El v2.1 introduce un fail state suave que reemplaza el respawn invisible del v2.
 | **Luces Cálidas** ★ | Todos | 17 totales (3-5 por nivel) | Recarga total Enfoque + heal +1 + −20% peso (§11.b) |
 | Ecos del Pasado | Todos | ~20 (Unificado) | Lore narrativo (texto flotante simple) |
 | **Fragmentos de Identidad — 5 narrativos** | 1-5 | 5 (1 por nivel: Aura Púa, Tinta Estrellas, Chispa Atreverse, Voz Niño, Última Guitarra) | Dan estado cosmético "Integración" al tener los 5 (§13) |
-| **Fragmentos de Identidad — 4 Memoria Viva** | 5 | 4 (R5.2 Alegría, R5.4 Raíz, R5.5 Ancla, R5.6 Perdón condicional) | Flavor + stats puros (no Integración) |
-| **Galletas de Memoria Viva** | 5 | 5 (una por cada Memoria Viva, R5.2 a R5.6) | +1 Aliento máximo permanente cada una (max 9) |
+| **Fragmentos de Identidad — 4 Memoria Ambiental** | 5 | 4 (R5.2 Alegría, R5.4 Raíz, R5.5 Ancla, R5.6 Perdón condicional) | Flavor + stats puros (no Integración) |
+| **Galletas de Memoria** | 5 | 5 (una por cada memoria ambiental, R5.2 a R5.6) | +1 Aliento máximo permanente cada una (max 9) |
 | **TOTAL** | | **~62** | |
 
 ★ Categorías nuevas en v2.1.
 
-> **Cambio v3.0:** se reducen ~80→80 Destellos sueltos (sin cambio), ~12→10 Tés (reducidos con la linearización), ~20→17 Luces Cálidas, ~25→20 Ecos del Pasado. Los Fragmentos se reagrupan en **5 narrativos + 4 de Memoria Viva** (antes mezclados en 7 ambiguos). **Acero Mental** se removió del flujo principal.
+> **Cambio v3.1:** se reducen ~80→80 Destellos sueltos (sin cambio), ~12→10 Tés (reducidos con la linearización), ~20→17 Luces Cálidas, ~25→20 Ecos del Pasado. Los Fragmentos se reagrupan en **5 narrativos + 4 de Memoria Ambiental** (antes mezclados en 7 ambiguos). **Acero Mental** se removió del flujo principal.
 
 **Inventario Emocional:** pantalla en el menú de pausa que muestra todos los coleccionables encontrados, el retrato emocional de Mateo, los Tés disponibles (stack), los fragmentos equipables (max 3), y el contador de Destellos seguros / en bolsa.
 
@@ -655,7 +655,7 @@ El juego es 100% lineal sin ramas opcionales. Los coleccionables están integrad
 | **N2 — Archivo** | Wall slide, wall jump, carry | Inversión de controles, clasificación de recuerdos | 10-12 min | 14 |
 | **N3 — Mar Quieto** | Dash | Peso emocional (afecta velocidad), anclas sensoriales, banca 60s | 10-12 min | 14 |
 | **N4 — Espejos** | Dash reset en wall jump (Voz del Niño) | Evasión pura, plano doble de gameplay, 1 Pregunta consolidada | 10-12 min | 14 |
-| **N5 — Jardín** | Semilla de Luz | 5 Memorias Vivas en secuencia, Mirador final | 10-12 min | 8 |
+| **N5 — Jardín** | Semilla de Luz | 5 memorias ambientales en secuencia, Mirador final | 10-12 min | 8 |
 | **Secreto — Reencuentro** | (ninguna) | Walking simulator con Bruno | 8-10 min | 10 |
 
 **Total de gameplay:** ~58-68 minutos (rooms × ~1 min/room + momentos pico).
@@ -743,7 +743,7 @@ Nostalgia → confusión → ternura incómoda → aceptación.
 ### Estructura (14 rooms, 3 actos)
 - **Acto I — Entrar al Archivo (R2.1–R2.9, ~9 min):** Mateo aterriza tras N1. Aprende **carry** (R2.3, cargar púa/foto sobre la cabeza, −15% velocidad). R2.4 — primera clasificación (3 pedestales). R2.6 — primera Voz en el parallax (aún no peligrosa). R2.8 — aprende **wall slide** (pared alta, no puede subir todavía). **R2.9 — Santuario 1 "El cajón abierto"** + **primera aparición del Eco Amable** (diálogo + power-up gratis Foco de Claridad + comercio de Destellos abierto).
 - **Acto II — Las Voces (R2.10–R2.13, ~3 min):** R2.10 — primera Voz en gameplay (primera inversión de controles, 3s). R2.11 — dos Voces contiguas (inversión encadenada). **R2.12 — Tinta de Estrellas** (ancla narrativa, desbloquea wall jump). R2.13 — test inmediato (3 paredes en zigzag).
-- **Acto III — La Gran Mesa (R2.14, ~1 min):** **MOMENTO PICO NARRATIVO.** Sala circular amplia. 3 mesas enormes: Guardar / Soltar / Entender. 3 recuerdos a clasificar (púa, foto, nota). **27 combinaciones posibles**, cada una dispara un flashback único en el parallax (5s). **"ENTENDER × 3"** = bonus narrativo (Eco Amable único en N3). Combinación afecta **2 Memorias Vivas de N5** + 1 Frase Oculta de N4.
+- **Acto III — La Gran Mesa (R2.14, ~1 min):** **MOMENTO PICO NARRATIVO.** Sala circular amplia. 3 mesas enormes: Guardar / Soltar / Entender. 3 recuerdos a clasificar (púa, foto, nota). **27 combinaciones posibles**, cada una dispara un flashback único en el parallax (5s). **"ENTENDER × 3"** = bonus narrativo (Eco Amable único en N3). Combinación afecta **2 memorias ambientales de N5** + 1 Frase Oculta de N4.
 
 ### Sistemas activos
 - Enfoque: recarga normal (1.2s). Capacidad 3.
@@ -881,20 +881,20 @@ Calma → alegría → melancolía → plenitud → dignidad.
 ### Principio
 *"Volver a casa, pero cambiado."* Nivel de celebración y cierre. La dificultad mecánica baja — ya no se trata de probar habilidad, sino de **usar libremente todo lo aprendido con alegría**.
 
-**Cambio v3.0:** la estructura cambia de **hub-and-spokes** (Plaza + 5 sub-zonas, v2.1) a **lineal con 5 Memorias Vivas en secuencia**. Sin libertad de orden mecánico — la Chispa entrega un diálogo inicial que dice *"podrías visitarlas en cualquier orden"* como flavor, pero el camino es lineal.
+**Cambio v3.1:** la estructura se mantiene lineal, pero las **5 memorias del pasado** dejan de requerir NPCs físicos de Mateo joven. Ahora son **memorias ambientales**: objetos, luces, sonidos y pequeñas escenas del jardín. El Eco Amable guía cada memoria y entrega las recompensas; La Sombra acompaña en silencio si fue aceptada en N4.
 
 **Twist:** la **Semilla de Luz** (entregada en R5.1) **modifica el entorno permanentemente** — primera mecánica del juego donde el jugador *crea* mundo en vez de atravesarlo. Narrativa: *"empiezas a dejar marca propia"*.
 
-**Nota:** si elegiste "Sí" en N4 R4.12, La Sombra **acompaña todo el nivel** como sprite compañero visible. Su animación es simple pero presente (se detiene cuando Mateo se detiene, mira en la misma dirección).
+**Nota:** si elegiste "Sí" en N4 R4.12, La Sombra **acompaña todo el nivel** como sprite compañero visible. Su animación es simple pero presente (se detiene cuando Mateo se detiene, mira en la misma dirección). En R5.6 y R5.7 puede acercarse a Mateo como gesto de reconciliación, sin hablar.
 
 ### Estructura (8 rooms, lineal)
-- **R5.1 — La llegada (SANTUARIO 1 "Donde crece"):** Mateo cruza un arco de piedra cubierto de enredaderas. Árbol joven con linternas de papel colgando. Eco Amable entrega 1ª Semilla de Luz. Texto: *"Llegaste."*
-- **R5.2 — Mateo 7 años — "La Luz" (Alegría Sin Razón):** hopscotch de luz, persecución del niño, tobogán de hojas. Entrega **Fragmento "Alegría Sin Razón"** (+8% velocidad) + **Galleta 1** (+1 Aliento max). *"No te olvides de esto. De correr sin razón."*
-- **R5.3 — Mateo 10 años — "El Ritmo" (Última Guitarra):** puente musical, habitación de la guitarra, mini-puzzle de ritmo (8 notas en orden). Entrega **Fragmento "Última Guitarra"** (5º narrativo, da estado "Integración") + **Galleta 2**. *"No dejes de tocar."*
-- **R5.4 — Mateo 12 años — "El Silencio" (Raíz Cálida):** plataformas en el cielo, banca (30s de silencio compartido). Entrega **Fragmento "Raíz Cálida"** + **Galleta 3**. *"Pensar no es malo. Solo cansa si nadie escucha."*
-- **R5.5 — Mateo 14 años — "La Carrera" (Ancla del Silencio):** corredor infinito, carrera juntos, salto imposible (ambos a la vez). Entrega **Fragmento "Ancla del Silencio"** + **Galleta 4**. *"Te enseñé a correr. Acuérdate de eso."*
-- **R5.6 — Mateo 16 años — "La Conversación" (Voz del Niño o Perdón):** habitación oscura (cuarto real de Mateo), diálogo extenso, abrazo. Entrega **Voz del Niño** (si no la tienes) o **Perdón** (si ya la tienes) + **Galleta 5**. *"A veces te va a doler otra vez. Eso es normal."*
-- **R5.7 — El mirador de la cima (CLÍMAX FINAL):** Las 5 Memorias Vivas sentadas en el borde en orden cronológico. Mateo se sienta entre M12a y M14a. La Sombra compañera (si está) al otro lado. Halo de Aliento refleja las 5 Galletas (max 9 fragmentos). Texto: *"No volví solo. Volví con todos los que fui."* Música de guitarra llega a su clímax. Todas las figuras se vuelven luz y se fusionan con Mateo. **Sprite cambia: retrato de silueta → rostro completo. Estado cosmético "Integración" desbloqueado.**
+- **R5.1 — La llegada (SANTUARIO 1 "Donde crece"):** Mateo cruza un arco de piedra cubierto de enredaderas. Árbol joven con linternas de papel colgando. Eco Amable entrega la 1ª Semilla de Luz. Texto: *"Llegaste."*
+- **R5.2 — La Luz (7 años / Alegría Sin Razón):** rayuela de luz, hojas girando, risa lejana y un camino corto que invita a correr sin presión. Eco Amable entrega **Fragmento "Alegría Sin Razón"** (+8% velocidad) + **Galleta 1** (+1 Aliento max). *"No te olvides de esto. De correr sin razón."*
+- **R5.3 — El Ritmo (10 años / Última Guitarra):** guitarra apoyada en una raíz, notas flotantes y un puente musical que se enciende con la Semilla de Luz. Entrega **Fragmento "Última Guitarra"** (5º narrativo, da estado "Integración") + **Galleta 2**. *"No dejes de tocar."*
+- **R5.4 — El Silencio (12 años / Raíz Cálida):** cuaderno abierto, luciérnagas quietas y una pausa breve de 5-8s donde el viento baja de volumen. No hay banca. Entrega **Fragmento "Raíz Cálida"** + **Galleta 3**. *"Pensar no es malo. Solo cansa si nadie escucha."*
+- **R5.5 — La Carrera (14 años / Ancla del Silencio):** corredor de hojas, huellas luminosas que aparecen al lado de Mateo y una Semilla de Luz que crea el último tramo. Si La Sombra acompaña, camina/corre en paralelo. Entrega **Fragmento "Ancla del Silencio"** + **Galleta 4**. *"No siempre corrías para huir. A veces corrías porque estabas vivo."*
+- **R5.6 — La Conversación (16 años / Voz del Niño o Perdón):** cuarto simbólico dentro del jardín: ventana iluminada, cassette/teléfono apagado y luz cálida baja. Eco Amable guía la conversación; La Sombra se acerca si está presente. Entrega **Voz del Niño** (si no la tienes) o **Perdón** (si ya la tienes) + **Galleta 5**. *"La parte que querías dejar atrás también estaba intentando cuidarte."*
+- **R5.7 — El mirador de la cima (CLÍMAX FINAL):** los 5 recuerdos aparecen como objetos/luces en orden: rayuela, guitarra, cuaderno, huellas, ventana/cassette. Mateo se sienta al centro; La Sombra compañera (si está) se sienta a su lado. Halo de Aliento refleja las 5 Galletas (max 9 fragmentos). Texto: *"No volví solo. Volví con todo lo que fui."* Música de guitarra llega a su clímax. Las cinco luces se fusionan con Mateo. **Sprite cambia: retrato de silueta → rostro completo. Estado cosmético "Integración" desbloqueado.**
 - **R5.8 — Créditos:** fade a blanco, créditos sobre parallax del amanecer, música de guitarra completa.
 
 ### Epílogos (según elecciones)
@@ -905,22 +905,22 @@ Calma → alegría → melancolía → plenitud → dignidad.
 
 ### Sistemas activos
 - Enfoque: recarga **30% más rápida** (0.85s). Capacidad 3. Mateo está en paz.
-- Aliento: 4-9 (4 base + 5 Galletas de Memoria Viva).
+- Aliento: 4-9 (4 base + 5 Galletas de Memoria).
 - Peso: baja constantemente. Casi imposible de subir.
 - Santuarios: 1 (R5.1). Bancas: 0. Luces Cálidas: 5 (1 entre cada Memoria). Hazards duros: 0.
 - Power-ups: Semilla de Luz, Eco de Música, Suspiro Profundo, Escudo de Respiración.
 
 ### Diálogos clave
-- R5.1 (Eco Amable): *"Llegaste."* / *"Este es un lugar donde todo lo que fuiste te espera."* / *"Puedes visitar a cada uno en el orden que quieras."*
-- R5.2: *"No te olvides de esto. De correr sin razón. Ah — y come algo, mamá hizo galletas."*
-- R5.3: *"No dejes de tocar. Toma — me sobró una de las del recreo."*
-- R5.4: *"Pensar no es malo. Solo cansa si nadie escucha. Tú me escuchaste. Aunque tarde."*
-- R5.5: *"Te enseñé a correr. Acuérdate de eso cuando quieras parar. Y come, que se enfría."*
-- R5.6: *"A veces te va a doler otra vez. Eso es normal. Pero ya no vas a estar tan solo. Porque ahora tienes esto."*
-- R5.7: *"No volví solo. Volví con todos los que fui."*
+- R5.1 (Eco Amable): *"Llegaste."* / *"No necesitas verlos para saber que siguen contigo."*
+- R5.2 (Eco Amable): *"Aquí corrías sin pedir permiso al mundo. Come algo: también se vuelve a casa por el cuerpo."*
+- R5.3 (Eco Amable): *"Antes de que doliera hablar, todavía sabías sonar. No dejes de tocar."*
+- R5.4 (Eco Amable): *"Pensar no es malo. Solo cansa si nadie escucha. Hoy sí hay alguien escuchando."*
+- R5.5 (Eco Amable): *"No siempre corrías para huir. A veces corrías porque estabas vivo."*
+- R5.6 (Eco Amable): *"La parte que querías dejar atrás también estaba intentando cuidarte."*
+- R5.7 (Mateo): *"No volví solo. Volví con todo lo que fui."*
 
 ### Secretos (3)
-Ver [`niveles_plano.md` §5.7](niveles_plano.md): Frase oculta *"El silencio también era amor"* en R5.4, Destello+fragmento cosmético tras abrazo en R5.6, ventana iluminada de Bruno en parallax de R5.7 (solo si eligió SÍ en N4 + Semilla en borde correcto).
+Ver [`niveles_plano.md` §5.7](niveles_plano.md): Frase oculta *"El silencio también era amor"* en R5.4, Destello+fragmento cosmético si La Sombra se acerca en R5.6, ventana iluminada de Bruno en parallax de R5.7 (solo si eligió SÍ en N4 + Semilla en borde correcto).
 
 ---
 
@@ -1187,6 +1187,6 @@ Inward.ScriptableObjects → IdentityFragmentSO, PowerUpSO, DebuffSO,
 
 ---
 
-**Última actualización del documento:** 2026-06-04 — Linearización v3.0: reducción de ~152 rooms a 74 lineales (sin ramas). N3 vertical simplificado, N4 con 1 sola Pregunta consolidada, N5 con 5 Memorias en secuencia (hub-and-spokes eliminado). Llave Oxidada movida al Secreto. Aliento max unificado a 9. Inconsistencias de §8.1 resueltas. La arquitectura espacial detallada de cada nivel ahora vive en [`niveles_plano.md`](niveles_plano.md); este documento conserva la definición de sistemas, mecánicas, personajes, narrativa y guía de implementación.
+**Última actualización del documento:** 2026-06-30 — Revisión v3.1 de N5: las 5 memorias dejan de requerir NPCs/sprites de Mateos jóvenes y pasan a ser memorias ambientales guiadas por Eco Amable, con La Sombra como acompañante condicional. Se mantiene la linearización v3.0: 74 rooms lineales, N3 vertical simplificado, N4 con 1 sola Pregunta consolidada, Llave Oxidada movida al Secreto y Aliento max unificado a 9. La arquitectura espacial detallada de cada nivel vive en [`niveles_plano.md`](niveles_plano.md); este documento conserva la definición de sistemas, mecánicas, personajes, narrativa y guía de implementación.
 
 **Estado técnico actual:** Core + Nivel 1 prototipo en construcción (Sprint 0). La implementación de los sistemas v2.1 está planeada para el Sprint 1. Ver [PROGRESO.md](PROGRESO.md).

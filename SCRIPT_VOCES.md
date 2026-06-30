@@ -32,8 +32,8 @@ Para mantener un orden impecable en tu carpeta de assets (`Assets/_INWARD/Audio/
 | `VOZ1_M_L1_RELOJ` | N1 - R1.27 (Sala Reloj) | *"El reloj no marca horas. Marca las veces que no dije nada."* | *"The clock doesn't tick hours. It ticks the times I didn't say anything."* | Triste, tono reflexivo y profundo. |
 | `VOZ1_M_L2_DIARIO` | N2 - R2.25 (Banca) | *"Hay cosas que no recuerdo haber guardado. Pero ahí están, ocupando espacio en mí."* | *"There are things I don't remember saving. But there they are, taking up space inside me."* | Introspectivo, con un aire de resignación. |
 | `VOZ1_M_L2_MESA` | N2 - R2.27 (Gran Mesa) | *"No tiré nada. Solo dejé de mirar. Y de alguna forma eso fue peor."* | *"I didn't throw anything away. I just stopped looking. And somehow, that was worse."* | Autocrítico, tono de darse cuenta de algo doloroso. |
-| `VOZ1_M_L5_ABRAZO` | N5 - R5.24 (Habitación) | *"¿Te acuerdas de mí?"* | *"Do you remember me?"* | Voz suave, vulnerable, casi con una sonrisa triste. |
-| `VOZ1_M_L5_FINAL` | N5 - R5.29 (Mirador) | *"No volví solo. Volví con todos los que fui."* | *"I didn't come back alone. I came back with everyone I used to be."* | Tono de paz, maduro, entero, seguro. |
+| `VOZ1_M_L5_CONV` | N5 - R5.6 (La Conversación) | *"Sí me acuerdo. Solo me costaba mirarlo."* | *"I do remember. It was just hard to look at it."* | Voz suave, vulnerable, aceptando sin dramatizar. |
+| `VOZ1_M_L5_FINAL` | N5 - R5.7 (Mirador) | *"No volví solo. Volví con todo lo que fui."* | *"I didn't come back alone. I came back with everything I used to be."* | Tono de paz, maduro, entero, seguro. |
 | `VOZ1_M_SEC_BANCA1` | N.Secreto - R-Sec.4 | *"Pensé que no iba a reconocerlo. Pensé que me iba a dar miedo."* | *"I thought I wouldn't recognize him. I thought it would make me afraid."* | Murmurado, pensativo. |
 | `VOZ1_M_SEC_CONV1` | N.Secreto - R-Sec.6 | *"Ey."* | *"Hey."* | Suave, tímido, rompiendo el hielo. |
 | `VOZ1_M_SEC_CONV2` | N.Secreto - R-Sec.6 | *"No sé. Mucho."* | *"I don't know. A lot."* | Tono normal, sincero. |
@@ -89,9 +89,14 @@ Para mantener un orden impecable en tu carpeta de assets (`Assets/_INWARD/Audio/
 | `VOZ1_EA_L2_03` | N2 - R2.23 (Fogata) | *"¿Recuerdas cuándo dejaste de tocar la guitarra? No te juzgo. Solo quiero saber si lo recuerdas."* | *"Do you remember when you stopped playing the guitar? I don't judge you. I just want to know if you remember."* | Tono empático, sin asomo de reproche. |
 | `VOZ1_EA_L3_01` | N3 - R3.17 (Fogata) | *"No tienes que nadar. Solo flotar ya es avanzar."* | *"You don't have to swim. Just floating is already moving forward."* | Muy pausado, transmitiendo ligereza. |
 | `VOZ1_EA_L4_01` | N4 - R4.20 (Banca) | *"El espejo no miente. Pero tampoco cuenta toda la historia."* | *"The mirror doesn't lie. But it doesn't tell the whole story either."* | Tono sabio, suave y calmado. |
-| `VOZ1_EA_L5_01` | N5 - R5.2 (Plaza) | *"Este es un lugar donde todo lo que fuiste te espera."* | *"This is a place where everything you used to be is waiting for you."* | Tono de bienvenida afectuoso. |
-| `VOZ1_EA_L5_02` | N5 - R5.2 (Plaza) | *"Puedes visitar a cada uno en el orden que quieras. Ninguno te va a juzgar. Solo quieren verte."* | *"You can visit each one in any order you want. None of them will judge you. They just want to see you."* | Guiando con dulzura, voz clara. |
-| `VOZ1_EA_L5_03` | N5 - R5.28 (Mirador) | *"Ya casi. Llegar tarde no es lo mismo que no llegar."* | *"Almost there. Being late is not the same as not arriving."* | Motivador, inspirador. |
+| `VOZ1_EA_L5_01` | N5 - R5.1 (Santuario) | *"Llegaste."* | *"You made it."* | Tono de bienvenida afectuoso, casi un suspiro de alivio. |
+| `VOZ1_EA_L5_02` | N5 - R5.1 (Santuario) | *"No necesitas verlos para saber que siguen contigo."* | *"You don't need to see them to know they are still with you."* | Guiando con dulzura, voz clara. |
+| `VOZ1_EA_L5_03` | N5 - R5.2 (La Luz) | *"Aquí corrías sin pedir permiso al mundo. Come algo: también se vuelve a casa por el cuerpo."* | *"Here, you ran without asking the world for permission. Eat something: the body is also a way home."* | Cálido, con una sonrisa suave. |
+| `VOZ1_EA_L5_04` | N5 - R5.3 (El Ritmo) | *"Antes de que doliera hablar, todavía sabías sonar. No dejes de tocar."* | *"Before speaking hurt, you still knew how to sound. Don't stop playing."* | Musical, íntimo, esperanzador. |
+| `VOZ1_EA_L5_05` | N5 - R5.4 (El Silencio) | *"Pensar no es malo. Solo cansa si nadie escucha. Hoy sí hay alguien escuchando."* | *"Thinking is not bad. It only gets tiring when no one listens. Today, someone is listening."* | Muy pausado, casi en silencio. |
+| `VOZ1_EA_L5_06` | N5 - R5.5 (La Carrera) | *"No siempre corrías para huir. A veces corrías porque estabas vivo."* | *"You didn't always run to escape. Sometimes you ran because you were alive."* | Ligero, alentador. |
+| `VOZ1_EA_L5_07` | N5 - R5.6 (La Conversación) | *"La parte que querías dejar atrás también estaba intentando cuidarte."* | *"The part you wanted to leave behind was also trying to protect you."* | Protector, sin reproche. |
+| `VOZ1_EA_L5_08` | N5 - R5.7 (Mirador) | *"Ya casi. Llegar tarde no es lo mismo que no llegar."* | *"Almost there. Being late is not the same as not arriving."* | Motivador, inspirador. |
 
 ---
 
@@ -156,32 +161,32 @@ Para mantener un orden impecable en tu carpeta de assets (`Assets/_INWARD/Audio/
 
 ---
 
-## 🎙️ VOZ 4: Mateo Niño (7 años)
-*Actor infantil (voz muy joven). Tono: Alegre, inocente y enérgico.*
+## 🎙️ VOZ 4: Mateo Niño (7 años) — RETIRADO DE N5 v3.1
+*Estas líneas se conservan como referencia histórica. En N5 v3.1 no se graban voces de Mateos jóvenes: las memorias son ambientales y las narra el Eco Amable.*
 
 | Nombre de Archivo | Escena / Room | Español | Inglés (English) | Notas de Actuación |
 | :--- | :--- | :--- | :--- | :--- |
-| `VOZ4_M7_L5_CARR` | N5 - R5.4 (Carrera) | *"¡Alcánzame!"* | *"Catch me!"* | Riendo, enérgica, gritado de juego. |
-| `VOZ4_M7_L5_FINAL` | N5 - R5.7 (Despedida) | *"No te olvides de esto. De correr sin razón. Ah — y come algo, mamá hizo galletas."* | *"Don't forget this. Running for no reason. Oh — and eat something, mom made cookies."* | Muy tierno, sonrisa gigante en la voz. |
+| `VOZ4_M7_L5_CARR` | RETIRADO | *"¡Alcánzame!"* | *"Catch me!"* | Reemplazado por risa lejana/SFX ambiental en R5.2. |
+| `VOZ4_M7_L5_FINAL` | RETIRADO | *"No te olvides de esto. De correr sin razón. Ah — y come algo, mamá hizo galletas."* | *"Don't forget this. Running for no reason. Oh — and eat something, mom made cookies."* | Reemplazado por `VOZ1_EA_L5_03`. |
 
 ---
 
-## 🎙️ VOZ 5: Mateo Pre-adolescente (10 a 12 años)
-*Actor de voz infantil/joven (~11 años). Tono: Tímido, pensativo y dulce.*
+## 🎙️ VOZ 5: Mateo Pre-adolescente (10 a 12 años) — RETIRADO DE N5 v3.1
+*Estas líneas se conservan como referencia histórica. En N5 v3.1 no se graban voces de Mateos jóvenes: las memorias son ambientales y las narra el Eco Amable.*
 
 | Nombre de Archivo | Escena / Room | Español | Inglés (English) | Notas de Actuación |
 | :--- | :--- | :--- | :--- | :--- |
-| `VOZ5_M10_L5_FIN` | N5 - R5.11 (Despedida 10) | *"Estabas aprendiendo rápido. No dejes de tocar. Toma — me sobró una de las del recreo."* | *"You were learning fast. Don't stop playing. Here — I have one left from recess."* | Entusiasta e inocente. |
-| `VOZ5_M12_L5_BAN1` | N5 - R5.15 (Banca 12) | *"A veces pensaba que yo era raro por pensar tanto."* | *"Sometimes I thought I was weird for thinking so much."* | Voz melancólica, tono bajo de confidencia. |
-| `VOZ5_M12_L5_BAN2` | N5 - R5.15 (Banca 12) | *"Pero ahora veo que pensar no es malo. Solo cansa si nadie escucha. Tú me escuchaste. Aunque tarde."* | *"But now I see that thinking is not bad. It just gets tiring if no one listens. You listened to me. Even if it was late."* | Voz calmada, agradecida. |
-| `VOZ5_M12_L5_FIN` | N5 - R5.16 (Despedida 12) | *"Esto era mío. Ahora es tuyo. La galleta también — la tenía guardada para cuando fueras a venir."* | *"This was mine. Now it's yours. The cookie too — I had kept it for when you were coming."* | Dulce y tierno. |
+| `VOZ5_M10_L5_FIN` | RETIRADO | *"Estabas aprendiendo rápido. No dejes de tocar. Toma — me sobró una de las del recreo."* | *"You were learning fast. Don't stop playing. Here — I have one left from recess."* | Reemplazado por `VOZ1_EA_L5_04`. |
+| `VOZ5_M12_L5_BAN1` | RETIRADO | *"A veces pensaba que yo era raro por pensar tanto."* | *"Sometimes I thought I was weird for thinking so much."* | Reemplazado por escena ambiental de cuaderno/luciérnagas. |
+| `VOZ5_M12_L5_BAN2` | RETIRADO | *"Pero ahora veo que pensar no es malo. Solo cansa si nadie escucha. Tú me escuchaste. Aunque tarde."* | *"But now I see that thinking is not bad. It just gets tiring if no one listens. You listened to me. Even if it was late."* | Reemplazado por `VOZ1_EA_L5_05`. |
+| `VOZ5_M12_L5_FIN` | RETIRADO | *"Esto era mío. Ahora es tuyo. La galleta también — la tenía guardada para cuando fueras a venir."* | *"This was mine. Now it's yours. The cookie too — I had kept it for when you were coming."* | Recompensa se entrega visualmente por Eco Amable. |
 
 ---
 
-## 🎙️ VOZ 6: Mateo Adolescente Temprano (14 años)
-*Actor de voz adolescente joven (~14 años). Tono: Confiado, fuerte y vivaz.*
+## 🎙️ VOZ 6: Mateo Adolescente Temprano (14 años) — RETIRADO DE N5 v3.1
+*Estas líneas se conservan como referencia histórica. En N5 v3.1 no se graban voces de Mateos jóvenes: las memorias son ambientales y las narra el Eco Amable.*
 
 | Nombre de Archivo | Escena / Room | Español | Inglés (English) | Notas de Actuación |
 | :--- | :--- | :--- | :--- | :--- |
-| `VOZ6_M14_L5_JUMP` | N5 - R5.20 (Gran Salto) | *"Vamos. Los dos a la vez."* | *"Let's go. Both at the same time."* | Emocionado, gritado con fuerza y convicción. |
-| `VOZ6_M14_L5_FINAL` | N5 - R5.22 (Despedida 14) | *"Te enseñé a correr. Acuérdate de eso cuando quieras parar. Y come, que se enfría."* | *"I taught you how to run. Remember that when you want to stop. And eat, before it gets cold."* | Tono de despedida camarada, confiado. |
+| `VOZ6_M14_L5_JUMP` | RETIRADO | *"Vamos. Los dos a la vez."* | *"Let's go. Both at the same time."* | Reemplazado por huellas luminosas y Sombra caminando/corriendo en paralelo. |
+| `VOZ6_M14_L5_FINAL` | RETIRADO | *"Te enseñé a correr. Acuérdate de eso cuando quieras parar. Y come, que se enfría."* | *"I taught you how to run. Remember that when you want to stop. And eat, before it gets cold."* | Reemplazado por `VOZ1_EA_L5_06`. |
