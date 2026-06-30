@@ -11,7 +11,7 @@ namespace Shatter.Narrative
         [SerializeField, Range(0f, 1f)] private float ambientVolume = 0.28f;
         [SerializeField, Range(0f, 1f)] private float dialogueAmbientVolume = 0.16f;
         [SerializeField, Range(0f, 1f)] private float cueVolume = 0.55f;
-        [SerializeField, Range(0f, 1f)] private float finalVolume = 0.48f;
+        [SerializeField, Range(0f, 1f)] private float finalVolume = 0.62f;
         [SerializeField] private float fadeTime = 0.7f;
 
         private AudioSource ambientSource;
@@ -88,7 +88,8 @@ namespace Shatter.Narrative
         {
             EnsureSources();
 
-            FadeAmbient(0.08f);
+            CancelInvoke(nameof(RestoreAmbient));
+            FadeAmbient(0f);
             if (finalSource != null && finalSwell != null)
             {
                 finalSource.PlayOneShot(finalSwell, finalVolume);

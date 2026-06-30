@@ -1,14 +1,14 @@
 # INWARD — Documento de Diseño
 
-> **Versión 3.1 — N5 con memorias ambientales (2026-06-30)**
+> **Versión 3.0 — Linearización (2026-06-04)**
 >
-> Esta es la versión vigente del documento. La v3.0 **linealiza y simplifica** el diseño de niveles, pasando de ~152 rooms con 11 ramas opcionales a **74 rooms estrictamente lineales** (sin bifurcaciones). La v3.1 mantiene esa estructura y ajusta el Nivel 5 para producirlo con **Eco Amable + La Sombra + memorias ambientales**, sin requerir sprites de Mateos jóvenes. La referencia arquitectónica detallada de cada nivel (dimensiones, diagramas ASCII, blueprints de anclas y clímax) ahora vive en [`niveles_plano.md`](niveles_plano.md); este documento conserva la **definición de sistemas, mecánicas, personajes, narrativa y guía de implementación**.
+> Esta es la versión vigente del documento. La v3.0 **linealiza y simplifica** el diseño de niveles, pasando de ~152 rooms con 11 ramas opcionales a **74 rooms estrictamente lineales** (sin bifurcaciones). Los sistemas, personajes, arcos emocionales y momentos pico narrativos se preservan intactos — solo cambia la arquitectura espacial y la complejidad de implementación. La referencia arquitectónica detallada de cada nivel (dimensiones, diagramas ASCII, blueprints de anclas y clímax) ahora vive en [`niveles_plano.md`](niveles_plano.md); este documento conserva la **definición de sistemas, mecánicas, personajes, narrativa y guía de implementación**.
 >
-> **Cambios principales v3.1 (vs v2.1):**
+> **Cambios principales v3.0 (vs v2.1):**
 > - N1: 31 → 14 rooms · N2: 28 → 14 · N3: 26+4 → 14 · N4: 26 → 14 · N5: 31 → 8 (lineal). Secreto: 10 (sin cambios).
 > - N3: estructura vertical simplificada (descenso + banca 60s + ascenso, 2 tramos claros).
 > - N4: 3 "Preguntas de La Sombra" consolidadas en 1 sola (R4.9).
-> - N5: hub-and-spokes eliminado, 5 memorias ambientales en secuencia, guiadas por Eco Amable y Sombra condicional.
+> - N5: hub-and-spokes eliminado, 5 memorias ambientales en secuencia.
 > - **Llave Oxidada** movida de N3 (Rama eliminada) al Nivel Secreto R-S.1.
 > - **Aliento max** unificado a **9** fragmentos (4 base + 5 Galletas de Memoria en N5).
 > - Inconsistencias de §8.1 resueltas: Aliento max, Acero Mental fuera del flujo principal, 5 fragmentos narrativos consolidados.
@@ -1187,6 +1187,6 @@ Inward.ScriptableObjects → IdentityFragmentSO, PowerUpSO, DebuffSO,
 
 ---
 
-**Última actualización del documento:** 2026-06-30 — Revisión v3.1 de N5: las 5 memorias dejan de requerir NPCs/sprites de Mateos jóvenes y pasan a ser memorias ambientales guiadas por Eco Amable, con La Sombra como acompañante condicional. Se mantiene la linearización v3.0: 74 rooms lineales, N3 vertical simplificado, N4 con 1 sola Pregunta consolidada, Llave Oxidada movida al Secreto y Aliento max unificado a 9. La arquitectura espacial detallada de cada nivel vive en [`niveles_plano.md`](niveles_plano.md); este documento conserva la definición de sistemas, mecánicas, personajes, narrativa y guía de implementación.
+**Última actualización del documento:** 2026-06-04 — Linearización v3.0: reducción de ~152 rooms a 74 lineales (sin ramas). N3 vertical simplificado, N4 con 1 sola Pregunta consolidada, N5 con 5 Memorias en secuencia (hub-and-spokes eliminado). Llave Oxidada movida al Secreto. Aliento max unificado a 9. Inconsistencias de §8.1 resueltas. La arquitectura espacial detallada de cada nivel ahora vive en [`niveles_plano.md`](niveles_plano.md); este documento conserva la definición de sistemas, mecánicas, personajes, narrativa y guía de implementación.
 
 **Estado técnico actual:** Core + Nivel 1 prototipo en construcción (Sprint 0). La implementación de los sistemas v2.1 está planeada para el Sprint 1. Ver [PROGRESO.md](PROGRESO.md).

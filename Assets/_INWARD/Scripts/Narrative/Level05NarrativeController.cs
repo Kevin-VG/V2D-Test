@@ -1,4 +1,5 @@
 using Shatter.Player;
+using System.Collections;
 using UnityEngine;
 
 namespace Shatter.Narrative
@@ -27,13 +28,21 @@ namespace Shatter.Narrative
         [SerializeField] private MemoryEvent intro;
         [SerializeField] private MemoryEvent[] memories = new MemoryEvent[5];
         [SerializeField] private MemoryEvent finalEvent;
-        [SerializeField] private string finalScreenTitle = "SHATTER";
-        [SerializeField] private string finalScreenBody = "Gracias por llegar hasta aqui.\nGracias por volver con Mateo.";
+        [SerializeField] private string finalScreenTitle = "INWARD";
+        [SerializeField] private string finalScreenBody = "Mateo abre los ojos.\nEsta vez no despierta huyendo.\nGracias por caminar con el hasta que pudo volver a si mismo.";
         [SerializeField] private float finalScreenDelay = 5f;
+        [SerializeField] private bool playLevelIntroOnStart = true;
+        [SerializeField] private string levelIntroTitle = "Nivel 5";
+        [SerializeField] private string levelIntroBody = "El jardin donde Mateo aprende a mirar sus recuerdos.";
+        [SerializeField] private float levelIntroFadeIn = 1.1f;
+        [SerializeField] private float levelIntroHold = 2.1f;
+        [SerializeField] private float levelIntroFadeOut = 1.6f;
 
         private bool introPlayed;
         private bool finalPlayed;
         private bool[] memoriesPlayed;
+        private Coroutine pendingEventRoutine;
+        private Coroutine finalSequenceRoutine;
 
         private void Awake()
         {
@@ -72,6 +81,11 @@ namespace Shatter.Narrative
             }
 
             SetRewardsActive(false);
+
+            if (playLevelIntroOnStart && dialogueUI != null)
+            {
+                dialogueUI.ShowLevelIntro(levelIntroTitle, levelIntroBody, levelIntroFadeIn, levelIntroHold, levelIntroFadeOut, player);
+            }
         }
 
         public void PlayIntro()
@@ -82,7 +96,7 @@ namespace Shatter.Narrative
             }
 
             introPlayed = true;
-            PlayEvent(intro);
+            PlayEventWhenReady(intro);
         }
 
         public void PlayMemory(int index)
@@ -98,7 +112,7 @@ namespace Shatter.Narrative
             }
 
             memoriesPlayed[index] = true;
-            PlayEvent(memories[index]);
+            PlayEventWhenReady(memories[index]);
         }
 
         public void PlayFinal()
@@ -109,14 +123,53 @@ namespace Shatter.Narrative
             }
 
             finalPlayed = true;
-            PlayEvent(finalEvent);
-            if (audioDirector != null)
+            if (finalSequenceRoutine != null)
             {
-                audioDirector.PlayFinalMoment();
+                StopCoroutine(finalSequenceRoutine);
             }
 
-            CancelInvoke(nameof(ShowFinalScreen));
-            Invoke(nameof(ShowFinalScreen), Mathf.Max(1f, finalScreenDelay));
+            finalSequenceRoutine = StartCoroutine(PlayFinalSequenceRoutine());
+        }
+
+        private void PlayEventWhenReady(MemoryEvent memoryEvent)
+        {
+            if (pendingEventRoutine != null)
+            {
+                StopCoroutine(pendingEventRoutine);
+            }
+
+            pendingEventRoutine = StartCoroutine(PlayEventWhenReadyRoutine(memoryEvent));
+        }
+
+        private IEnumerator PlayEventWhenReadyRoutine(MemoryEvent memoryEvent)
+        {
+            while (dialogueUI != null && dialogueUI.IsShowing)
+            {
+                yield return null;
+            }
+
+            PlayEvent(memoryEvent);
+            pendingEventRoutine = null;
+        }
+
+        private IEnumerator PlayFinalSequenceRoutine()
+        {
+            while (dialogueUI != null && dialogueUI.IsShowing)
+            {
+                yield return null;
+            }
+
+            PlayEvent(finalEvent);
+
+            while (dialogueUI != null && dialogueUI.IsShowing)
+            {
+                yield return null;
+            }
+
+            yield return new WaitForSeconds(0.35f);
+
+            ShowFinalScreen();
+            finalSequenceRoutine = null;
         }
 
         private void PlayEvent(MemoryEvent memoryEvent)
@@ -186,6 +239,11 @@ namespace Shatter.Narrative
 
         private void ShowFinalScreen()
         {
+            if (audioDirector != null)
+            {
+                audioDirector.PlayFinalMoment();
+            }
+
             if (dialogueUI != null)
             {
                 dialogueUI.ShowFinalScreen(finalScreenTitle, finalScreenBody, player);

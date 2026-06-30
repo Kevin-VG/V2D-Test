@@ -13003,61 +13003,68 @@ MonoBehaviour:
   intro:
     id: R5.1
     speaker: Eco Amable
-    line: Respira, Mateo. Este jardin no viene a juzgarte; viene a recordarte que
-      sobreviviste.
+    line: Este lugar guarda recuerdos tuyos, Mateo. No venimos a cambiarlos; venimos
+      a mirarlos sin miedo.
     rewardRoot: {fileID: 1907658542}
     visualRoot: {fileID: 0}
-    duration: 6.2
+    duration: 7.5
   memories:
   - id: R5.2
     speaker: Eco Amable
-    line: Mira este juego. Antes de correr por miedo, corrias porque estabas vivo.
-      Esa alegria todavia es tuya.
+    line: Aqui eras feliz sin darte cuenta. Preguntate esto, Mateo; que parte de
+      esa alegria todavia puedes recuperar?
     rewardRoot: {fileID: 52220304}
     visualRoot: {fileID: 226239349}
-    duration: 7
+    duration: 8
   - id: R5.3
     speaker: Eco Amable
-    line: Esta melodia era tu manera de hablar cuando las palabras no salian. No
-      tienes que callarte otra vez.
+    line: Cuando no sabias decir lo que sentias, buscabas otra forma de sacarlo.
+      No guardes todo dentro; lo que duele tambien necesita salir.
     rewardRoot: {fileID: 1496906196}
     visualRoot: {fileID: 817384537}
-    duration: 7
+    duration: 8
   - id: R5.4
     speaker: Eco Amable
-    line: Aqui aprendiste a guardar silencio para no molestar. Ya no hace falta.
-      Yo puedo quedarme y escucharte.
+    line: Aprendiste a callar para no molestar a nadie. Pero tus emociones tambien
+      importan; no tienes que borrarte para ser querido.
     rewardRoot: {fileID: 255862231}
     visualRoot: {fileID: 64682311}
-    duration: 7
+    duration: 8
   - id: R5.5
     speaker: Eco Amable
-    line: Tu cuerpo recuerda la huida, si. Pero tambien recuerda el impulso de seguir.
-      Da un paso mas conmigo.
+    line: Si tu cuerpo se tensa, no significa que seas debil. Significa que intento
+      protegerte. Ahora puedes avanzar con calma.
     rewardRoot: {fileID: 859523664}
     visualRoot: {fileID: 1417504585}
-    duration: 7
+    duration: 8
   - id: R5.6
     speaker: Eco Amable
-    line: La sombra no es tu enemigo, Mateo. Es la parte que cargo el dolor cuando
-      tu no podias. Dejemos que descanse tambien.
+    line: La sombra es la parte de ti que aprendio a defenderse. No tienes que
+      pelear con ella; puedes escucharla y decidir distinto.
     rewardRoot: {fileID: 273465604}
     visualRoot: {fileID: 2114334238}
-    duration: 7
+    duration: 8
   finalEvent:
     id: R5.7
     speaker: Eco Amable
-    line: No tienes que romperte para avanzar. Puedes recordar, perdonarte y seguir
-      caminando entero.
+    line: Recordar no significa quedarte atrapado. Significa entender lo que paso,
+      perdonarte y elegir como seguir viviendo.
     rewardRoot: {fileID: 0}
     visualRoot: {fileID: 919123341}
-    duration: 7.4
-  finalScreenTitle: SHATTER
-  finalScreenBody: 'Gracias por acompanar a Mateo hasta aqui.
+    duration: 8
+  finalScreenTitle: INWARD
+  finalScreenBody: 'Mateo abre los ojos.
 
-    Gracias por escuchar
-    lo que estaba roto.'
-  finalScreenDelay: 7.2
+    Esta vez no despierta huyendo.
+
+    Gracias por caminar con el hasta que pudo volver a si mismo.'
+  finalScreenDelay: 8.5
+  playLevelIntroOnStart: 1
+  levelIntroTitle: Nivel 5
+  levelIntroBody: El jardin donde Mateo aprende a mirar sus recuerdos.
+  levelIntroFadeIn: 1.1
+  levelIntroHold: 2.1
+  levelIntroFadeOut: 1.6
 --- !u!114 &1120140997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13136,7 +13143,7 @@ MonoBehaviour:
   ambientVolume: 0.24
   dialogueAmbientVolume: 0.12
   cueVolume: 0.46
-  finalVolume: 0.48
+  finalVolume: 0.62
   fadeTime: 0.85
 --- !u!1 &1145478774
 GameObject:
