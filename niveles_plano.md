@@ -1,4 +1,4 @@
-# INWARD — Planos de Niveles (v3.0)
+# INWARD — Planos de Niveles (v3.1)
 
 > Descripción escrita de cada nivel: cómo es, qué se siente al jugarlo, qué contiene, qué momentos importan.
 >
@@ -125,16 +125,16 @@ El nivel tiene 14 salas en línea. Empieza con espejos perturbadores que estable
 
 Es un jardín al amanecer, verde y naranja, con un árbol enorme al centro y un mirador en la cima. No hay enemigos. No hay bancas. No hay peligro de ningún tipo. El nivel es un regalo. El único reto mecánico es menor: hay pequeñas Semillas de Luz que crean plataformas permanentes.
 
-El nivel tiene 8 salas en línea. Empieza en la base del árbol, donde un Santuario da la bienvenida. Después, Mateo camina por cinco salas donde se encuentra con versiones más jóvenes de sí mismo — Mateo a los 7, a los 10, a los 12, a los 14 y a los 16 años. Cada uno le entrega un Fragmento de Memoria Viva y una Galleta que sube el Aliento máximo. Las conversaciones son breves, emotivas, y terminan con un abrazo en la última sala. Después del quinto encuentro, el jugador sube al Mirador en la cima del árbol, donde están sentados los cinco Mateos del pasado más Mateo en el presente (y La Sombra, si la eligió como compañera en N4). La frase final: "No volví solo. Volví con todos los que fui." Créditos.
+El nivel tiene 8 salas en línea. Empieza en la base del árbol, donde un Santuario da la bienvenida. Después, Mateo camina por cinco salas de memoria ambiental: no aparecen versiones jóvenes físicas de Mateo, sino lugares, objetos, luces y sonidos que representan lo que fue a los 7, 10, 12, 14 y 16 años. El Eco Amable guía cada memoria y entrega el Fragmento correspondiente + una Galleta que sube el Aliento máximo. La Sombra, si fue aceptada en N4, acompaña en silencio como presencia reconciliada. Después de la quinta memoria, el jugador sube al Mirador en la cima del árbol, donde los cinco recuerdos aparecen como luces/objetos alrededor de Mateo. La frase final: "No volví solo. Volví con todo lo que fui." Créditos.
 
 **Rooms:**
-- R5.1 Santuario "Donde crece" — árbol joven con linternas. Primera Semilla de Luz.
-- R5.2 Mateo 7 años — Fragmento "Alegría Sin Razón" + Galleta.
-- R5.3 Mateo 10 años — Fragmento "Última Guitarra" + Galleta.
-- R5.4 Mateo 12 años — Fragmento "Raíz Cálida" + Galleta.
-- R5.5 Mateo 14 años — Fragmento "Ancla del Silencio" + Galleta.
-- R5.6 Mateo 16 años — Fragmento "Voz del Niño" o "Perdón" + Galleta. Abrazo.
-- R5.7 El mirador de la cima — los 5 Mateos del pasado + Mateo presente.
+- R5.1 Santuario "Donde crece" — árbol joven con linternas. Eco Amable entrega la primera Semilla de Luz.
+- R5.2 La Luz (7 años) — rayuela de luz, hojas y risa lejana. Fragmento "Alegría Sin Razón" + Galleta.
+- R5.3 El Ritmo (10 años) — guitarra apoyada, notas flotantes, puente musical. Fragmento "Última Guitarra" + Galleta.
+- R5.4 El Silencio (12 años) — cuaderno abierto, luciérnagas quietas, pausa breve sin banca. Fragmento "Raíz Cálida" + Galleta.
+- R5.5 La Carrera (14 años) — corredor de hojas y huellas luminosas. Fragmento "Ancla del Silencio" + Galleta.
+- R5.6 La Conversación (16 años) — ventana, cassette/teléfono apagado, Eco y Sombra cierran el perdón. Fragmento "Voz del Niño" o "Perdón" + Galleta.
+- R5.7 El mirador de la cima — cinco objetos/luz de memoria + Mateo presente + La Sombra condicional.
 - R5.8 Créditos — fade a blanco, música de guitarra.
 
 **Paleta:** verde + naranja. **Enemigos:** ninguno. **Habilidades nuevas:** Semilla de Luz (power-up que crea plataformas permanentes).
@@ -173,7 +173,7 @@ El nivel tiene 10 salas. La primera es la puerta oxidada. Después, Mateo camina
 | N2 | wall slide, wall jump | Tinta de Estrellas | Gran Mesa (R2.14) |
 | N3 | dash | Chispa de Atreverse | Banca de 60s (R3.10) |
 | N4 | (mejora de dash) | Voz del Niño | Sala Circular (R4.12) |
-| N5 | Semilla de Luz | 4 Memorias Vivas + Última Guitarra | Mirador (R5.7) |
+| N5 | Semilla de Luz | 4 Memorias ambientales + Última Guitarra | Mirador (R5.7) |
 | Secreto | (nada) | — | Sentarse (R-S.5) |
 
 - **Rooms totales:** 74 (N1:14 · N2:14 · N3:14 · N4:14 · N5:8 · Secreto:10).
@@ -182,11 +182,12 @@ El nivel tiene 10 salas. La primera es la puerta oxidada. Después, Mateo camina
 
 ---
 
-## Decisiones de diseño v3.0
+## Decisiones de diseño v3.1
 
 - **Lineal total.** No hay ramas. Un solo camino por nivel.
 - **Llave Oxidada** está en R-S.1, no en N3, accesible desde el primer playthrough.
 - **Aliento max = 9** (4 base + 5 Galletas en N5).
 - **N4 consolida 3 preguntas en 1** (ocurre en R4.9; la Confrontación final es R4.12).
-- **N5 es secuencial**, no hub: los 5 recuerdos del pasado de Mateo se entregan uno tras otro.
+- **N5 es secuencial**, no hub: los 5 recuerdos del pasado de Mateo se manifiestan como memorias ambientales y se entregan uno tras otro.
+- **N5 ya no requiere sprites de Mateos jóvenes.** Eco Amable guía las memorias; La Sombra acompaña de forma condicional.
 - **N3 es vertical simple** (descenso + banca 60s + ascenso).
